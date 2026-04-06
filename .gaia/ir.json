@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:030e805876d507a4d6e1ba69551e1a716aa015695353ade0310c4bbe93eb5501",
+  "ir_hash": "sha256:ac3252109c2e000554c322b9934c31d0096fc926aa80222d425f722f9780f585",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -314,9 +314,21 @@
       "type": "claim"
     },
     {
+      "content": "The close agreement between AF2 predictions and RFdiffusion design models could be an artifact of both methods sharing similar biases from PDB training data, rather than reflecting genuine design quality.",
+      "content_hash": "15ea9d3c3d068351b4deb94779da49dd37fb4e2ecaf29a058844ee8b8ab24fb5",
+      "declaration_index": 5,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_af2_coincidence",
+      "label": "alt_af2_coincidence",
+      "module": "s3_unconditional",
+      "parameters": [],
+      "title": "Alternative: AF2/RFdiffusion shared PDB bias",
+      "type": "claim"
+    },
+    {
       "content": "The observed CD spectra and thermostability could arise from non-specific aggregation or misfolded but stable structures rather than the designed alpha-beta topologies.",
       "content_hash": "ba5c9bc46d69dbb58d3af453ad57bf739c85d3b89cf8bc2ed6b11d101141f782",
-      "declaration_index": 5,
+      "declaration_index": 6,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_nonspecific_folding",
       "label": "alt_nonspecific_folding",
@@ -341,7 +353,7 @@
       "content": "Despite not being trained on symmetric inputs, RFdiffusion generates symmetric oligomers with high in silico success rates, particularly when guided by an auxiliary inter- and intrachain contact potential. RFdiffusion designs are nearly indistinguishable from AF2 predictions of the structures adopted by the designed sequences, and many show little resemblance to previously solved protein structures.",
       "content_hash": "9dc89969f5702a5b96d9932e25db9ae7f18e22a4e7bf32518b3a203fab1ce83f",
       "declaration_index": 1,
-      "exported": false,
+      "exported": true,
       "id": "github:watson_rfdiffusion_2023::symmetric_high_success",
       "label": "symmetric_high_success",
       "module": "s4_oligomers",
@@ -485,7 +497,7 @@
       "content": "RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compared to 15 for Hallucination and 19 for RFjoint Inpainting. For 19 out of 23 solved problems, RFdiffusion's fraction of successful designs is higher than either Hallucination or RFjoint Inpainting. RFdiffusion required no hyperparameter tuning or external potentials, unlike Hallucination which required problem-specific optimization.",
       "content_hash": "5b8c433d159f7e98b13df6d0897610cf0d1e6a8a3cf56e982b39e72ebd4dd461",
       "declaration_index": 2,
-      "exported": false,
+      "exported": true,
       "id": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
       "label": "rfdiffusion_benchmark_performance",
       "module": "s5_motif_scaffolding",
@@ -722,9 +734,21 @@
       "type": "claim"
     },
     {
+      "content": "The diversity of binding thermodynamics (exothermic and endothermic) could arise from varying degrees of non-specific surface interactions rather than designed coordination at distinct engineered sites.",
+      "content_hash": "b6d28cc7aa26b4a3c739bd18b08a118e6b910137a0e72814b1c00ec810f7173a",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism",
+      "label": "alt_uniform_nonspecific_mechanism",
+      "module": "s6_symmetric_motif",
+      "parameters": [],
+      "title": "Alternative: non-specific mechanism producing diverse thermodynamics",
+      "type": "claim"
+    },
+    {
       "content": "The ITC binding signals could arise from non-specific metal chelation by surface-exposed histidine or other residues rather than the designed square-planar binding site.",
       "content_hash": "13f7805d87ddca9fb4ee26e9e25214ec4ec45c252c0a97fc29a92930b4e4d78d",
-      "declaration_index": 7,
+      "declaration_index": 8,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_nonspecific_metal_chelation",
       "label": "alt_nonspecific_metal_chelation",
@@ -736,7 +760,7 @@
     {
       "content": "Ni²⁺ binding could be mediated by other residues, with H52A mutation indirectly disrupting binding through structural perturbation rather than direct loss of the coordinating residue.",
       "content_hash": "8aac657ffe3874e722e5cb1e1f3cade51c1982f9cbacb19a7b9d1a95acb4302b",
-      "declaration_index": 8,
+      "declaration_index": 9,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a",
       "label": "alt_indirect_structural_disruption_h52a",
@@ -748,7 +772,7 @@
     {
       "content": "The fourfold symmetry in nsEM could arise from a different C4-symmetric arrangement that does not involve the designed metal-binding site.",
       "content_hash": "4bd2b4d5e0f7644f6d7879ed67cf378159e445899bcf61d78710867cb848108d",
-      "declaration_index": 9,
+      "declaration_index": 10,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_alternative_c4_arrangement",
       "label": "alt_alternative_c4_arrangement",
@@ -797,7 +821,7 @@
       "content": "The overall experimental success rate for RFdiffusion binders (binding at or above 50% of maximal BLI response for positive control at 10 μM) was 19% across five targets, an increase of roughly two orders of magnitude over the previous Rosetta-based method on the same targets. Binders were identified for all five targets with fewer than 100 designs tested per target.",
       "content_hash": "8d09e866238a85fc63007756e7286d5dafe809099297941c995893255c13cd9f",
       "declaration_index": 3,
-      "exported": false,
+      "exported": true,
       "id": "github:watson_rfdiffusion_2023::binder_success_rate",
       "label": "binder_success_rate",
       "module": "s7_binder_design",
@@ -1043,6 +1067,46 @@
       "module": "s8_discussion",
       "parameters": [],
       "title": "Alternative: inherent TIM barrel stability",
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::af2_validates_unconditional_designs)",
+      "content_hash": "a24488b3b1dcb1f5d06b5ec03acc781cb1bdc8e994a7d32046b03eaca44c6534",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02",
+      "label": "__disjunction_result_6aa63b02",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::af2_validates_unconditional_designs)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_943153893089a349",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02,github:watson_rfdiffusion_2023::af2_validates_unconditional_designs)",
+      "content_hash": "7d4bce133fb84e877ec9188de7cc11f986c67ef34c5307da739a71d2fc0eebd1",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_6889ee9f",
+      "label": "__equivalence_result_6889ee9f",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02,github:watson_rfdiffusion_2023::af2_validates_unconditional_designs)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_943153893089a349",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
       "type": "claim"
     },
     {
@@ -1359,6 +1423,46 @@
         "helper_visibility": "formal_internal",
         "intermediate_role": "equivalence_result",
         "owning_strategy_id": "lcs_c86a9f82ea1986db",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::ni_binding_endothermic)",
+      "content_hash": "f43c40997f4832d15a1adedd03bb7aba2a1e119d760214047502885d6810a0d1",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b",
+      "label": "__disjunction_result_31d7f19b",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::ni_binding_endothermic)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_2c17972ee430d20c",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b,github:watson_rfdiffusion_2023::ni_binding_endothermic)",
+      "content_hash": "1e2dc397cd4ca2fd4b7e2a296ffb8bb8bfa0612cce408a2c91cf4fbc1d266469",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_01aa8f77",
+      "label": "__equivalence_result_01aa8f77",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b,github:watson_rfdiffusion_2023::ni_binding_endothermic)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_2c17972ee430d20c",
         "owning_strategy_type": "abduction",
         "visibility": "formal_internal"
       },
@@ -1905,16 +2009,47 @@
       "background": [
         "github:watson_rfdiffusion_2023::alphafold2_definition"
       ],
-      "conclusion": "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs",
+      "conclusion": "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures",
+              "github:watson_rfdiffusion_2023::alt_af2_coincidence"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_6889ee9f",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02",
+              "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "The designs generated by RFdiffusion (@unconditional_generates_diverse_structures) were validated by running AF2 and ESMFold structure prediction from the designed sequences alone. Close agreement between the independently predicted structures and the design models (up to 600 residues) indicates the designs encode well-defined, realistic protein folds."
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_af2_coincidence"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs"
+          ]
+        },
+        "reason": "The observation (@af2_validates_unconditional_designs) that AF2 and ESMFold — independently trained structure predictors — closely reproduce RFdiffusion designs up to 600 residues is best explained by @unconditional_generates_diverse_structures: the designs encode genuinely realistic protein folds. The shared-bias alternative is weakened by the use of two independent predictors (AF2 and ESMFold) and the fact that designs have low TM-scores to PDB structures."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures"
+        "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs",
+        "github:watson_rfdiffusion_2023::alt_af2_coincidence"
       ],
       "scope": "local",
-      "strategy_id": "lcs_5578f87674e92a60",
-      "type": "noisy_and"
+      "strategy_id": "lcs_943153893089a349",
+      "type": "abduction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures",
@@ -2423,16 +2558,47 @@
       "type": "noisy_and"
     },
     {
-      "conclusion": "github:watson_rfdiffusion_2023::ni_binding_experimental",
+      "conclusion": "github:watson_rfdiffusion_2023::ni_binding_design",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::ni_binding_design",
+              "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_01aa8f77",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b",
+              "github:watson_rfdiffusion_2023::ni_binding_endothermic"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "@ni_binding_endothermic shows that a few Ni²⁺-binding designs exhibit endothermic ITC signals, suggesting entropy-driven coordination in those assemblies. This diversity of thermodynamic signatures across different designs further supports @ni_binding_experimental — the binding is genuine and mediated by the designed sites, not by a single non-specific mechanism."
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::ni_binding_endothermic"
+          ]
+        },
+        "reason": "The observation (@ni_binding_endothermic) that some Ni²⁺-binding designs show endothermic ITC signals while most are exothermic is best explained by @ni_binding_design — genuine designed coordination at distinct engineered sites with different scaffold environments leading to different thermodynamic signatures. A uniform non-specific mechanism would be unlikely to produce this thermodynamic diversity across designs."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::ni_binding_endothermic"
+        "github:watson_rfdiffusion_2023::ni_binding_endothermic",
+        "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism"
       ],
       "scope": "local",
-      "strategy_id": "lcs_7089ce4451a2aeb4",
-      "type": "noisy_and"
+      "strategy_id": "lcs_2c17972ee430d20c",
+      "type": "abduction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::ni_binding_design",

@@ -14,6 +14,7 @@ from .. import (
     pretraining_benefit,
     mse_vs_fape_ablation,
     # Unconditional
+    af2_validates_unconditional_designs,
     experimental_validation_monomers,
     fold_conditioned_generation,
     outperforms_hallucination,
@@ -64,6 +65,18 @@ from .. import (
     alt_binder_other_explanation,
     alt_ideality_exp_artifact,
     alt_ideality_fold_artifact,
+    alt_af2_coincidence,
+    alt_uniform_nonspecific_mechanism,
+    # Key derived claims (optional priors for independent judgment)
+    key_insight,
+    pipeline_description,
+    symmetric_high_success,
+    rfdiffusion_benchmark_performance,
+    binder_success_rate,
+    ha20_atomic_accuracy,
+    comprehensive_improvement,
+    rfdiffusion_broad_success,
+    generality_claim,
     # --- Strategies ---
     _strat_key_insight,
     _strat_mse_loss,
@@ -126,7 +139,10 @@ REVIEW = ReviewBundle(
             judgment="supporting",
             justification="Direct ablation (Extended Data Fig. 1d) confirms MSE is crucial for unconditional generation."),
 
-        # -- Unconditional (outperforms is now a leaf claim) --
+        # -- Unconditional --
+        review_claim(af2_validates_unconditional_designs, prior=0.92,
+            judgment="supporting",
+            justification="AF2 and ESMFold predictions closely matching designs up to 600 residues is direct computational evidence."),
         review_claim(experimental_validation_monomers, prior=0.92,
             judgment="supporting",
             justification="CD spectra and thermostability for 9 designs are direct experimental measurements."),
@@ -298,9 +314,7 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_pipeline, conditional_probability=0.90,
             judgment="formalized",
             justification="Pipeline follows straightforwardly from method design."),
-        review_strategy(_strat_af2_validates, conditional_probability=0.88,
-            judgment="formalized",
-            justification="AF2 is an independent predictor; close agreement supports design quality."),
+        # _strat_af2_validates is now abduction (no params needed)
         review_strategy(_strat_compute, conditional_probability=0.92,
             judgment="formalized",
             justification="Direct runtime comparison: 11s vs 8.5min. Straightforward benchmark."),
@@ -327,9 +341,7 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_enzyme, conditional_probability=0.78,
             judgment="tentative",
             justification="In silico only, required fine-tuning. Retroaldolase demo adds support but still no wet-lab."),
-        review_strategy(_strat_ni_endothermic, conditional_probability=0.85,
-            judgment="formalized",
-            justification="Endothermic binding diversity across designs supports genuine designed coordination."),
+        # _strat_ni_endothermic is now abduction (no params needed)
         review_strategy(_strat_sars_cov2, conditional_probability=0.88,
             judgment="formalized",
             justification="Combines two validated capabilities. AF2 confirms structural accuracy."),
@@ -354,5 +366,48 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_generality, conditional_probability=0.80,
             judgment="tentative",
             justification="Broad success supports generality, but polar sites and ligands not yet tested."),
+
+        # ============================================================
+        # NEW ABDUCTION ALTERNATIVES
+        # ============================================================
+
+        review_claim(alt_af2_coincidence, prior=0.20,
+            judgment="opposing",
+            justification="Shared PDB bias is weakened by two independent predictors (AF2+ESMFold) and low TM-scores to PDB."),
+        review_claim(alt_uniform_nonspecific_mechanism, prior=0.20,
+            judgment="opposing",
+            justification="Uniform non-specific mechanism would not produce thermodynamic diversity (exo- vs endothermic)."),
+
+        # ============================================================
+        # DERIVED CLAIMS — optional independent priors
+        # ============================================================
+
+        review_claim(key_insight, prior=0.85,
+            judgment="supporting",
+            justification="The core idea of using structure prediction networks as diffusion denoisers is well-motivated and independently plausible."),
+        review_claim(pipeline_description, prior=0.90,
+            judgment="supporting",
+            justification="The three-stage pipeline (RFdiffusion→ProteinMPNN→AF2) is clearly described and reproducible."),
+        review_claim(symmetric_high_success, prior=0.85,
+            judgment="supporting",
+            justification="Symmetric design from equivariant networks is theoretically sound; in silico success is directly measured."),
+        review_claim(rfdiffusion_benchmark_performance, prior=0.88,
+            judgment="supporting",
+            justification="23/25 benchmark problems solved with controlled comparison. Published and reproducible."),
+        review_claim(binder_success_rate, prior=0.88,
+            judgment="supporting",
+            justification="19% across 5 targets is directly measured by BLI screening. Robust experimental evidence."),
+        review_claim(ha20_atomic_accuracy, prior=0.85,
+            judgment="supporting",
+            justification="Cryo-EM at 2.9 Å with 0.63 Å r.m.s.d. is strong structural evidence, though from a single structure."),
+        review_claim(comprehensive_improvement, prior=0.80,
+            judgment="supporting",
+            justification="Multiple independent application areas each show clear improvement, but 'comprehensive' is a strong claim."),
+        review_claim(rfdiffusion_broad_success, prior=0.75,
+            judgment="supporting",
+            justification="Experimental validation across domains supports this, but some areas (enzyme scaffolding) lack wet-lab validation."),
+        review_claim(generality_claim, prior=0.60,
+            judgment="tentative",
+            justification="The analogy to image generation is compelling but overstates ease of use. Polar sites and ligands untested."),
     ],
 )

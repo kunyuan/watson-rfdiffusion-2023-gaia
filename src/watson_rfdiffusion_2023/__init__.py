@@ -60,4 +60,7 @@ __all__ = [
     "ha20_atomic_accuracy",
     "comprehensive_improvement",
     "generality_claim",
+    "symmetric_high_success",
+    "rfdiffusion_benchmark_performance",
+    "binder_success_rate",
 ]

@@ -101,16 +101,25 @@ _strat_ni_design = noisy_and(
     background=[metal_coordination_geometry, alphafold2_definition],
 )
 
-# Endothermic binding provides additional mechanistic evidence
-_strat_ni_endothermic = noisy_and(
-    [ni_binding_endothermic],
-    ni_binding_experimental,
+# Endothermic binding diversity → abduction supporting designed coordination
+alt_uniform_nonspecific_mechanism = claim(
+    "The diversity of binding thermodynamics (exothermic and endothermic) could arise "
+    "from varying degrees of non-specific surface interactions rather than designed "
+    "coordination at distinct engineered sites.",
+    title="Alternative: non-specific mechanism producing diverse thermodynamics",
+)
+
+_strat_ni_endothermic = abduction(
+    observation=ni_binding_endothermic,
+    hypothesis=ni_binding_design,
+    alternative=alt_uniform_nonspecific_mechanism,
     reason=(
-        "@ni_binding_endothermic shows that a few Ni²⁺-binding designs exhibit endothermic "
-        "ITC signals, suggesting entropy-driven coordination in those assemblies. This "
-        "diversity of thermodynamic signatures across different designs further supports "
-        "@ni_binding_experimental — the binding is genuine and mediated by the designed "
-        "sites, not by a single non-specific mechanism."
+        "The observation (@ni_binding_endothermic) that some Ni²⁺-binding designs show "
+        "endothermic ITC signals while most are exothermic is best explained by "
+        "@ni_binding_design — genuine designed coordination at distinct engineered sites "
+        "with different scaffold environments leading to different thermodynamic signatures. "
+        "A uniform non-specific mechanism would be unlikely to produce this thermodynamic "
+        "diversity across designs."
     ),
 )
 
