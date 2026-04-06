@@ -67,16 +67,6 @@ from .. import (
     alt_ideality_fold_artifact,
     alt_af2_coincidence,
     alt_uniform_nonspecific_mechanism,
-    # Key derived claims (optional priors for independent judgment)
-    key_insight,
-    pipeline_description,
-    symmetric_high_success,
-    rfdiffusion_benchmark_performance,
-    binder_success_rate,
-    ha20_atomic_accuracy,
-    comprehensive_improvement,
-    rfdiffusion_broad_success,
-    generality_claim,
     # --- Strategies ---
     _strat_key_insight,
     _strat_mse_loss,
@@ -378,36 +368,7 @@ REVIEW = ReviewBundle(
             judgment="opposing",
             justification="Uniform non-specific mechanism would not produce thermodynamic diversity (exo- vs endothermic)."),
 
-        # ============================================================
-        # DERIVED CLAIMS — uninformative priors (0.5), let BP decide
-        # ============================================================
-
-        review_claim(key_insight, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by reasoning chain from premises."),
-        review_claim(pipeline_description, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by reasoning chain."),
-        review_claim(symmetric_high_success, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by abduction evidence."),
-        review_claim(rfdiffusion_benchmark_performance, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by benchmark comparison + abduction evidence."),
-        review_claim(binder_success_rate, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by experimental evidence chain."),
-        review_claim(ha20_atomic_accuracy, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by cryo-EM abduction."),
-        review_claim(comprehensive_improvement, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by induction from three application areas."),
-        review_claim(rfdiffusion_broad_success, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by comprehensive improvement + atomic accuracy."),
-        review_claim(generality_claim, prior=0.5,
-            judgment="tentative",
-            justification="Uninformative prior; belief determined by broad success reasoning chain."),
+        # Derived claims: NO priors needed — inference engine defaults to 0.5,
+        # beliefs determined entirely by BP propagation from leaf premises.
     ],
 )

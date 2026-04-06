@@ -118,7 +118,7 @@ graph LR
 
 #### Key insight: fine-tuning RF as diffusion denoiser
 
-📌 `key_insight`   |   Prior: 0.50   |   Belief: **1.00**
+📌 `key_insight`   |   Belief: **1.00**
 
 > By fine-tuning the RoseTTAFold structure prediction network on protein structure denoising tasks — rather than using it deterministically — a generative diffusion model can be obtained that overcomes the limitations of both prior DDPMs (poor backbone quality) and RFjoint Inpainting (limited diversity, failure on minimal specifications). Because the starting point is random noise, each denoising trajectory yields a different solution, and because structure is built up progressively through many denoising iterations, little to no starting structural information is required.
 
@@ -135,7 +135,7 @@ The authors reasoned that improved diffusion models for protein design could be 
 
 #### RFdiffusion achieves broad design success ★
 
-📌 `rfdiffusion_broad_success`   |   Prior: 0.50   |   Belief: **0.76**
+📌 `rfdiffusion_broad_success`   |   Belief: **0.76**
 
 > RFdiffusion achieves outstanding performance on unconditional and topology-constrained protein monomer design, protein binder design, symmetric oligomer design, enzyme active site scaffolding, and symmetric motif scaffolding for therapeutic and metal-binding protein design.
 
@@ -279,7 +279,7 @@ The choice of m.s.e. loss follows from @key_insight that RF should be fine-tuned
 
 #### RFdiffusion design pipeline
 
-📌 `pipeline_description`   |   Prior: 0.50   |   Belief: **1.00**
+📌 `pipeline_description`   |   Belief: **1.00**
 
 > The RFdiffusion design pipeline consists of: (1) RFdiffusion generates a protein backbone structure via iterative denoising, (2) ProteinMPNN designs amino acid sequences for the backbone (typically 8 sequences per design), (3) AF2 predicts the structure from each designed sequence for validation. The pipeline can be conditioned on various inputs including partial sequence, fold information, symmetry specifications, or fixed functional-motif coordinates.
 
@@ -502,7 +502,7 @@ graph TD
 
 #### High in silico success for symmetric oligomers ★
 
-📌 `symmetric_high_success`   |   Prior: 0.50   |   Belief: **1.00**
+📌 `symmetric_high_success`   |   Belief: **1.00**
 
 > Despite not being trained on symmetric inputs, RFdiffusion generates symmetric oligomers with high in silico success rates, particularly when guided by an auxiliary inter- and intrachain contact potential. RFdiffusion designs are nearly indistinguishable from AF2 predictions of the structures adopted by the designed sequences, and many show little resemblance to previously solved protein structures.
 
@@ -717,7 +717,7 @@ graph TD
 
 #### RFdiffusion solves 23/25 benchmark problems ★
 
-📌 `rfdiffusion_benchmark_performance`   |   Prior: 0.50   |   Belief: **1.00**
+📌 `rfdiffusion_benchmark_performance`   |   Belief: **1.00**
 
 > RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compared to 15 for Hallucination and 19 for RFjoint Inpainting. For 19 out of 23 solved problems, RFdiffusion's fraction of successful designs is higher than either Hallucination or RFjoint Inpainting. RFdiffusion required no hyperparameter tuning or external potentials, unlike Hallucination which required problem-specific optimization.
 
@@ -1113,7 +1113,7 @@ graph TD
 
 #### 19% binder success rate — 100× improvement over Rosetta ★
 
-📌 `binder_success_rate`   |   Prior: 0.50   |   Belief: **1.00**
+📌 `binder_success_rate`   |   Belief: **1.00**
 
 > The overall experimental success rate for RFdiffusion binders (binding at or above 50% of maximal BLI response for positive control at 10 μM) was 19% across five targets, an increase of roughly two orders of magnitude over the previous Rosetta-based method on the same targets. Binders were identified for all five targets with fewer than 100 designs tested per target.
 
@@ -1200,7 +1200,7 @@ The observation (@ha20_cryoem_structure) of a 2.9 Å cryo-EM structure showing f
 
 #### RFdiffusion achieves atomic-level accuracy in binder design ★
 
-📌 `ha20_atomic_accuracy`   |   Prior: 0.50   |   Belief: **0.87**
+📌 `ha20_atomic_accuracy`   |   Belief: **0.87**
 
 > The near-perfect agreement between the cryo-EM structure and the RFdiffusion design model (0.63 Å r.m.s.d.) demonstrates that RFdiffusion can design functional proteins with atomic-level accuracy and precisely target functionally relevant sites on therapeutically important proteins.
 
@@ -1316,7 +1316,7 @@ graph TD
 
 #### RFdiffusion is comprehensive improvement over prior methods ★
 
-📌 `comprehensive_improvement`   |   Prior: 0.50   |   Belief: **0.99**
+📌 `comprehensive_improvement`   |   Belief: **0.99**
 
 > RFdiffusion is a comprehensive improvement over current protein design methods: (1) it generates diverse unconditional designs up to 600 residues far exceeding previous methods; (2) it enables higher-order architectures with any desired symmetry, unlike Hallucination methods limited to cyclic symmetries; (3) it outperforms all previous methods on motif scaffolding benchmarks; (4) it raises binder design success rates by two orders of magnitude.
 
@@ -1350,7 +1350,7 @@ Two independent sets of experimental characterization both show Rosetta-level de
 
 #### RFdiffusion enables protein design from minimal specifications ★
 
-📌 `generality_claim`   |   Prior: 0.50   |   Belief: **0.61**
+📌 `generality_claim`   |   Belief: **0.61**
 
 > In a manner analogous to networks that produce images from user-specified inputs, RFdiffusion enables the design of diverse functional proteins from simple molecular specifications (e.g., high-affinity binders to a user-specified target protein, diverse protein assemblies from user-specified symmetries), with minimal specialist knowledge required.
 
@@ -1453,14 +1453,14 @@ Two independent sets of experimental characterization both show Rosetta-level de
 | [alt_coincidental_sec_profiles](#alt_coincidental_sec_profiles) | claim | 0.30 | 0.3000 | independent |
 | [alt_ideality_exp_artifact](#alt_ideality_exp_artifact) | claim | 0.25 | 0.3023 | independent |
 | [alt_ideality_fold_artifact](#alt_ideality_fold_artifact) | claim | 0.30 | 0.3488 | independent |
-| [generality_claim](#generality_claim) | claim | 0.50 | 0.6109 | derived |
+| [generality_claim](#generality_claim) | claim | — | 0.6109 | derived |
 | [enzyme_scaffolding_success](#enzyme_scaffolding_success) | claim | — | 0.6237 | derived |
 | [future_ligands](#future_ligands) | claim | 0.65 | 0.6500 | orphaned |
 | [future_nucleic_acids](#future_nucleic_acids) | claim | 0.70 | 0.7000 | orphaned |
-| [rfdiffusion_broad_success](#rfdiffusion_broad_success) | claim | 0.50 | 0.7634 | derived |
+| [rfdiffusion_broad_success](#rfdiffusion_broad_success) | claim | — | 0.7634 | derived |
 | [mse_loss_design](#mse_loss_design) | claim | — | 0.7893 | derived |
 | [retroaldolase_demonstration](#retroaldolase_demonstration) | claim | 0.80 | 0.8000 | independent |
-| [ha20_atomic_accuracy](#ha20_atomic_accuracy) | claim | 0.50 | 0.8746 | derived |
+| [ha20_atomic_accuracy](#ha20_atomic_accuracy) | claim | — | 0.8746 | derived |
 | [dihedral_tetrahedral_icosahedral](#dihedral_tetrahedral_icosahedral) | claim | — | 0.8790 | derived |
 | [sars_cov2_trimeric_binder_design](#sars_cov2_trimeric_binder_design) | claim | — | 0.8791 | derived |
 | [p53_mdm2_affinity](#p53_mdm2_affinity) | claim | — | 0.8798 | derived |
@@ -1472,8 +1472,8 @@ Two independent sets of experimental characterization both show Rosetta-level de
 | [ideality_and_stability](#ideality_and_stability) | claim | — | 0.9302 | derived |
 | [ha20_matches_design](#ha20_matches_design) | claim | — | 0.9515 | derived |
 | [unconditional_generates_diverse_structures](#unconditional_generates_diverse_structures) | claim | — | 0.9612 | derived |
-| [comprehensive_improvement](#comprehensive_improvement) | claim | 0.50 | 0.9926 | derived |
-| [key_insight](#key_insight) | claim | 0.50 | 0.9973 | derived |
+| [comprehensive_improvement](#comprehensive_improvement) | claim | — | 0.9926 | derived |
+| [key_insight](#key_insight) | claim | — | 0.9973 | derived |
 | [method_design_validated](#method_design_validated) | claim | — | 0.9982 | derived |
 | [prior_ddpm_limitations](#prior_ddpm_limitations) | claim | 0.85 | 0.9986 | independent |
 | [rf_inpainting_limitations](#rf_inpainting_limitations) | claim | 0.85 | 0.9986 | independent |
@@ -1501,9 +1501,9 @@ Two independent sets of experimental characterization both show Rosetta-level de
 | [noise_free_reverse](#noise_free_reverse) | claim | 0.88 | 0.9999 | independent |
 | [ni_binding_design](#ni_binding_design) | claim | — | 0.9999 | derived |
 | [outperforms_hallucination](#outperforms_hallucination) | claim | 0.92 | 0.9999 | independent |
-| [binder_success_rate](#binder_success_rate) | claim | 0.50 | 1.0000 | derived |
-| [symmetric_high_success](#symmetric_high_success) | claim | 0.50 | 1.0000 | derived |
-| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | 0.50 | 1.0000 | derived |
+| [binder_success_rate](#binder_success_rate) | claim | — | 1.0000 | derived |
+| [symmetric_high_success](#symmetric_high_success) | claim | — | 1.0000 | derived |
+| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 1.0000 | derived |
 | [motif_not_from_training](#motif_not_from_training) | claim | 0.88 | 1.0000 | independent |
 | [experimental_validation_monomers](#experimental_validation_monomers) | claim | 0.92 | 1.0000 | independent |
-| [pipeline_description](#pipeline_description) | claim | 0.50 | 1.0000 | derived |
+| [pipeline_description](#pipeline_description) | claim | — | 1.0000 | derived |
