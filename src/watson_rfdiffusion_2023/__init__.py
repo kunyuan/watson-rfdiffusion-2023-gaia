@@ -26,7 +26,6 @@ from .s4_oligomers import (
 )
 from .s5_motif_scaffolding import (
     _strat_benchmark,
-    _strat_generalization,
     _strat_benchmark_support,
     _strat_p53_binding,
     _strat_p53_affinity,

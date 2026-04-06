@@ -167,42 +167,25 @@ _strat_p53_affinity = noisy_and(
     ),
 )
 
-# Scaffolding success is independent of training set → abduction
+# Multiple benchmark-supporting observations → induction into benchmark performance
+# NOTE: motif_not_from_training enters ONLY through this induction, not through a
+# separate abduction, to avoid double-counting its evidence.
 alt_memorization = claim(
     "RFdiffusion's scaffolding success could be due to memorizing motifs seen during "
     "training rather than genuine generalization to new motifs.",
     title="Alternative: training set memorization",
 )
 
-_strat_generalization = abduction(
-    observation=motif_not_from_training,
-    hypothesis=rfdiffusion_benchmark_performance,
-    alternative=alt_memorization,
-    reason=(
-        "The observation (@motif_not_from_training, Supplementary Fig. 7) that scaffolding "
-        "success is uncorrelated with training set membership is best explained by "
-        "@rfdiffusion_benchmark_performance reflecting genuine generalization. The "
-        "alternative — that success comes from memorizing training motifs — is directly "
-        "contradicted by the lack of correlation."
-    ),
-)
-
-# Multiple benchmark-supporting observations → induction into benchmark performance
 alt_noise_free_overfitting = claim(
     "Improvement without noise could reflect overfitting to the benchmark set rather "
     "than genuine model quality.",
     title="Alternative: noise-free improvement is overfitting",
 )
-alt_training_correlation_artifact = claim(
-    "The lack of correlation between success and training set membership could be a "
-    "sampling artifact rather than genuine generalization.",
-    title="Alternative: training correlation is sampling artifact",
-)
 
 _strat_benchmark_support = induction(
     [noise_free_reverse, motif_not_from_training],
     rfdiffusion_benchmark_performance,
-    alt_exps=[alt_noise_free_overfitting, alt_training_correlation_artifact],
+    alt_exps=[alt_noise_free_overfitting, alt_memorization],
     reason=(
         "Two independent technical findings support @rfdiffusion_benchmark_performance: "
         "@noise_free_reverse (17/23 problems improve without noise) reveals that the model's "

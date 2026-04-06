@@ -640,7 +640,6 @@ graph TD
     alt_nonspecific_binding_p53_mdm2["Alternative: non-specific binding in p53-MDM2 screens (0.18)"]:::premise
     alt_memorization["Alternative: training set memorization (0.15)"]:::premise
     alt_noise_free_overfitting["Alternative: noise-free improvement is overfitting (0.20)"]:::premise
-    alt_training_correlation_artifact["Alternative: training correlation is sampling artifact (0.15)"]:::premise
     strat_3(["noisy_and"]):::weak
     in_silico_success_definition -.-> strat_3
     strat_3 --> pipeline_description
@@ -660,29 +659,25 @@ graph TD
     p53_mdm2_design --> strat_16
     strat_16 --> p53_mdm2_affinity
     strat_17(["abduction"]):::weak
-    motif_not_from_training --> strat_17
-    alt_memorization --> strat_17
+    noise_free_reverse --> strat_17
+    alt_noise_free_overfitting --> strat_17
     strat_17 --> rfdiffusion_benchmark_performance
     strat_18(["abduction"]):::weak
-    noise_free_reverse --> strat_18
-    alt_noise_free_overfitting --> strat_18
+    motif_not_from_training --> strat_18
+    alt_memorization --> strat_18
     strat_18 --> rfdiffusion_benchmark_performance
-    strat_19(["abduction"]):::weak
+    strat_19(["induction"]):::weak
+    noise_free_reverse --> strat_19
     motif_not_from_training --> strat_19
-    alt_training_correlation_artifact --> strat_19
+    alt_noise_free_overfitting --> strat_19
+    alt_memorization --> strat_19
     strat_19 --> rfdiffusion_benchmark_performance
-    strat_20(["induction"]):::weak
-    noise_free_reverse --> strat_20
-    motif_not_from_training --> strat_20
-    alt_noise_free_overfitting --> strat_20
-    alt_training_correlation_artifact --> strat_20
-    strat_20 --> rfdiffusion_benchmark_performance
-    strat_21(["noisy_and"]):::weak
-    pipeline_description --> strat_21
-    retroaldolase_demonstration --> strat_21
-    motif_scaffolding_definition -.-> strat_21
-    in_silico_success_definition -.-> strat_21
-    strat_21 --> enzyme_scaffolding_success
+    strat_20(["noisy_and"]):::weak
+    pipeline_description --> strat_20
+    retroaldolase_demonstration --> strat_20
+    motif_scaffolding_definition -.-> strat_20
+    in_silico_success_definition -.-> strat_20
+    strat_20 --> enzyme_scaffolding_success
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -721,7 +716,7 @@ graph TD
 
 > RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compared to 15 for Hallucination and 19 for RFjoint Inpainting. For 19 out of 23 solved problems, RFdiffusion's fraction of successful designs is higher than either Hallucination or RFjoint Inpainting. RFdiffusion required no hyperparameter tuning or external potentials, unlike Hallucination which required problem-specific optimization.
 
-🔗 **induction**([Noise-free reverse trajectories often improve success](#noise_free_reverse), [Scaffolding success independent of training set membership](#motif_not_from_training), [Alternative: noise-free improvement is overfitting](#alt_noise_free_overfitting), [Alternative: training correlation is sampling artifact](#alt_training_correlation_artifact))
+🔗 **induction**([Noise-free reverse trajectories often improve success](#noise_free_reverse), [Scaffolding success independent of training set membership](#motif_not_from_training), [Alternative: noise-free improvement is overfitting](#alt_noise_free_overfitting), [Alternative: training set memorization](#alt_memorization))
 
 <details><summary>Reasoning</summary>
 
@@ -845,15 +840,6 @@ Enzyme active site scaffolding extends @pipeline_description to scaffolding mini
 > Improvement without noise could reflect overfitting to the benchmark set rather than genuine model quality.
 
 
-<a id="alt_training_correlation_artifact"></a>
-
-#### Alternative: training correlation is sampling artifact
-
-📌 `alt_training_correlation_artifact`   |   Prior: 0.15   |   Belief: **0.15**
-
-> The lack of correlation between success and training set membership could be a sampling artifact rather than genuine generalization.
-
-
 ## Symmetric Functional-Motif Scaffolding — SARS-CoV-2 trimeric binders and Ni²⁺-coordinating assemblies.
 
 ```mermaid
@@ -872,32 +858,32 @@ graph TD
     alt_nonspecific_metal_chelation["Alternative: non-specific metal chelation (0.22)"]:::premise
     alt_indirect_structural_disruption_h52a["Alternative: indirect structural disruption by H52A (0.12)"]:::premise
     alt_alternative_c4_arrangement["Alternative: alternative C4 arrangement without designed site (0.12)"]:::premise
+    strat_21(["noisy_and"]):::weak
+    symmetric_high_success --> strat_21
+    rfdiffusion_benchmark_performance --> strat_21
+    alphafold2_definition -.-> strat_21
+    strat_21 --> sars_cov2_trimeric_binder_design
     strat_22(["noisy_and"]):::weak
     symmetric_high_success --> strat_22
-    rfdiffusion_benchmark_performance --> strat_22
+    metal_coordination_geometry -.-> strat_22
     alphafold2_definition -.-> strat_22
-    strat_22 --> sars_cov2_trimeric_binder_design
-    strat_23(["noisy_and"]):::weak
-    symmetric_high_success --> strat_23
-    metal_coordination_geometry -.-> strat_23
-    alphafold2_definition -.-> strat_23
+    strat_22 --> ni_binding_design
+    strat_23(["abduction"]):::weak
+    ni_binding_endothermic --> strat_23
+    alt_uniform_nonspecific_mechanism --> strat_23
     strat_23 --> ni_binding_design
     strat_24(["abduction"]):::weak
-    ni_binding_endothermic --> strat_24
-    alt_uniform_nonspecific_mechanism --> strat_24
+    ni_binding_experimental --> strat_24
+    alt_nonspecific_metal_chelation --> strat_24
     strat_24 --> ni_binding_design
     strat_25(["abduction"]):::weak
-    ni_binding_experimental --> strat_25
-    alt_nonspecific_metal_chelation --> strat_25
+    ni_binding_histidine_dependence --> strat_25
+    alt_indirect_structural_disruption_h52a --> strat_25
     strat_25 --> ni_binding_design
     strat_26(["abduction"]):::weak
-    ni_binding_histidine_dependence --> strat_26
-    alt_indirect_structural_disruption_h52a --> strat_26
+    ni_binding_nsem --> strat_26
+    alt_alternative_c4_arrangement --> strat_26
     strat_26 --> ni_binding_design
-    strat_27(["abduction"]):::weak
-    ni_binding_nsem --> strat_27
-    alt_alternative_c4_arrangement --> strat_27
-    strat_27 --> ni_binding_design
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1044,32 +1030,32 @@ graph TD
     alt_copying_pdb_interfaces["Alternative: recapitulating PDB binding modes (0.15)"]:::premise
     alt_nonspecific_adhesion["Alternative: non-specific adhesion (0.18)"]:::premise
     alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation (0.10)"]:::premise
+    strat_27(["noisy_and"]):::weak
+    pipeline_description --> strat_27
+    previous_binder_design_limitations --> strat_27
+    two_orders_attribution --> strat_27
+    binder_design_approach -.-> strat_27
+    binder_filtering -.-> strat_27
+    strat_27 --> binder_success_rate
     strat_28(["noisy_and"]):::weak
-    pipeline_description --> strat_28
-    previous_binder_design_limitations --> strat_28
-    two_orders_attribution --> strat_28
-    binder_design_approach -.-> strat_28
-    binder_filtering -.-> strat_28
-    strat_28 --> binder_success_rate
-    strat_29(["noisy_and"]):::weak
-    binder_success_rate --> strat_29
-    strat_29 --> binder_targets_and_affinities
+    binder_success_rate --> strat_28
+    strat_28 --> binder_targets_and_affinities
+    strat_29(["abduction"]):::weak
+    novel_interfaces --> strat_29
+    alt_copying_pdb_interfaces --> strat_29
+    strat_29 --> binder_success_rate
     strat_30(["abduction"]):::weak
-    novel_interfaces --> strat_30
-    alt_copying_pdb_interfaces --> strat_30
+    binder_specificity --> strat_30
+    alt_nonspecific_adhesion --> strat_30
     strat_30 --> binder_success_rate
     strat_31(["abduction"]):::weak
-    binder_specificity --> strat_31
-    alt_nonspecific_adhesion --> strat_31
-    strat_31 --> binder_success_rate
-    strat_32(["abduction"]):::weak
-    ha20_cryoem_structure --> strat_32
-    alt_ha20_alternative_conformation --> strat_32
-    strat_32 --> ha20_matches_design
-    strat_33(["noisy_and"]):::weak
-    ha20_matches_design --> strat_33
-    binder_success_rate --> strat_33
-    strat_33 --> ha20_atomic_accuracy
+    ha20_cryoem_structure --> strat_31
+    alt_ha20_alternative_conformation --> strat_31
+    strat_31 --> ha20_matches_design
+    strat_32(["noisy_and"]):::weak
+    ha20_matches_design --> strat_32
+    binder_success_rate --> strat_32
+    strat_32 --> ha20_atomic_accuracy
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1260,46 +1246,46 @@ graph TD
     alt_binder_other_explanation["Alternative: success due to AF2 filtering alone (0.26)"]:::premise
     alt_ideality_exp_artifact["Alternative: non-specific stability for unconditional designs (0.30)"]:::premise
     alt_ideality_fold_artifact["Alternative: inherent TIM barrel stability (0.35)"]:::premise
+    strat_33(["abduction"]):::weak
+    outperforms_hallucination --> strat_33
+    alt_outperforms_other_explanation --> strat_33
+    strat_33 --> comprehensive_improvement
     strat_34(["abduction"]):::weak
-    outperforms_hallucination --> strat_34
-    alt_outperforms_other_explanation --> strat_34
+    rfdiffusion_benchmark_performance --> strat_34
+    alt_benchmark_other_explanation --> strat_34
     strat_34 --> comprehensive_improvement
     strat_35(["abduction"]):::weak
-    rfdiffusion_benchmark_performance --> strat_35
-    alt_benchmark_other_explanation --> strat_35
+    binder_success_rate --> strat_35
+    alt_binder_other_explanation --> strat_35
     strat_35 --> comprehensive_improvement
-    strat_36(["abduction"]):::weak
+    strat_36(["induction"]):::weak
+    outperforms_hallucination --> strat_36
+    rfdiffusion_benchmark_performance --> strat_36
     binder_success_rate --> strat_36
+    alt_outperforms_other_explanation --> strat_36
+    alt_benchmark_other_explanation --> strat_36
     alt_binder_other_explanation --> strat_36
     strat_36 --> comprehensive_improvement
-    strat_37(["induction"]):::weak
-    outperforms_hallucination --> strat_37
-    rfdiffusion_benchmark_performance --> strat_37
-    binder_success_rate --> strat_37
-    alt_outperforms_other_explanation --> strat_37
-    alt_benchmark_other_explanation --> strat_37
-    alt_binder_other_explanation --> strat_37
-    strat_37 --> comprehensive_improvement
+    strat_37(["abduction"]):::weak
+    experimental_validation_monomers --> strat_37
+    alt_ideality_exp_artifact --> strat_37
+    strat_37 --> ideality_and_stability
     strat_38(["abduction"]):::weak
-    experimental_validation_monomers --> strat_38
-    alt_ideality_exp_artifact --> strat_38
+    fold_conditioned_generation --> strat_38
+    alt_ideality_fold_artifact --> strat_38
     strat_38 --> ideality_and_stability
-    strat_39(["abduction"]):::weak
+    strat_39(["induction"]):::weak
+    experimental_validation_monomers --> strat_39
     fold_conditioned_generation --> strat_39
+    alt_ideality_exp_artifact --> strat_39
     alt_ideality_fold_artifact --> strat_39
     strat_39 --> ideality_and_stability
-    strat_40(["induction"]):::weak
-    experimental_validation_monomers --> strat_40
-    fold_conditioned_generation --> strat_40
-    alt_ideality_exp_artifact --> strat_40
-    alt_ideality_fold_artifact --> strat_40
-    strat_40 --> ideality_and_stability
+    strat_40(["noisy_and"]):::weak
+    comprehensive_improvement --> strat_40
+    strat_40 --> rfdiffusion_broad_success
     strat_41(["noisy_and"]):::weak
-    comprehensive_improvement --> strat_41
-    strat_41 --> rfdiffusion_broad_success
-    strat_42(["noisy_and"]):::weak
-    rfdiffusion_broad_success --> strat_42
-    strat_42 --> generality_claim
+    rfdiffusion_broad_success --> strat_41
+    strat_41 --> generality_claim
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1438,7 +1424,6 @@ Two independent sets of experimental characterization both show Rosetta-level de
 | [alt_alternative_c4_arrangement](#alt_alternative_c4_arrangement) | claim | 0.12 | 0.1201 | independent |
 | [alt_indirect_structural_disruption_h52a](#alt_indirect_structural_disruption_h52a) | claim | 0.12 | 0.1201 | independent |
 | [alt_memorization](#alt_memorization) | claim | 0.15 | 0.1500 | independent |
-| [alt_training_correlation_artifact](#alt_training_correlation_artifact) | claim | 0.15 | 0.1500 | independent |
 | [alt_copying_pdb_interfaces](#alt_copying_pdb_interfaces) | claim | 0.15 | 0.1500 | independent |
 | [alt_outperforms_other_explanation](#alt_outperforms_other_explanation) | claim | 0.15 | 0.1563 | independent |
 | [alt_nonspecific_binding_p53_mdm2](#alt_nonspecific_binding_p53_mdm2) | claim | 0.18 | 0.1800 | independent |
@@ -1493,17 +1478,17 @@ Two independent sets of experimental characterization both show Rosetta-level de
 | [af2_validates_unconditional_designs](#af2_validates_unconditional_designs) | claim | 0.92 | 0.9998 | independent |
 | [ni_binding_histidine_dependence](#ni_binding_histidine_dependence) | claim | 0.92 | 0.9998 | independent |
 | [ni_binding_experimental](#ni_binding_experimental) | claim | 0.92 | 0.9998 | independent |
+| [p53_mdm2_design](#p53_mdm2_design) | claim | 0.92 | 0.9998 | independent |
 | [nsem_validates_cyclic](#nsem_validates_cyclic) | claim | 0.92 | 0.9998 | independent |
 | [sec_validation_oligomers](#sec_validation_oligomers) | claim | 0.92 | 0.9998 | independent |
-| [p53_mdm2_design](#p53_mdm2_design) | claim | 0.92 | 0.9998 | independent |
 | [fold_conditioned_generation](#fold_conditioned_generation) | claim | 0.88 | 0.9998 | independent |
 | [ha20_cryoem_structure](#ha20_cryoem_structure) | claim | 0.95 | 0.9998 | independent |
+| [motif_not_from_training](#motif_not_from_training) | claim | 0.88 | 0.9999 | independent |
 | [noise_free_reverse](#noise_free_reverse) | claim | 0.88 | 0.9999 | independent |
 | [ni_binding_design](#ni_binding_design) | claim | — | 0.9999 | derived |
 | [outperforms_hallucination](#outperforms_hallucination) | claim | 0.92 | 0.9999 | independent |
 | [binder_success_rate](#binder_success_rate) | claim | — | 1.0000 | derived |
-| [symmetric_high_success](#symmetric_high_success) | claim | — | 1.0000 | derived |
 | [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 1.0000 | derived |
-| [motif_not_from_training](#motif_not_from_training) | claim | 0.88 | 1.0000 | independent |
+| [symmetric_high_success](#symmetric_high_success) | claim | — | 1.0000 | derived |
 | [experimental_validation_monomers](#experimental_validation_monomers) | claim | 0.92 | 1.0000 | independent |
 | [pipeline_description](#pipeline_description) | claim | — | 1.0000 | derived |

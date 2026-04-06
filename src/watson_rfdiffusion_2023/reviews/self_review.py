@@ -58,7 +58,6 @@ from .. import (
     alt_copying_pdb_interfaces,
     # Induction alternatives (s5)
     alt_noise_free_overfitting,
-    alt_training_correlation_artifact,
     # Induction alternatives (s8)
     alt_outperforms_other_explanation,
     alt_benchmark_other_explanation,
@@ -79,7 +78,6 @@ from .. import (
     _strat_expanded_tim,
     _strat_dihedral,
     _strat_benchmark,
-    _strat_generalization,
     _strat_benchmark_support,
     _strat_p53_affinity,
     _strat_enzyme,
@@ -284,9 +282,8 @@ REVIEW = ReviewBundle(
         review_claim(alt_noise_free_overfitting, prior=0.20,
             judgment="opposing",
             justification="17/23 consistency across diverse problems argues against overfitting to benchmark."),
-        review_claim(alt_training_correlation_artifact, prior=0.15,
-            judgment="opposing",
-            justification="Supplementary Fig. 7 analysis is convincing; sampling artifact unlikely."),
+        # alt_training_correlation_artifact removed — merged into alt_memorization
+        # to avoid double-counting motif_not_from_training evidence
 
         # ============================================================
         # STRATEGY PARAMETERS — conditional_probability for noisy_and
@@ -323,7 +320,6 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_benchmark, conditional_probability=0.88,
             judgment="formalized",
             justification="Controlled comparison on same 25 problems with same metric."),
-        # _strat_generalization is now abduction (no params needed)
         # _strat_benchmark_support is induction (no direct params needed)
         review_strategy(_strat_p53_affinity, conditional_probability=0.88,
             judgment="formalized",

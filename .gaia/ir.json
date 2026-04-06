@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:2f6e939deaaba5027d4d8480a4eba56fa8ceee3deb05f1925456cc491f6156c3",
+  "ir_hash": "sha256:5ee7a41edf4ac87c4005cb43344f842b556961ffdfb20b82a5373c3e2a19d6c8",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -752,18 +752,6 @@
       "type": "claim"
     },
     {
-      "content": "The lack of correlation between success and training set membership could be a sampling artifact rather than genuine generalization.",
-      "content_hash": "d764345349b3e676d81120412d57bcbe49245baed21918d41dad2cd9274cb66f",
-      "declaration_index": 14,
-      "exported": false,
-      "id": "github:watson_rfdiffusion_2023::alt_training_correlation_artifact",
-      "label": "alt_training_correlation_artifact",
-      "module": "s5_motif_scaffolding",
-      "parameters": [],
-      "title": "Alternative: training correlation is sampling artifact",
-      "type": "claim"
-    },
-    {
       "content": "Divalent transition metal ions show distinct preferences for specific coordination geometries (square planar, tetrahedral, octahedral) with ion-specific optimal sidechain-metal bond lengths. RFdiffusion provides a general route to building symmetric protein assemblies around such sites, with the symmetry of the assembly matching the symmetry of the coordination geometry.",
       "content_hash": "fb51200c1e3b956fe6b31d6d829a694891fa0190c1ed83215f931be9224514c6",
       "declaration_index": 0,
@@ -1478,46 +1466,6 @@
       "type": "claim"
     },
     {
-      "content": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
-      "content_hash": "5d4130af010f0c6535aa8fa32a561a88bdc7afe0a3e6169190f92af4cae8fb51",
-      "exported": false,
-      "id": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
-      "label": "__disjunction_result_baccee84",
-      "metadata": {
-        "canonical_name": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_28b4a35090824d66",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
-      "content_hash": "a737770b9e7712f5494592c9de56549093cfeb8a48479fc2804948200860e9ec",
-      "exported": false,
-      "id": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
-      "label": "__equivalence_result_9dea8459",
-      "metadata": {
-        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_28b4a35090824d66",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
       "content": "explains(github:watson_rfdiffusion_2023::noise_free_reverse)",
       "content_hash": "a16ed4ff38d29d52b0458c41f156449e9b27599b0ce56644bf6f1887a5651254",
       "exported": false,
@@ -1561,8 +1509,8 @@
       "content": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
       "content_hash": "5d4130af010f0c6535aa8fa32a561a88bdc7afe0a3e6169190f92af4cae8fb51",
       "exported": false,
-      "id": "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
-      "label": "__disjunction_result_ca424a58",
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
+      "label": "__disjunction_result_baccee84",
       "metadata": {
         "canonical_name": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
         "generated": true,
@@ -1570,7 +1518,7 @@
         "helper_kind": "disjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_c86a9f82ea1986db",
+        "owning_strategy_id": "lcs_28b4a35090824d66",
         "owning_strategy_type": "abduction",
         "visibility": "formal_internal"
       },
@@ -1578,19 +1526,19 @@
       "type": "claim"
     },
     {
-      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_ca424a58,github:watson_rfdiffusion_2023::motif_not_from_training)",
-      "content_hash": "89384331e2319e90c469fc5c33ec54926649102677d9fcb5c72278c37a90190c",
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
+      "content_hash": "a737770b9e7712f5494592c9de56549093cfeb8a48479fc2804948200860e9ec",
       "exported": false,
-      "id": "github:watson_rfdiffusion_2023::__equivalence_result_548dbe75",
-      "label": "__equivalence_result_548dbe75",
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
+      "label": "__equivalence_result_9dea8459",
       "metadata": {
-        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_ca424a58,github:watson_rfdiffusion_2023::motif_not_from_training)",
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "equivalence_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_c86a9f82ea1986db",
+        "owning_strategy_id": "lcs_28b4a35090824d66",
         "owning_strategy_type": "abduction",
         "visibility": "formal_internal"
       },
@@ -2535,49 +2483,6 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
-            "operator": "disjunction",
-            "variables": [
-              "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
-              "github:watson_rfdiffusion_2023::alt_memorization"
-            ]
-          },
-          {
-            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
-            "operator": "equivalence",
-            "variables": [
-              "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
-              "github:watson_rfdiffusion_2023::motif_not_from_training"
-            ]
-          }
-        ]
-      },
-      "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:watson_rfdiffusion_2023::alt_memorization"
-          ],
-          "observation": [
-            "github:watson_rfdiffusion_2023::motif_not_from_training"
-          ]
-        },
-        "reason": "The observation (@motif_not_from_training, Supplementary Fig. 7) that scaffolding success is uncorrelated with training set membership is best explained by @rfdiffusion_benchmark_performance reflecting genuine generalization. The alternative — that success comes from memorizing training motifs — is directly contradicted by the lack of correlation."
-      },
-      "premises": [
-        "github:watson_rfdiffusion_2023::motif_not_from_training",
-        "github:watson_rfdiffusion_2023::alt_memorization"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_28b4a35090824d66",
-      "type": "abduction"
-    },
-    {
-      "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
-      "formal_expr": {
-        "operators": [
-          {
             "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0",
             "operator": "disjunction",
             "variables": [
@@ -2620,18 +2525,18 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
             "operator": "disjunction",
             "variables": [
               "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
-              "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+              "github:watson_rfdiffusion_2023::alt_memorization"
             ]
           },
           {
-            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_548dbe75",
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
             "operator": "equivalence",
             "variables": [
-              "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
+              "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
               "github:watson_rfdiffusion_2023::motif_not_from_training"
             ]
           }
@@ -2642,7 +2547,7 @@
         "generated_formal_expr": true,
         "interface_roles": {
           "alternative_explanation": [
-            "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+            "github:watson_rfdiffusion_2023::alt_memorization"
           ],
           "observation": [
             "github:watson_rfdiffusion_2023::motif_not_from_training"
@@ -2651,10 +2556,10 @@
       },
       "premises": [
         "github:watson_rfdiffusion_2023::motif_not_from_training",
-        "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+        "github:watson_rfdiffusion_2023::alt_memorization"
       ],
       "scope": "local",
-      "strategy_id": "lcs_c86a9f82ea1986db",
+      "strategy_id": "lcs_28b4a35090824d66",
       "type": "abduction"
     },
     {
@@ -2666,13 +2571,13 @@
         "github:watson_rfdiffusion_2023::noise_free_reverse",
         "github:watson_rfdiffusion_2023::motif_not_from_training",
         "github:watson_rfdiffusion_2023::alt_noise_free_overfitting",
-        "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+        "github:watson_rfdiffusion_2023::alt_memorization"
       ],
       "scope": "local",
-      "strategy_id": "lcs_5f69d447f0cab289",
+      "strategy_id": "lcs_b424903eba2e3da6",
       "sub_strategies": [
         "lcs_e181b2baec42b74d",
-        "lcs_c86a9f82ea1986db"
+        "lcs_28b4a35090824d66"
       ],
       "type": "induction"
     },
