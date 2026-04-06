@@ -26,11 +26,14 @@ from .s4_oligomers import (
 )
 from .s5_motif_scaffolding import (
     _strat_benchmark,
+    _strat_generalization,
+    _strat_noise_free,
     _strat_p53_binding,
     _strat_p53_affinity,
     _strat_enzyme,
 )
 from .s6_symmetric_motif import (
+    _strat_ni_endothermic,
     _strat_sars_cov2,
     _strat_ni_design,
     _strat_ni_experimental,
@@ -38,6 +41,7 @@ from .s6_symmetric_motif import (
     _strat_ni_nsem,
 )
 from .s7_binder_design import (
+    _strat_novel_interfaces,
     _strat_binder_success,
     _strat_binder_affinities,
     _strat_specificity,

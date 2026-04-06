@@ -130,6 +130,18 @@ _strat_binder_affinities = noisy_and(
     ),
 )
 
+# Novel interfaces support de novo design claim
+_strat_novel_interfaces = noisy_and(
+    [novel_interfaces],
+    binder_success_rate,
+    reason=(
+        "@novel_interfaces shows that the designed binding interfaces are often highly "
+        "distinct from natural interfaces to these targets in the PDB, confirming that "
+        "@binder_success_rate reflects genuinely de novo design rather than recapitulation "
+        "of known binding modes."
+    ),
+)
+
 # Competition BLI confirms specificity
 alt_nonspecific_adhesion = claim(
     "The binders could achieve high BLI signals through non-specific adhesion "

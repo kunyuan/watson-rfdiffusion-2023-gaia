@@ -151,16 +151,39 @@ _strat_p53_affinity = noisy_and(
     ),
 )
 
-# Enzyme scaffolding requires fine-tuning
+# Scaffolding success is independent of training set
+_strat_generalization = noisy_and(
+    [motif_not_from_training],
+    rfdiffusion_benchmark_performance,
+    reason=(
+        "@motif_not_from_training (Supplementary Fig. 7) shows that scaffolding success "
+        "is uncorrelated with whether the motif appeared in the training set, providing "
+        "evidence that @rfdiffusion_benchmark_performance reflects genuine generalization "
+        "rather than memorization."
+    ),
+)
+
+# Noise-free reverse trajectories improve benchmark results
+_strat_noise_free = noisy_and(
+    [noise_free_reverse],
+    rfdiffusion_benchmark_performance,
+    reason=(
+        "@noise_free_reverse shows that in 17/23 solved problems, removing noise during "
+        "reverse trajectories improved success rates, a technical insight contributing to "
+        "@rfdiffusion_benchmark_performance's high numbers."
+    ),
+)
+
+# Enzyme scaffolding requires fine-tuning, with retroaldolase as demonstration
 _strat_enzyme = noisy_and(
-    [pipeline_description],
+    [pipeline_description, retroaldolase_demonstration],
     enzyme_scaffolding_success,
     reason=(
-        "Enzyme active site scaffolding extends the @pipeline_description to a more "
-        "challenging problem: scaffolding minimal descriptions comprising a few amino "
-        "acid sidechains. This required additional fine-tuning on a task mimicking the "
-        "problem. The resulting model scaffolded active sites across EC1-5 enzyme classes "
-        "with high accuracy."
+        "Enzyme active site scaffolding extends @pipeline_description to scaffolding "
+        "minimal descriptions comprising a few amino acid sidechains, requiring additional "
+        "fine-tuning. @retroaldolase_demonstration provides a concrete example: scaffolding "
+        "a retroaldolase active site triad while implicitly modeling the substrate via "
+        "an external potential."
     ),
     background=[motif_scaffolding_definition, in_silico_success_definition],
 )

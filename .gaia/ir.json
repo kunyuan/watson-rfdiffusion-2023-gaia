@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:fda21d09556208059b5a41c9f29b40c4b2a879d44de62bf44365583d7f186daa",
+  "ir_hash": "sha256:f3fe8afb261d3eb079bfdd4087f38b4d08fb0db29a12e0551cfb64af1e0d7778",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -1760,19 +1760,44 @@
       "type": "noisy_and"
     },
     {
+      "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "metadata": {
+        "reason": "@motif_not_from_training (Supplementary Fig. 7) shows that scaffolding success is uncorrelated with whether the motif appeared in the training set, providing evidence that @rfdiffusion_benchmark_performance reflects genuine generalization rather than memorization."
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::motif_not_from_training"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_aab06b7522bf8d55",
+      "type": "noisy_and"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "metadata": {
+        "reason": "@noise_free_reverse shows that in 17/23 solved problems, removing noise during reverse trajectories improved success rates, a technical insight contributing to @rfdiffusion_benchmark_performance's high numbers."
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::noise_free_reverse"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_d5a8e1dd060298ef",
+      "type": "noisy_and"
+    },
+    {
       "background": [
         "github:watson_rfdiffusion_2023::motif_scaffolding_definition",
         "github:watson_rfdiffusion_2023::in_silico_success_definition"
       ],
       "conclusion": "github:watson_rfdiffusion_2023::enzyme_scaffolding_success",
       "metadata": {
-        "reason": "Enzyme active site scaffolding extends the @pipeline_description to a more challenging problem: scaffolding minimal descriptions comprising a few amino acid sidechains. This required additional fine-tuning on a task mimicking the problem. The resulting model scaffolded active sites across EC1-5 enzyme classes with high accuracy."
+        "reason": "Enzyme active site scaffolding extends @pipeline_description to scaffolding minimal descriptions comprising a few amino acid sidechains, requiring additional fine-tuning. @retroaldolase_demonstration provides a concrete example: scaffolding a retroaldolase active site triad while implicitly modeling the substrate via an external potential."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::pipeline_description"
+        "github:watson_rfdiffusion_2023::pipeline_description",
+        "github:watson_rfdiffusion_2023::retroaldolase_demonstration"
       ],
       "scope": "local",
-      "strategy_id": "lcs_e3f67b0aa462b75e",
+      "strategy_id": "lcs_3e37fcca055718bc",
       "type": "noisy_and"
     },
     {
@@ -1805,6 +1830,18 @@
       ],
       "scope": "local",
       "strategy_id": "lcs_affcadb37200a8b6",
+      "type": "noisy_and"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::ni_binding_experimental",
+      "metadata": {
+        "reason": "@ni_binding_endothermic shows that a few Ni²⁺-binding designs exhibit endothermic ITC signals, suggesting entropy-driven coordination in those assemblies. This diversity of thermodynamic signatures across different designs further supports @ni_binding_experimental — the binding is genuine and mediated by the designed sites, not by a single non-specific mechanism."
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::ni_binding_endothermic"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_7089ce4451a2aeb4",
       "type": "noisy_and"
     },
     {
@@ -1964,6 +2001,18 @@
       ],
       "scope": "local",
       "strategy_id": "lcs_7c4e5fdbcaf46b6b",
+      "type": "noisy_and"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::binder_success_rate",
+      "metadata": {
+        "reason": "@novel_interfaces shows that the designed binding interfaces are often highly distinct from natural interfaces to these targets in the PDB, confirming that @binder_success_rate reflects genuinely de novo design rather than recapitulation of known binding modes."
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::novel_interfaces"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_058ae0d20ed2e2eb",
       "type": "noisy_and"
     },
     {

@@ -6,10 +6,10 @@ Add your description here
 
 ```mermaid
 graph LR
-    rfdiffusion_broad_success["RFdiffusion achieves broad design success (0.51)"]:::derived
-    ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design (0.77)"]:::derived
-    comprehensive_improvement["RFdiffusion is comprehensive improvement over prior methods (0.66)"]:::derived
-    generality_claim["RFdiffusion enables protein design from minimal specifications (0.41)"]:::derived
+    rfdiffusion_broad_success["RFdiffusion achieves broad design success (0.59)"]:::derived
+    ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design (0.84)"]:::derived
+    comprehensive_improvement["RFdiffusion is comprehensive improvement over prior methods (0.77)"]:::derived
+    generality_claim["RFdiffusion enables protein design from minimal specifications (0.47)"]:::derived
     comprehensive_improvement --> rfdiffusion_broad_success
     ha20_atomic_accuracy --> rfdiffusion_broad_success
     rfdiffusion_broad_success --> generality_claim
@@ -129,7 +129,7 @@ The authors reasoned that improved diffusion models for protein design could be 
 
 #### RFdiffusion achieves broad design success ★
 
-📌 `rfdiffusion_broad_success`   |   Belief: **0.51**
+📌 `rfdiffusion_broad_success`   |   Belief: **0.59**
 
 > RFdiffusion achieves outstanding performance on unconditional and topology-constrained protein monomer design, protein binder design, symmetric oligomer design, enzyme active site scaffolding, and symmetric motif scaffolding for therapeutic and metal-binding protein design.
 
@@ -619,16 +619,16 @@ graph TD
     pipeline_description["RFdiffusion design pipeline (1.00)"]:::external
     motif_scaffolding_definition["Definition of motif scaffolding"]:::setting
     benchmark_definition["25-problem motif-scaffolding benchmark"]:::setting
-    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.92)"]:::derived
-    hallucination_benchmark["Hallucination solves 15/25 benchmark problems (0.97)"]:::premise
-    rf_inpainting_benchmark["RFjoint Inpainting solves 19/25 benchmark problems (0.97)"]:::premise
-    noise_free_reverse["Noise-free reverse trajectories often improve success (0.88)"]:::orphan
-    motif_not_from_training["Scaffolding success independent of training set membership (0.88)"]:::orphan
+    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.99)"]:::derived
+    hallucination_benchmark["Hallucination solves 15/25 benchmark problems (1.00)"]:::premise
+    rf_inpainting_benchmark["RFjoint Inpainting solves 19/25 benchmark problems (1.00)"]:::premise
+    noise_free_reverse["Noise-free reverse trajectories often improve success (1.00)"]:::premise
+    motif_not_from_training["Scaffolding success independent of training set membership (1.00)"]:::premise
     p53_mdm2_design["p53-MDM2 binder scaffolding: 55/96 designs show binding (1.00)"]:::premise
     p53_mdm2_affinity["p53-MDM2 binder affinity: 0.5-0.7 nM vs 600 nM native (0.88)"]:::derived
-    enzyme_scaffolding_success["Enzyme active site scaffolding succeeds after fine-tuning (0.75)"]:::derived
-    retroaldolase_demonstration["Retroaldolase active site scaffolding with implicit substrate (0.80)"]:::orphan
-    alt_nonspecific_binding_p53_mdm2["Alternative: non-specific binding in p53-MDM2 screens (0.24)"]:::premise
+    enzyme_scaffolding_success["Enzyme active site scaffolding succeeds after fine-tuning (0.62)"]:::derived
+    retroaldolase_demonstration["Retroaldolase active site scaffolding with implicit substrate (0.80)"]:::premise
+    alt_nonspecific_binding_p53_mdm2["Alternative: non-specific binding in p53-MDM2 screens (0.19)"]:::premise
     strat_3(["noisy_and"]):::weak
     in_silico_success_definition -.-> strat_3
     strat_3 --> pipeline_description
@@ -648,10 +648,17 @@ graph TD
     p53_mdm2_design --> strat_16
     strat_16 --> p53_mdm2_affinity
     strat_17(["noisy_and"]):::weak
-    pipeline_description --> strat_17
-    motif_scaffolding_definition -.-> strat_17
-    in_silico_success_definition -.-> strat_17
-    strat_17 --> enzyme_scaffolding_success
+    motif_not_from_training --> strat_17
+    strat_17 --> rfdiffusion_benchmark_performance
+    strat_18(["noisy_and"]):::weak
+    noise_free_reverse --> strat_18
+    strat_18 --> rfdiffusion_benchmark_performance
+    strat_19(["noisy_and"]):::weak
+    pipeline_description --> strat_19
+    retroaldolase_demonstration --> strat_19
+    motif_scaffolding_definition -.-> strat_19
+    in_silico_success_definition -.-> strat_19
+    strat_19 --> enzyme_scaffolding_success
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -686,15 +693,15 @@ graph TD
 
 #### RFdiffusion solves 23/25 benchmark problems
 
-📌 `rfdiffusion_benchmark_performance`   |   Belief: **0.92**
+📌 `rfdiffusion_benchmark_performance`   |   Belief: **0.99**
 
 > RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compared to 15 for Hallucination and 19 for RFjoint Inpainting. For 19 out of 23 solved problems, RFdiffusion's fraction of successful designs is higher than either Hallucination or RFjoint Inpainting. RFdiffusion required no hyperparameter tuning or external potentials, unlike Hallucination which required problem-specific optimization.
 
-🔗 **abduction**([p53-MDM2 binder scaffolding: 55/96 designs show binding](#p53_mdm2_design), [Alternative: non-specific binding in p53-MDM2 screens](#alt_nonspecific_binding_p53_mdm2))
+🔗 **noisy_and**([Noise-free reverse trajectories often improve success](#noise_free_reverse))
 
 <details><summary>Reasoning</summary>
 
-The experimental observation (@p53_mdm2_design) that 55 out of 96 scaffolded designs show detectable binding to MDM2 at 10 μM provides experimental evidence supporting @rfdiffusion_benchmark_performance — that RFdiffusion effectively scaffolds functional motifs. Non-specific binding is unlikely given the high hit rate and the sub-nanomolar affinities achieved.
+@noise_free_reverse shows that in 17/23 solved problems, removing noise during reverse trajectories improved success rates, a technical insight contributing to @rfdiffusion_benchmark_performance's high numbers.
 
 </details>
 
@@ -703,7 +710,7 @@ The experimental observation (@p53_mdm2_design) that 55 out of 96 scaffolded des
 
 #### Hallucination solves 15/25 benchmark problems
 
-📌 `hallucination_benchmark`   |   Prior: 0.88   |   Belief: **0.97**
+📌 `hallucination_benchmark`   |   Prior: 0.88   |   Belief: **1.00**
 
 > Hallucination with RF solves 15 of the 25 benchmark motif-scaffolding problems and sometimes requires problem-specific hyperparameter optimization.
 
@@ -712,7 +719,7 @@ The experimental observation (@p53_mdm2_design) that 55 out of 96 scaffolded des
 
 #### RFjoint Inpainting solves 19/25 benchmark problems
 
-📌 `rf_inpainting_benchmark`   |   Prior: 0.88   |   Belief: **0.97**
+📌 `rf_inpainting_benchmark`   |   Prior: 0.88   |   Belief: **1.00**
 
 > RFjoint Inpainting solves 19 of the 25 benchmark motif-scaffolding problems.
 
@@ -721,7 +728,7 @@ The experimental observation (@p53_mdm2_design) that 55 out of 96 scaffolded des
 
 #### Noise-free reverse trajectories often improve success
 
-📌 `noise_free_reverse`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `noise_free_reverse`   |   Prior: 0.88   |   Belief: **1.00**
 
 > In 17 out of 23 solved problems, RFdiffusion generated successful solutions with higher in silico success rates when noise was not added during the reverse diffusion trajectories.
 
@@ -730,7 +737,7 @@ The experimental observation (@p53_mdm2_design) that 55 out of 96 scaffolded des
 
 #### Scaffolding success independent of training set membership
 
-📌 `motif_not_from_training`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `motif_not_from_training`   |   Prior: 0.88   |   Belief: **1.00**
 
 > The ability of RFdiffusion to scaffold functional motifs is not related to their presence in the RFdiffusion training set.
 
@@ -765,15 +772,15 @@ From the 55 binders identified in @p53_mdm2_design, BLI titrations of the top ca
 
 #### Enzyme active site scaffolding succeeds after fine-tuning
 
-📌 `enzyme_scaffolding_success`   |   Belief: **0.75**
+📌 `enzyme_scaffolding_success`   |   Belief: **0.62**
 
 > Following fine-tuning on a task mimicking enzyme active site scaffolding, RFdiffusion was able to scaffold enzyme active sites comprising many sidechain and backbone functional groups with high accuracy and in silico success rates across a range of enzyme classes (EC1-5). In silico success for enzyme scaffolding required this fine-tuning step.
 
-🔗 **noisy_and**([RFdiffusion design pipeline](#pipeline_description))
+🔗 **noisy_and**([RFdiffusion design pipeline](#pipeline_description), [Retroaldolase active site scaffolding with implicit substrate](#retroaldolase_demonstration))
 
 <details><summary>Reasoning</summary>
 
-Enzyme active site scaffolding extends the @pipeline_description to a more challenging problem: scaffolding minimal descriptions comprising a few amino acid sidechains. This required additional fine-tuning on a task mimicking the problem. The resulting model scaffolded active sites across EC1-5 enzyme classes with high accuracy.
+Enzyme active site scaffolding extends @pipeline_description to scaffolding minimal descriptions comprising a few amino acid sidechains, requiring additional fine-tuning. @retroaldolase_demonstration provides a concrete example: scaffolding a retroaldolase active site triad while implicitly modeling the substrate via an external potential.
 
 </details>
 
@@ -791,7 +798,7 @@ Enzyme active site scaffolding extends the @pipeline_description to a more chall
 
 #### Alternative: non-specific binding in p53-MDM2 screens
 
-📌 `alt_nonspecific_binding_p53_mdm2`   |   Prior: 0.18   |   Belief: **0.24**
+📌 `alt_nonspecific_binding_p53_mdm2`   |   Prior: 0.18   |   Belief: **0.19**
 
 > The 55/96 binding success rate for p53-MDM2 scaffolds could be due to non-specific interactions between the expressed proteins and MDM2, rather than specific binding mediated by the scaffolded p53 helix.
 
@@ -802,39 +809,42 @@ Enzyme active site scaffolding extends the @pipeline_description to a more chall
 graph TD
     alphafold2_definition["AlphaFold2 as validation tool"]:::external
     symmetric_high_success["High in silico success for symmetric oligomers (1.00)"]:::external
-    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.92)"]:::external
+    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.99)"]:::external
     metal_coordination_geometry["Metal coordination geometry principles"]:::setting
-    sars_cov2_trimeric_binder_design["C3-symmetric SARS-CoV-2 trimeric binder design (0.81)"]:::derived
+    sars_cov2_trimeric_binder_design["C3-symmetric SARS-CoV-2 trimeric binder design (0.87)"]:::derived
     ni_binding_design["C4 Ni²⁺-binding assembly design with square-planar geometry (1.00)"]:::derived
-    ni_binding_experimental["18/36 Ni²⁺-binding designs experimentally confirmed (1.00)"]:::premise
+    ni_binding_experimental["18/36 Ni²⁺-binding designs experimentally confirmed (1.00)"]:::derived
     ni_binding_histidine_dependence["H52A mutation abolishes Ni²⁺ binding (1.00)"]:::premise
     ni_binding_nsem["nsEM confirms C4 symmetry of Ni²⁺ binders (1.00)"]:::premise
-    ni_binding_endothermic["Some Ni²⁺-binding designs show entropy-driven coordination (0.88)"]:::orphan
+    ni_binding_endothermic["Some Ni²⁺-binding designs show entropy-driven coordination (1.00)"]:::premise
     alt_nonspecific_metal_chelation["Alternative: non-specific metal chelation (0.22)"]:::premise
     alt_indirect_structural_disruption_h52a["Alternative: indirect structural disruption by H52A (0.12)"]:::premise
     alt_alternative_c4_arrangement["Alternative: alternative C4 arrangement without designed site (0.12)"]:::premise
-    strat_18(["noisy_and"]):::weak
-    symmetric_high_success --> strat_18
-    rfdiffusion_benchmark_performance --> strat_18
-    alphafold2_definition -.-> strat_18
-    strat_18 --> sars_cov2_trimeric_binder_design
-    strat_19(["noisy_and"]):::weak
-    symmetric_high_success --> strat_19
-    metal_coordination_geometry -.-> strat_19
-    alphafold2_definition -.-> strat_19
-    strat_19 --> ni_binding_design
-    strat_20(["abduction"]):::weak
-    ni_binding_experimental --> strat_20
-    alt_nonspecific_metal_chelation --> strat_20
-    strat_20 --> ni_binding_design
-    strat_21(["abduction"]):::weak
-    ni_binding_histidine_dependence --> strat_21
-    alt_indirect_structural_disruption_h52a --> strat_21
+    strat_20(["noisy_and"]):::weak
+    symmetric_high_success --> strat_20
+    rfdiffusion_benchmark_performance --> strat_20
+    alphafold2_definition -.-> strat_20
+    strat_20 --> sars_cov2_trimeric_binder_design
+    strat_21(["noisy_and"]):::weak
+    symmetric_high_success --> strat_21
+    metal_coordination_geometry -.-> strat_21
+    alphafold2_definition -.-> strat_21
     strat_21 --> ni_binding_design
-    strat_22(["abduction"]):::weak
-    ni_binding_nsem --> strat_22
-    alt_alternative_c4_arrangement --> strat_22
-    strat_22 --> ni_binding_design
+    strat_22(["noisy_and"]):::weak
+    ni_binding_endothermic --> strat_22
+    strat_22 --> ni_binding_experimental
+    strat_23(["abduction"]):::weak
+    ni_binding_experimental --> strat_23
+    alt_nonspecific_metal_chelation --> strat_23
+    strat_23 --> ni_binding_design
+    strat_24(["abduction"]):::weak
+    ni_binding_histidine_dependence --> strat_24
+    alt_indirect_structural_disruption_h52a --> strat_24
+    strat_24 --> ni_binding_design
+    strat_25(["abduction"]):::weak
+    ni_binding_nsem --> strat_25
+    alt_alternative_c4_arrangement --> strat_25
+    strat_25 --> ni_binding_design
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -860,7 +870,7 @@ graph TD
 
 #### C3-symmetric SARS-CoV-2 trimeric binder design
 
-📌 `sars_cov2_trimeric_binder_design`   |   Belief: **0.81**
+📌 `sars_cov2_trimeric_binder_design`   |   Belief: **0.87**
 
 > RFdiffusion designed C3-symmetric trimers that rigidly hold three copies of the ACE2 mimic AHB2 binding domain to match the ACE2 binding sites on the SARS-CoV-2 spike protein trimer. AF2 predictions recapitulated the AHB2 structure with 0.6 Å r.m.s.d. over the asymmetric unit and 2.9 Å r.m.s.d. over the C3 assembly. These rigid symmetric fusions reduce entropic cost of binding while maintaining avidity benefits from multivalency.
 
@@ -898,6 +908,14 @@ The nsEM observation (@ni_binding_nsem) of clear fourfold symmetry in micrograph
 
 > Of 44 Ni²⁺-binding C4 designs expressed and purified in E. coli, 37 had SEC chromatograms consistent with the intended oligomeric state. Of 36 tested by isothermal titration calorimetry (ITC), 18 bound Ni²⁺ with dissociation constants ranging from low nanomolar to low micromolar. Inflection points in wild-type isotherms indicated binding with the designed 1:4 stoichiometry (ion:monomer).
 
+🔗 **noisy_and**([Some Ni²⁺-binding designs show entropy-driven coordination](#ni_binding_endothermic))
+
+<details><summary>Reasoning</summary>
+
+@ni_binding_endothermic shows that a few Ni²⁺-binding designs exhibit endothermic ITC signals, suggesting entropy-driven coordination in those assemblies. This diversity of thermodynamic signatures across different designs further supports @ni_binding_experimental — the binding is genuine and mediated by the designed sites, not by a single non-specific mechanism.
+
+</details>
+
 
 <a id="ni_binding_histidine_dependence"></a>
 
@@ -921,7 +939,7 @@ The nsEM observation (@ni_binding_nsem) of clear fourfold symmetry in micrograph
 
 #### Some Ni²⁺-binding designs show entropy-driven coordination
 
-📌 `ni_binding_endothermic`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `ni_binding_endothermic`   |   Prior: 0.88   |   Belief: **1.00**
 
 > Although most designed Ni²⁺-binding proteins showed exothermic metal coordination, a few cases (NiB2.9, NiB2.10, NiB2.15, NiB2.23) showed endothermic binding, suggesting that Ni²⁺ coordination is entropically driven in these assemblies.
 
@@ -960,39 +978,42 @@ graph TD
     pipeline_description["RFdiffusion design pipeline (1.00)"]:::external
     binder_design_approach["RFdiffusion binder design approach"]:::setting
     binder_filtering["AF2-based binder filtering"]:::setting
-    previous_binder_design_limitations["Prior binder design methods had low success rates (0.97)"]:::premise
-    binder_success_rate["19% binder success rate — 100× improvement over Rosetta (0.88)"]:::derived
-    binder_targets_and_affinities["Nanomolar binders to five therapeutic targets (0.81)"]:::derived
-    two_orders_attribution["Success rate improvement attributed to RFdiffusion + AF2 filtering (0.93)"]:::premise
+    previous_binder_design_limitations["Prior binder design methods had low success rates (0.99)"]:::premise
+    binder_success_rate["19% binder success rate — 100× improvement over Rosetta (0.96)"]:::derived
+    binder_targets_and_affinities["Nanomolar binders to five therapeutic targets (0.88)"]:::derived
+    two_orders_attribution["Success rate improvement attributed to RFdiffusion + AF2 filtering (0.97)"]:::premise
     binder_specificity["IL-7Rα binders show site-specific binding (1.00)"]:::premise
-    novel_interfaces["Novel binding interfaces distinct from PDB (0.88)"]:::orphan
+    novel_interfaces["Novel binding interfaces distinct from PDB (0.98)"]:::premise
     ha20_cryoem_structure["Cryo-EM structure of HA_20-HA complex at 2.9 Å (1.00)"]:::premise
     ha20_matches_design["HA_20 cryo-EM structure matches design at 0.63 Å r.m.s.d. (0.95)"]:::derived
-    ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design (0.77)"]:::derived
-    alt_nonspecific_adhesion["Alternative: non-specific adhesion (0.27)"]:::premise
+    ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design (0.84)"]:::derived
+    alt_nonspecific_adhesion["Alternative: non-specific adhesion (0.21)"]:::premise
     alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation (0.10)"]:::premise
-    strat_23(["noisy_and"]):::weak
-    pipeline_description --> strat_23
-    previous_binder_design_limitations --> strat_23
-    two_orders_attribution --> strat_23
-    binder_design_approach -.-> strat_23
-    binder_filtering -.-> strat_23
-    strat_23 --> binder_success_rate
-    strat_24(["noisy_and"]):::weak
-    binder_success_rate --> strat_24
-    strat_24 --> binder_targets_and_affinities
-    strat_25(["abduction"]):::weak
-    binder_specificity --> strat_25
-    alt_nonspecific_adhesion --> strat_25
-    strat_25 --> binder_success_rate
-    strat_26(["abduction"]):::weak
-    ha20_cryoem_structure --> strat_26
-    alt_ha20_alternative_conformation --> strat_26
-    strat_26 --> ha20_matches_design
+    strat_26(["noisy_and"]):::weak
+    pipeline_description --> strat_26
+    previous_binder_design_limitations --> strat_26
+    two_orders_attribution --> strat_26
+    binder_design_approach -.-> strat_26
+    binder_filtering -.-> strat_26
+    strat_26 --> binder_success_rate
     strat_27(["noisy_and"]):::weak
-    ha20_matches_design --> strat_27
     binder_success_rate --> strat_27
-    strat_27 --> ha20_atomic_accuracy
+    strat_27 --> binder_targets_and_affinities
+    strat_28(["noisy_and"]):::weak
+    novel_interfaces --> strat_28
+    strat_28 --> binder_success_rate
+    strat_29(["abduction"]):::weak
+    binder_specificity --> strat_29
+    alt_nonspecific_adhesion --> strat_29
+    strat_29 --> binder_success_rate
+    strat_30(["abduction"]):::weak
+    ha20_cryoem_structure --> strat_30
+    alt_ha20_alternative_conformation --> strat_30
+    strat_30 --> ha20_matches_design
+    strat_31(["noisy_and"]):::weak
+    ha20_matches_design --> strat_31
+    binder_success_rate --> strat_31
+    strat_31 --> ha20_atomic_accuracy
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1027,7 +1048,7 @@ graph TD
 
 #### Prior binder design methods had low success rates
 
-📌 `previous_binder_design_limitations`   |   Prior: 0.88   |   Belief: **0.97**
+📌 `previous_binder_design_limitations`   |   Prior: 0.88   |   Belief: **0.99**
 
 > The previous Rosetta-based method for de novo binder design from target structure information alone required testing tens of thousands of designs (many thousands screened per campaign) with low experimental success rates, and relied on prespecifying particular protein scaffolds, limiting diversity and shape complementarity. No deep-learning method had previously demonstrated experimental general success in designing completely de novo binders.
 
@@ -1036,7 +1057,7 @@ graph TD
 
 #### 19% binder success rate — 100× improvement over Rosetta
 
-📌 `binder_success_rate`   |   Belief: **0.88**
+📌 `binder_success_rate`   |   Belief: **0.96**
 
 > The overall experimental success rate for RFdiffusion binders (binding at or above 50% of maximal BLI response for positive control at 10 μM) was 19% across five targets, an increase of roughly two orders of magnitude over the previous Rosetta-based method on the same targets. Binders were identified for all five targets with fewer than 100 designs tested per target.
 
@@ -1053,7 +1074,7 @@ The observation (@binder_specificity) that all six tested IL-7Rα binders compet
 
 #### Nanomolar binders to five therapeutic targets
 
-📌 `binder_targets_and_affinities`   |   Belief: **0.81**
+📌 `binder_targets_and_affinities`   |   Belief: **0.88**
 
 > De novo binders were designed against five targets: Influenza A H1 Haemagglutinin (HA), Interleukin-7 Receptor-α (IL-7Rα), Programmed Death-Ligand 1 (PD-L1), Insulin Receptor (InsR), and Tropomyosin Receptor Kinase A (TrkA). Full BLI titrations showed nanomolar affinities with no further experimental optimization, including HA and IL-7Rα binders with affinities of ~30 nM.
 
@@ -1070,7 +1091,7 @@ From the binder hits identified by BLI screening (@binder_success_rate), full BL
 
 #### Success rate improvement attributed to RFdiffusion + AF2 filtering
 
-📌 `two_orders_attribution`   |   Prior: 0.75   |   Belief: **0.93**
+📌 `two_orders_attribution`   |   Prior: 0.75   |   Belief: **0.97**
 
 > The two-orders-of-magnitude improvement in binder design success rate is attributed approximately one order of magnitude to RFdiffusion itself (better backbone generation) and the second order of magnitude to filtering with AF2 (better design selection).
 
@@ -1088,7 +1109,7 @@ From the binder hits identified by BLI screening (@binder_success_rate), full BL
 
 #### Novel binding interfaces distinct from PDB
 
-📌 `novel_interfaces`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `novel_interfaces`   |   Prior: 0.88   |   Belief: **0.98**
 
 > Binding interfaces designed by RFdiffusion were often highly distinct from interfaces to these targets found in the PDB.
 
@@ -1123,7 +1144,7 @@ The observation (@ha20_cryoem_structure) of a 2.9 Å cryo-EM structure showing f
 
 #### RFdiffusion achieves atomic-level accuracy in binder design ★
 
-📌 `ha20_atomic_accuracy`   |   Belief: **0.77**
+📌 `ha20_atomic_accuracy`   |   Belief: **0.84**
 
 > The near-perfect agreement between the cryo-EM structure and the RFdiffusion design model (0.63 Å r.m.s.d.) demonstrates that RFdiffusion can design functional proteins with atomic-level accuracy and precisely target functionally relevant sites on therapeutically important proteins.
 
@@ -1140,7 +1161,7 @@ The observation (@ha20_cryoem_structure) of a 2.9 Å cryo-EM structure showing f
 
 #### Alternative: non-specific adhesion
 
-📌 `alt_nonspecific_adhesion`   |   Prior: 0.18   |   Belief: **0.27**
+📌 `alt_nonspecific_adhesion`   |   Prior: 0.18   |   Belief: **0.21**
 
 > The binders could achieve high BLI signals through non-specific adhesion to the target surface rather than site-specific binding at the designed interface.
 
@@ -1158,32 +1179,32 @@ The observation (@ha20_cryoem_structure) of a 2.9 Å cryo-EM structure showing f
 
 ```mermaid
 graph TD
-    rfdiffusion_broad_success["RFdiffusion achieves broad design success (0.51)"]:::external
+    rfdiffusion_broad_success["RFdiffusion achieves broad design success (0.59)"]:::external
     experimental_validation_monomers["Experimental validation of unconditional monomer designs (1.00)"]:::external
     outperforms_hallucination["RFdiffusion outperforms RF Hallucination (0.92)"]:::external
     fold_conditioned_generation["Fold-conditioned generation achieves high success rates (0.88)"]:::external
-    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.92)"]:::external
-    binder_success_rate["19% binder success rate — 100× improvement over Rosetta (0.88)"]:::external
-    comprehensive_improvement["RFdiffusion is comprehensive improvement over prior methods (0.66)"]:::derived
+    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems (0.99)"]:::external
+    binder_success_rate["19% binder success rate — 100× improvement over Rosetta (0.96)"]:::external
+    comprehensive_improvement["RFdiffusion is comprehensive improvement over prior methods (0.77)"]:::derived
     ideality_and_stability["RFdiffusion designs retain Rosetta-level ideality and stability (0.75)"]:::derived
-    generality_claim["RFdiffusion enables protein design from minimal specifications (0.41)"]:::derived
+    generality_claim["RFdiffusion enables protein design from minimal specifications (0.47)"]:::derived
     future_nucleic_acids["Future extension to nucleic acids via RoseTTAFoldNA (0.70)"]:::orphan
     future_ligands["Future extension to explicit ligand modeling (0.65)"]:::orphan
-    strat_28(["noisy_and"]):::weak
-    outperforms_hallucination --> strat_28
-    rfdiffusion_benchmark_performance --> strat_28
-    binder_success_rate --> strat_28
-    strat_28 --> comprehensive_improvement
-    strat_29(["noisy_and"]):::weak
-    experimental_validation_monomers --> strat_29
-    fold_conditioned_generation --> strat_29
-    strat_29 --> ideality_and_stability
-    strat_30(["noisy_and"]):::weak
-    comprehensive_improvement --> strat_30
-    strat_30 --> rfdiffusion_broad_success
-    strat_31(["noisy_and"]):::weak
-    rfdiffusion_broad_success --> strat_31
-    strat_31 --> generality_claim
+    strat_32(["noisy_and"]):::weak
+    outperforms_hallucination --> strat_32
+    rfdiffusion_benchmark_performance --> strat_32
+    binder_success_rate --> strat_32
+    strat_32 --> comprehensive_improvement
+    strat_33(["noisy_and"]):::weak
+    experimental_validation_monomers --> strat_33
+    fold_conditioned_generation --> strat_33
+    strat_33 --> ideality_and_stability
+    strat_34(["noisy_and"]):::weak
+    comprehensive_improvement --> strat_34
+    strat_34 --> rfdiffusion_broad_success
+    strat_35(["noisy_and"]):::weak
+    rfdiffusion_broad_success --> strat_35
+    strat_35 --> generality_claim
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1200,7 +1221,7 @@ graph TD
 
 #### RFdiffusion is comprehensive improvement over prior methods ★
 
-📌 `comprehensive_improvement`   |   Belief: **0.66**
+📌 `comprehensive_improvement`   |   Belief: **0.77**
 
 > RFdiffusion is a comprehensive improvement over current protein design methods: (1) it generates diverse unconditional designs up to 600 residues far exceeding previous methods; (2) it enables higher-order architectures with any desired symmetry, unlike Hallucination methods limited to cyclic symmetries; (3) it outperforms all previous methods on motif scaffolding benchmarks; (4) it raises binder design success rates by two orders of magnitude.
 
@@ -1234,7 +1255,7 @@ Three independent lines of evidence establish comprehensive improvement: (1) @ou
 
 #### RFdiffusion enables protein design from minimal specifications ★
 
-📌 `generality_claim`   |   Belief: **0.41**
+📌 `generality_claim`   |   Belief: **0.47**
 
 > In a manner analogous to networks that produce images from user-specified inputs, RFdiffusion enables the design of diverse functional proteins from simple molecular specifications (e.g., high-affinity binders to a user-specified target protein, diverse protein assemblies from user-specified symmetries), with minimal specialist knowledge required.
 
@@ -1276,62 +1297,62 @@ Three independent lines of evidence establish comprehensive improvement: (1) @ou
 | [alt_structural_mimicry_in_nsem](#alt_structural_mimicry_in_nsem) | claim | 0.12 | 0.1200 | independent |
 | [alt_alternative_c4_arrangement](#alt_alternative_c4_arrangement) | claim | 0.12 | 0.1205 | independent |
 | [alt_indirect_structural_disruption_h52a](#alt_indirect_structural_disruption_h52a) | claim | 0.12 | 0.1205 | independent |
+| [alt_nonspecific_binding_p53_mdm2](#alt_nonspecific_binding_p53_mdm2) | claim | 0.18 | 0.1867 | independent |
+| [alt_nonspecific_adhesion](#alt_nonspecific_adhesion) | claim | 0.18 | 0.2143 | independent |
 | [alt_nonspecific_metal_chelation](#alt_nonspecific_metal_chelation) | claim | 0.22 | 0.2204 | independent |
-| [alt_nonspecific_binding_p53_mdm2](#alt_nonspecific_binding_p53_mdm2) | claim | 0.18 | 0.2437 | independent |
-| [alt_nonspecific_adhesion](#alt_nonspecific_adhesion) | claim | 0.18 | 0.2742 | independent |
 | [alt_coincidental_sec_profiles](#alt_coincidental_sec_profiles) | claim | 0.30 | 0.3000 | independent |
 | [alt_nonspecific_folding](#alt_nonspecific_folding) | claim | 0.20 | 0.3331 | independent |
-| [generality_claim](#generality_claim) | claim | — | 0.4069 | derived |
-| [rfdiffusion_broad_success](#rfdiffusion_broad_success) | claim | — | 0.5080 | derived |
+| [generality_claim](#generality_claim) | claim | — | 0.4736 | derived |
+| [rfdiffusion_broad_success](#rfdiffusion_broad_success) | claim | — | 0.5915 | derived |
+| [enzyme_scaffolding_success](#enzyme_scaffolding_success) | claim | — | 0.6237 | derived |
 | [future_ligands](#future_ligands) | claim | 0.65 | 0.6500 | orphaned |
-| [comprehensive_improvement](#comprehensive_improvement) | claim | — | 0.6599 | derived |
 | [future_nucleic_acids](#future_nucleic_acids) | claim | 0.70 | 0.7000 | orphaned |
 | [af2_validates_unconditional_designs](#af2_validates_unconditional_designs) | claim | — | 0.7330 | derived |
 | [ideality_and_stability](#ideality_and_stability) | claim | — | 0.7473 | derived |
-| [enzyme_scaffolding_success](#enzyme_scaffolding_success) | claim | — | 0.7499 | derived |
-| [ha20_atomic_accuracy](#ha20_atomic_accuracy) | claim | — | 0.7737 | derived |
+| [comprehensive_improvement](#comprehensive_improvement) | claim | — | 0.7686 | derived |
 | [mse_loss_design](#mse_loss_design) | claim | — | 0.7893 | derived |
-| [retroaldolase_demonstration](#retroaldolase_demonstration) | claim | 0.80 | 0.8000 | orphaned |
-| [sars_cov2_trimeric_binder_design](#sars_cov2_trimeric_binder_design) | claim | — | 0.8105 | derived |
-| [binder_targets_and_affinities](#binder_targets_and_affinities) | claim | — | 0.8137 | derived |
+| [retroaldolase_demonstration](#retroaldolase_demonstration) | claim | 0.80 | 0.8000 | independent |
 | [unconditional_generates_diverse_structures](#unconditional_generates_diverse_structures) | claim | — | 0.8327 | derived |
+| [ha20_atomic_accuracy](#ha20_atomic_accuracy) | claim | — | 0.8378 | derived |
+| [sars_cov2_trimeric_binder_design](#sars_cov2_trimeric_binder_design) | claim | — | 0.8719 | derived |
 | [dihedral_tetrahedral_icosahedral](#dihedral_tetrahedral_icosahedral) | claim | — | 0.8790 | derived |
 | [p53_mdm2_affinity](#p53_mdm2_affinity) | claim | — | 0.8798 | derived |
 | [expanded_tim_barrels](#expanded_tim_barrels) | claim | — | 0.8800 | derived |
 | [fold_conditioned_generation](#fold_conditioned_generation) | claim | 0.88 | 0.8800 | independent |
-| [motif_not_from_training](#motif_not_from_training) | claim | 0.88 | 0.8800 | orphaned |
 | [mse_vs_fape_ablation](#mse_vs_fape_ablation) | claim | 0.88 | 0.8800 | independent |
-| [ni_binding_endothermic](#ni_binding_endothermic) | claim | 0.88 | 0.8800 | orphaned |
-| [noise_free_reverse](#noise_free_reverse) | claim | 0.88 | 0.8800 | orphaned |
-| [novel_interfaces](#novel_interfaces) | claim | 0.88 | 0.8800 | orphaned |
-| [binder_success_rate](#binder_success_rate) | claim | — | 0.8844 | derived |
-| [compute_efficiency](#compute_efficiency) | claim | — | 0.9198 | derived |
+| [binder_targets_and_affinities](#binder_targets_and_affinities) | claim | — | 0.8813 | derived |
+| [compute_efficiency](#compute_efficiency) | claim | — | 0.9200 | derived |
 | [novel_oligomeric_topologies](#novel_oligomeric_topologies) | claim | — | 0.9200 | derived |
 | [outperforms_hallucination](#outperforms_hallucination) | claim | 0.92 | 0.9200 | independent |
-| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 0.9218 | derived |
-| [two_orders_attribution](#two_orders_attribution) | claim | 0.75 | 0.9305 | independent |
 | [ha20_matches_design](#ha20_matches_design) | claim | — | 0.9515 | derived |
-| [previous_binder_design_limitations](#previous_binder_design_limitations) | claim | 0.88 | 0.9666 | independent |
-| [hallucination_benchmark](#hallucination_benchmark) | claim | 0.88 | 0.9704 | independent |
-| [rf_inpainting_benchmark](#rf_inpainting_benchmark) | claim | 0.88 | 0.9704 | independent |
-| [key_insight](#key_insight) | claim | — | 0.9972 | derived |
-| [method_design_validated](#method_design_validated) | claim | — | 0.9981 | derived |
+| [binder_success_rate](#binder_success_rate) | claim | — | 0.9579 | derived |
+| [two_orders_attribution](#two_orders_attribution) | claim | 0.75 | 0.9742 | independent |
+| [novel_interfaces](#novel_interfaces) | claim | 0.88 | 0.9798 | independent |
+| [previous_binder_design_limitations](#previous_binder_design_limitations) | claim | 0.88 | 0.9876 | independent |
+| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 0.9918 | derived |
+| [motif_not_from_training](#motif_not_from_training) | claim | 0.88 | 0.9955 | independent |
+| [noise_free_reverse](#noise_free_reverse) | claim | 0.88 | 0.9959 | independent |
+| [hallucination_benchmark](#hallucination_benchmark) | claim | 0.88 | 0.9966 | independent |
+| [rf_inpainting_benchmark](#rf_inpainting_benchmark) | claim | 0.88 | 0.9966 | independent |
+| [key_insight](#key_insight) | claim | — | 0.9973 | derived |
+| [method_design_validated](#method_design_validated) | claim | — | 0.9982 | derived |
 | [prior_ddpm_limitations](#prior_ddpm_limitations) | claim | 0.85 | 0.9986 | independent |
 | [rf_inpainting_limitations](#rf_inpainting_limitations) | claim | 0.85 | 0.9986 | independent |
-| [pretraining_benefit](#pretraining_benefit) | claim | 0.88 | 0.9989 | independent |
-| [self_conditioning_improvement](#self_conditioning_improvement) | claim | 0.88 | 0.9989 | independent |
-| [ddpm_properties_for_protein_design](#ddpm_properties_for_protein_design) | claim | 0.90 | 0.9990 | independent |
+| [pretraining_benefit](#pretraining_benefit) | claim | 0.88 | 0.9990 | independent |
+| [self_conditioning_improvement](#self_conditioning_improvement) | claim | 0.88 | 0.9990 | independent |
+| [ddpm_properties_for_protein_design](#ddpm_properties_for_protein_design) | claim | 0.90 | 0.9991 | independent |
 | [ni_binding_design](#ni_binding_design) | claim | — | 0.9994 | derived |
 | [denoising_process](#denoising_process) | claim | 0.92 | 0.9995 | independent |
 | [binder_specificity](#binder_specificity) | claim | 0.88 | 0.9997 | independent |
 | [ni_binding_nsem](#ni_binding_nsem) | claim | 0.88 | 0.9997 | independent |
 | [icosahedral_he0902](#icosahedral_he0902) | claim | 0.88 | 0.9997 | independent |
 | [experimental_validation_monomers](#experimental_validation_monomers) | claim | 0.92 | 0.9998 | independent |
+| [ni_binding_endothermic](#ni_binding_endothermic) | claim | 0.88 | 0.9998 | independent |
 | [p53_mdm2_design](#p53_mdm2_design) | claim | 0.92 | 0.9998 | independent |
 | [ni_binding_histidine_dependence](#ni_binding_histidine_dependence) | claim | 0.92 | 0.9998 | independent |
-| [ni_binding_experimental](#ni_binding_experimental) | claim | 0.92 | 0.9998 | independent |
-| [pipeline_description](#pipeline_description) | claim | — | 0.9998 | derived |
 | [nsem_validates_cyclic](#nsem_validates_cyclic) | claim | 0.92 | 0.9998 | independent |
 | [sec_validation_oligomers](#sec_validation_oligomers) | claim | 0.92 | 0.9998 | independent |
 | [ha20_cryoem_structure](#ha20_cryoem_structure) | claim | 0.95 | 0.9998 | independent |
+| [ni_binding_experimental](#ni_binding_experimental) | claim | 0.92 | 0.9999 | derived |
+| [pipeline_description](#pipeline_description) | claim | — | 1.0000 | derived |
 | [symmetric_high_success](#symmetric_high_success) | claim | — | 1.0000 | derived |

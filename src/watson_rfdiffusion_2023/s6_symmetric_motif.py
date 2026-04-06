@@ -101,6 +101,19 @@ _strat_ni_design = noisy_and(
     background=[metal_coordination_geometry, alphafold2_definition],
 )
 
+# Endothermic binding provides additional mechanistic evidence
+_strat_ni_endothermic = noisy_and(
+    [ni_binding_endothermic],
+    ni_binding_experimental,
+    reason=(
+        "@ni_binding_endothermic shows that a few Ni²⁺-binding designs exhibit endothermic "
+        "ITC signals, suggesting entropy-driven coordination in those assemblies. This "
+        "diversity of thermodynamic signatures across different designs further supports "
+        "@ni_binding_experimental — the binding is genuine and mediated by the designed "
+        "sites, not by a single non-specific mechanism."
+    ),
+)
+
 # Experimental validation of Ni²⁺ binding
 alt_nonspecific_metal_chelation = claim(
     "The ITC binding signals could arise from non-specific metal chelation by "
