@@ -22,6 +22,10 @@ unconditional_generates_diverse_structures = claim(
     "divergence from known structures increases with protein length.",
     title="RFdiffusion generates diverse novel structures unconditionally",
     background=[in_silico_success_definition],
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 af2_validates_unconditional_designs = claim(
@@ -30,6 +34,10 @@ af2_validates_unconditional_designs = claim(
     "samples are closely repredicted by AF2 up to about 400 amino acids.",
     title="AF2 validates unconditional designs up to 600 residues",
     background=[alphafold2_definition],
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 experimental_validation_monomers = claim(
@@ -37,6 +45,10 @@ experimental_validation_monomers = claim(
     "designs showed circular dichroism (CD) spectra consistent with the mixed alpha-beta "
     "topologies of the designs and extreme thermostability.",
     title="Experimental validation of unconditional monomer designs",
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 outperforms_hallucination = claim(
@@ -47,6 +59,10 @@ outperforms_hallucination = claim(
     "deteriorate beyond this length.",
     title="RFdiffusion outperforms RF Hallucination",
     background=[in_silico_success_definition],
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 fold_conditioned_generation = claim(
@@ -57,6 +73,10 @@ fold_conditioned_generation = claim(
     "that at least 8 were soluble, thermostable, and had CD spectra consistent with "
     "the design model.",
     title="Fold-conditioned generation achieves high success rates",
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 # --- Strategies ---

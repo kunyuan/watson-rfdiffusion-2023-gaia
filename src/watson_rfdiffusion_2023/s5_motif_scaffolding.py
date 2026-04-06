@@ -37,6 +37,10 @@ rfdiffusion_benchmark_performance = claim(
     "optimization.",
     title="RFdiffusion solves 23/25 benchmark problems",
     background=[benchmark_definition, in_silico_success_definition],
+    metadata={
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+    },
 )
 
 hallucination_benchmark = claim(
@@ -73,6 +77,10 @@ p53_mdm2_design = claim(
     "binding at 10 μM. The overall experimental success rate (binding at or above 50% "
     "of maximal response) was high.",
     title="p53-MDM2 binder scaffolding: 55/96 designs show binding",
+    metadata={
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+    },
 )
 
 p53_mdm2_affinity = claim(
@@ -80,6 +88,10 @@ p53_mdm2_affinity = claim(
     "of 0.5 nM and 0.7 nM by biolayer interferometry (BLI), three orders of magnitude "
     "higher affinity than the reported 600 nM affinity of the p53 peptide alone.",
     title="p53-MDM2 binder affinity: 0.5-0.7 nM vs 600 nM native",
+    metadata={
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+    },
 )
 
 # --- Enzyme active site scaffolding ---
@@ -92,6 +104,10 @@ enzyme_scaffolding_success = claim(
     "required this fine-tuning step.",
     title="Enzyme active site scaffolding succeeds after fine-tuning",
     background=[in_silico_success_definition],
+    metadata={
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+    },
 )
 
 retroaldolase_demonstration = claim(

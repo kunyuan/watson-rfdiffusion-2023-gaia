@@ -42,6 +42,10 @@ binder_success_rate = claim(
     "targets with fewer than 100 designs tested per target.",
     title="19% binder success rate — 100× improvement over Rosetta",
     background=[binder_filtering],
+    metadata={
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 \u00c5.",
+    },
 )
 
 binder_targets_and_affinities = claim(
@@ -51,6 +55,10 @@ binder_targets_and_affinities = claim(
     "titrations showed nanomolar affinities with no further experimental optimization, "
     "including HA and IL-7Rα binders with affinities of ~30 nM.",
     title="Nanomolar binders to five therapeutic targets",
+    metadata={
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 \u00c5.",
+    },
 )
 
 two_orders_attribution = claim(
@@ -83,6 +91,10 @@ ha20_cryoem_structure = claim(
     "refinement without symmetry revealed full occupancy of all three HA stem epitopes "
     "by HA_20.",
     title="Cryo-EM structure of HA_20-HA complex at 2.9 Å",
+    metadata={
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 \u00c5.",
+    },
 )
 
 ha20_matches_design = claim(
@@ -90,6 +102,10 @@ ha20_matches_design = claim(
     "computational design model with 0.63 Å backbone r.m.s.d. Over the binder alone, "
     "the experimental structure deviates from the RFdiffusion design by only 0.6 Å.",
     title="HA_20 cryo-EM structure matches design at 0.63 Å r.m.s.d.",
+    metadata={
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 \u00c5.",
+    },
 )
 
 ha20_atomic_accuracy = claim(

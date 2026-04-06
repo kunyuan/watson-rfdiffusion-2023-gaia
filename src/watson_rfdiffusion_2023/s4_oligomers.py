@@ -43,6 +43,10 @@ sec_validation_oligomers = claim(
     "oligomerization states closely consistent with the design models by size-exclusion "
     "chromatography (SEC) within the 95% confidence interval (126 within the 99% CI).",
     title="SEC validates oligomeric states",
+    metadata={
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+    },
 )
 
 nsem_validates_cyclic = claim(
@@ -53,6 +57,10 @@ nsem_validates_cyclic = claim(
     "shape matching the design. C5 and C6 designs with >750 residues also showed "
     "consistent 2D class averages.",
     title="nsEM confirms cyclic oligomer structures",
+    metadata={
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+    },
 )
 
 expanded_tim_barrels = claim(
@@ -64,6 +72,10 @@ expanded_tim_barrels = claim(
     "classic 8-strand TIM barrel, but RFdiffusion more readily explores global changes "
     "in barrel curvature.",
     title="Expanded TIM barrel-like oligomers beyond natural evolution",
+    metadata={
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+    },
 )
 
 dihedral_tetrahedral_icosahedral = claim(
@@ -73,6 +85,10 @@ dihedral_tetrahedral_icosahedral = claim(
     "designs were congruent with design models. Cryo-EM of D4 design HE0537 closely "
     "matched the design model, recapitulating the ~45° offset between tetrameric subunits.",
     title="Dihedral and higher-order symmetry designs validated",
+    metadata={
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+    },
 )
 
 icosahedral_he0902 = claim(
@@ -82,6 +98,10 @@ icosahedral_he0902 = claim(
     "triangular hubs arrayed around the empty C5 axes. Such large assemblies should be "
     "useful as nanomaterials and vaccine scaffolds.",
     title="Icosahedral assembly HE0902 validated by nsEM",
+    metadata={
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+    },
 )
 
 # --- Strategies ---

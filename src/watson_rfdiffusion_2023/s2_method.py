@@ -50,6 +50,10 @@ denoising_process = claim(
     "converge on realistic protein backbone structures.",
     title="Iterative denoising generation process",
     background=[frame_representation, ddpm_definition],
+    metadata={
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+    },
 )
 
 self_conditioning_improvement = claim(
@@ -59,6 +63,10 @@ self_conditioning_improvement = claim(
     "protein design tasks. Increased coherence of predictions within self-conditioned "
     "trajectories may at least in part explain these performance increases.",
     title="Self-conditioning improves RFdiffusion performance",
+    metadata={
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+    },
 )
 
 pretraining_benefit = claim(
@@ -68,6 +76,10 @@ pretraining_benefit = claim(
     "unconditional generation benchmarks.",
     title="Pretraining from RF weights is critical",
     background=[rosettafold_definition],
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 mse_vs_fape_ablation = claim(
@@ -75,6 +87,10 @@ mse_vs_fape_ablation = claim(
     "the performance of RFdiffusion for unconditional generation of 300 amino acid "
     "proteins, confirming that m.s.e. loss is essential.",
     title="MSE loss ablation shows its necessity",
+    metadata={
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+    },
 )
 
 pipeline_description = claim(
@@ -86,6 +102,10 @@ pipeline_description = claim(
     "symmetry specifications, or fixed functional-motif coordinates.",
     title="RFdiffusion design pipeline",
     background=[proteinmpnn_definition, alphafold2_definition, in_silico_success_definition],
+    metadata={
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+    },
 )
 
 compute_efficiency = claim(

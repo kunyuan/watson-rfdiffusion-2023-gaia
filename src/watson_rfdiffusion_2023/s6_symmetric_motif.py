@@ -28,6 +28,10 @@ sars_cov2_trimeric_binder_design = claim(
     "binding while maintaining avidity benefits from multivalency.",
     title="C3-symmetric SARS-CoV-2 trimeric binder design",
     background=[alphafold2_definition],
+    metadata={
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni\u00b2\u207a-binding assemblies with ITC and nsEM validation.",
+    },
 )
 
 ni_binding_design = claim(
@@ -38,6 +42,10 @@ ni_binding_design = claim(
     "metal in the AF2-predicted structures.",
     title="C4 Ni²⁺-binding assembly design with square-planar geometry",
     background=[metal_coordination_geometry, alphafold2_definition],
+    metadata={
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni\u00b2\u207a-binding assemblies with ITC and nsEM validation.",
+    },
 )
 
 ni_binding_experimental = claim(
@@ -47,6 +55,10 @@ ni_binding_experimental = claim(
     "ranging from low nanomolar to low micromolar. Inflection points in wild-type "
     "isotherms indicated binding with the designed 1:4 stoichiometry (ion:monomer).",
     title="18/36 Ni²⁺-binding designs experimentally confirmed",
+    metadata={
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni\u00b2\u207a-binding assemblies with ITC and nsEM validation.",
+    },
 )
 
 ni_binding_histidine_dependence = claim(
@@ -54,6 +66,10 @@ ni_binding_histidine_dependence = claim(
     "reduced Ni²⁺ binding in 17 out of 17 cases with successful expression, confirming "
     "that metal binding is mediated by the scaffolded histidine residues.",
     title="H52A mutation abolishes Ni²⁺ binding",
+    metadata={
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni\u00b2\u207a-binding assemblies with ITC and nsEM validation.",
+    },
 )
 
 ni_binding_nsem = claim(
@@ -62,6 +78,10 @@ ni_binding_nsem = claim(
     "symmetry in raw micrographs and 2D class averages. A 3D reconstruction of "
     "NiB1.17 was in close agreement with the design model.",
     title="nsEM confirms C4 symmetry of Ni²⁺ binders",
+    metadata={
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni\u00b2\u207a-binding assemblies with ITC and nsEM validation.",
+    },
 )
 
 ni_binding_endothermic = claim(
