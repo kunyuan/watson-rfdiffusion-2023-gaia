@@ -53,6 +53,17 @@ from .. import (
     alt_alternative_c4_arrangement,
     alt_nonspecific_adhesion,
     alt_ha20_alternative_conformation,
+    alt_memorization,
+    alt_copying_pdb_interfaces,
+    # Induction alternatives (s5)
+    alt_noise_free_overfitting,
+    alt_training_correlation_artifact,
+    # Induction alternatives (s8)
+    alt_outperforms_other_explanation,
+    alt_benchmark_other_explanation,
+    alt_binder_other_explanation,
+    alt_ideality_exp_artifact,
+    alt_ideality_fold_artifact,
     # --- Strategies ---
     _strat_key_insight,
     _strat_mse_loss,
@@ -66,7 +77,7 @@ from .. import (
     _strat_dihedral,
     _strat_benchmark,
     _strat_generalization,
-    _strat_noise_free,
+    _strat_benchmark_support,
     _strat_p53_affinity,
     _strat_enzyme,
     _strat_ni_endothermic,
@@ -233,6 +244,43 @@ REVIEW = ReviewBundle(
         review_claim(alt_ha20_alternative_conformation, prior=0.05,
             judgment="opposing",
             justification="At 2.9 Å with 0.63 Å r.m.s.d. to design, alternative conformation virtually impossible."),
+        review_claim(alt_memorization, prior=0.15,
+            judgment="opposing",
+            justification="Directly contradicted by Supplementary Fig. 7 showing no correlation with training set."),
+        review_claim(alt_copying_pdb_interfaces, prior=0.15,
+            judgment="opposing",
+            justification="Directly contradicted by structural analysis showing novel interfaces distinct from PDB."),
+
+        # ============================================================
+        # INDUCTION ALTERNATIVES — explicit alt_exps
+        # ============================================================
+
+        # _strat_comprehensive alternatives
+        review_claim(alt_outperforms_other_explanation, prior=0.15,
+            judgment="opposing",
+            justification="Benchmark artifact cannot explain z=9.5 (P=1.6e-21) across 400 designs per condition."),
+        review_claim(alt_benchmark_other_explanation, prior=0.20,
+            judgment="opposing",
+            justification="23/25 from 6 publications across diverse problem types; unlikely to be uniformly easy."),
+        review_claim(alt_binder_other_explanation, prior=0.25,
+            judgment="tentative",
+            justification="AF2 filtering contributes ~10×, but RFdiffusion also contributes ~10×; partially valid."),
+
+        # _strat_ideality alternatives
+        review_claim(alt_ideality_exp_artifact, prior=0.25,
+            judgment="opposing",
+            justification="Non-specific stability is possible but CD spectra specifically match designed topologies."),
+        review_claim(alt_ideality_fold_artifact, prior=0.30,
+            judgment="tentative",
+            justification="TIM barrel inherent stability is partially valid; 8/11 success partly reflects fold robustness."),
+
+        # _strat_benchmark_support alternatives
+        review_claim(alt_noise_free_overfitting, prior=0.20,
+            judgment="opposing",
+            justification="17/23 consistency across diverse problems argues against overfitting to benchmark."),
+        review_claim(alt_training_correlation_artifact, prior=0.15,
+            judgment="opposing",
+            justification="Supplementary Fig. 7 analysis is convincing; sampling artifact unlikely."),
 
         # ============================================================
         # STRATEGY PARAMETERS — conditional_probability for noisy_and
@@ -271,12 +319,8 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_benchmark, conditional_probability=0.88,
             judgment="formalized",
             justification="Controlled comparison on same 25 problems with same metric."),
-        review_strategy(_strat_generalization, conditional_probability=0.88,
-            judgment="formalized",
-            justification="Supplementary Fig. 7 directly shows success uncorrelated with training set."),
-        review_strategy(_strat_noise_free, conditional_probability=0.85,
-            judgment="formalized",
-            justification="17/23 improved with noise-free trajectories. Direct computational observation."),
+        # _strat_generalization is now abduction (no params needed)
+        # _strat_benchmark_support is induction (no direct params needed)
         review_strategy(_strat_p53_affinity, conditional_probability=0.88,
             judgment="formalized",
             justification="BLI titrations are quantitative. 1000× improvement over native peptide."),
@@ -292,9 +336,7 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_ni_design, conditional_probability=0.85,
             judgment="formalized",
             justification="Extends symmetric design to metal coordination. AF2-confirmed."),
-        review_strategy(_strat_novel_interfaces, conditional_probability=0.85,
-            judgment="formalized",
-            justification="Novel interfaces distinct from PDB confirm de novo design, not copying."),
+        # _strat_novel_interfaces is now abduction (no params needed)
         review_strategy(_strat_binder_success, conditional_probability=0.88,
             judgment="formalized",
             justification="Direct experimental screening on 5 targets with clear improvement."),
@@ -304,12 +346,8 @@ REVIEW = ReviewBundle(
         review_strategy(_strat_atomic_accuracy, conditional_probability=0.92,
             judgment="formalized",
             justification="0.63 Å cryo-EM r.m.s.d. is definitive structural evidence."),
-        review_strategy(_strat_comprehensive, conditional_probability=0.88,
-            judgment="formalized",
-            justification="Three independent application areas each with strong evidence."),
-        review_strategy(_strat_ideality, conditional_probability=0.85,
-            judgment="formalized",
-            justification="CD spectra + thermostability consistent but limited characterization."),
+        # _strat_comprehensive is now induction (no direct params needed)
+        # _strat_ideality is now induction (no direct params needed)
         review_strategy(_strat_broad_success, conditional_probability=0.88,
             judgment="formalized",
             justification="Comprehensive improvement + atomic validation → broad success."),

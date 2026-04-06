@@ -1,6 +1,6 @@
 """Functional-Motif Scaffolding and Enzyme Active Site Scaffolding — RFdiffusion outperforms prior methods at scaffolding diverse functional sites."""
 
-from gaia.lang import claim, setting, noisy_and, abduction
+from gaia.lang import claim, setting, noisy_and, abduction, induction
 
 from .motivation import in_silico_success_definition
 from .s2_method import pipeline_description
@@ -151,26 +151,47 @@ _strat_p53_affinity = noisy_and(
     ),
 )
 
-# Scaffolding success is independent of training set
-_strat_generalization = noisy_and(
-    [motif_not_from_training],
-    rfdiffusion_benchmark_performance,
+# Scaffolding success is independent of training set → abduction
+alt_memorization = claim(
+    "RFdiffusion's scaffolding success could be due to memorizing motifs seen during "
+    "training rather than genuine generalization to new motifs.",
+    title="Alternative: training set memorization",
+)
+
+_strat_generalization = abduction(
+    observation=motif_not_from_training,
+    hypothesis=rfdiffusion_benchmark_performance,
+    alternative=alt_memorization,
     reason=(
-        "@motif_not_from_training (Supplementary Fig. 7) shows that scaffolding success "
-        "is uncorrelated with whether the motif appeared in the training set, providing "
-        "evidence that @rfdiffusion_benchmark_performance reflects genuine generalization "
-        "rather than memorization."
+        "The observation (@motif_not_from_training, Supplementary Fig. 7) that scaffolding "
+        "success is uncorrelated with training set membership is best explained by "
+        "@rfdiffusion_benchmark_performance reflecting genuine generalization. The "
+        "alternative — that success comes from memorizing training motifs — is directly "
+        "contradicted by the lack of correlation."
     ),
 )
 
-# Noise-free reverse trajectories improve benchmark results
-_strat_noise_free = noisy_and(
-    [noise_free_reverse],
+# Multiple benchmark-supporting observations → induction into benchmark performance
+alt_noise_free_overfitting = claim(
+    "Improvement without noise could reflect overfitting to the benchmark set rather "
+    "than genuine model quality.",
+    title="Alternative: noise-free improvement is overfitting",
+)
+alt_training_correlation_artifact = claim(
+    "The lack of correlation between success and training set membership could be a "
+    "sampling artifact rather than genuine generalization.",
+    title="Alternative: training correlation is sampling artifact",
+)
+
+_strat_benchmark_support = induction(
+    [noise_free_reverse, motif_not_from_training],
     rfdiffusion_benchmark_performance,
+    alt_exps=[alt_noise_free_overfitting, alt_training_correlation_artifact],
     reason=(
-        "@noise_free_reverse shows that in 17/23 solved problems, removing noise during "
-        "reverse trajectories improved success rates, a technical insight contributing to "
-        "@rfdiffusion_benchmark_performance's high numbers."
+        "Two independent technical findings support @rfdiffusion_benchmark_performance: "
+        "@noise_free_reverse (17/23 problems improve without noise) reveals that the model's "
+        "deterministic predictions are already high-quality; @motif_not_from_training confirms "
+        "generalization beyond the training set. Both point to a robust scaffolding capability."
     ),
 )
 

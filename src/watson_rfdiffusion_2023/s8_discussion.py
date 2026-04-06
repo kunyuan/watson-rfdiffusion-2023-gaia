@@ -1,6 +1,6 @@
 """Discussion — Comprehensive improvement over prior methods and future extensions."""
 
-from gaia.lang import claim, noisy_and
+from gaia.lang import claim, noisy_and, induction
 
 from .motivation import rfdiffusion_broad_success
 from .s3_unconditional import (
@@ -58,33 +58,67 @@ future_ligands = claim(
 
 # --- Strategies ---
 
-# Comprehensive improvement: 3 key results (outperforms is now leaf, not 4-premise)
-_strat_comprehensive = noisy_and(
+# Induction: 3 independent application areas each succeed → general comprehensive improvement
+# Explicit alternatives for induction sub-abductions
+alt_outperforms_other_explanation = claim(
+    "RFdiffusion's statistical superiority over Hallucination (z=9.5) could be an "
+    "artifact of the specific benchmark setup or in silico metric rather than genuine "
+    "method superiority.",
+    title="Alternative: benchmark artifact for unconditional generation",
+)
+alt_benchmark_other_explanation = claim(
+    "Solving 23/25 motif scaffolding problems could reflect an easy benchmark rather "
+    "than genuine method capability.",
+    title="Alternative: easy benchmark set",
+)
+alt_binder_other_explanation = claim(
+    "The 19% binder success rate could be inflated by the AF2 filtering step rather "
+    "than reflecting RFdiffusion's backbone generation quality.",
+    title="Alternative: success due to AF2 filtering alone",
+)
+
+_strat_comprehensive = induction(
     [outperforms_hallucination, rfdiffusion_benchmark_performance, binder_success_rate],
     comprehensive_improvement,
+    alt_exps=[alt_outperforms_other_explanation, alt_benchmark_other_explanation,
+              alt_binder_other_explanation],
     reason=(
-        "Three independent lines of evidence establish comprehensive improvement: "
-        "(1) @outperforms_hallucination — significantly better unconditional generation "
-        "(z = 9.5, P = 1.6 × 10⁻²¹). "
-        "(2) @rfdiffusion_benchmark_performance — 23/25 scaffolding problems solved. "
+        "Three independent application areas each demonstrate clear superiority: "
+        "(1) @outperforms_hallucination — unconditional generation (z = 9.5, P = 1.6 × 10⁻²¹). "
+        "(2) @rfdiffusion_benchmark_performance — 23/25 scaffolding benchmark problems. "
         "(3) @binder_success_rate — 19% binder success, ~100× over Rosetta. "
-        "Symmetric oligomer success (separately validated) further supports this."
+        "Each application area provides independent evidence for the general claim of "
+        "comprehensive improvement; the pattern of success across diverse tasks supports "
+        "the inductive conclusion."
     ),
 )
 
-# Ideality claim from experimental data
-_strat_ideality = noisy_and(
+# Ideality: two independent experimental observations → general stability claim
+alt_ideality_exp_artifact = claim(
+    "The CD spectra and thermostability of unconditional designs could reflect "
+    "non-specific stable folds rather than the designed topologies.",
+    title="Alternative: non-specific stability for unconditional designs",
+)
+alt_ideality_fold_artifact = claim(
+    "The TIM barrel experimental success (8/11) could be due to the inherent "
+    "stability of the TIM barrel fold rather than RFdiffusion design quality.",
+    title="Alternative: inherent TIM barrel stability",
+)
+
+_strat_ideality = induction(
     [experimental_validation_monomers, fold_conditioned_generation],
     ideality_and_stability,
+    alt_exps=[alt_ideality_exp_artifact, alt_ideality_fold_artifact],
     reason=(
-        "@experimental_validation_monomers shows 9 designs with correct CD spectra "
-        "and extreme thermostability. @fold_conditioned_generation shows 8/11 TIM "
-        "barrel designs soluble and thermostable. Together these confirm Rosetta-level "
-        "ideality despite increased structural complexity."
+        "Two independent sets of experimental characterization both show Rosetta-level "
+        "design quality: @experimental_validation_monomers (9 unconditional designs with "
+        "correct CD and thermostability) and @fold_conditioned_generation (8/11 TIM barrels "
+        "soluble and thermostable). The consistency across different design types "
+        "inductively supports the general ideality claim."
     ),
 )
 
-# Broad success directly from comprehensive improvement + atomic-level validation
+# Broad success from comprehensive improvement + atomic validation
 _strat_broad_success = noisy_and(
     [comprehensive_improvement, ha20_atomic_accuracy],
     rfdiffusion_broad_success,

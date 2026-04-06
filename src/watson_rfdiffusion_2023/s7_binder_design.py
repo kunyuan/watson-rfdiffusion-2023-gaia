@@ -130,15 +130,24 @@ _strat_binder_affinities = noisy_and(
     ),
 )
 
-# Novel interfaces support de novo design claim
-_strat_novel_interfaces = noisy_and(
-    [novel_interfaces],
-    binder_success_rate,
+# Novel interfaces: abduction — de novo design vs copying PDB
+alt_copying_pdb_interfaces = claim(
+    "The high binder success rate could be due to RFdiffusion recapitulating known "
+    "binding modes from the PDB training set rather than generating genuinely new "
+    "protein-protein interfaces.",
+    title="Alternative: recapitulating PDB binding modes",
+)
+
+_strat_novel_interfaces = abduction(
+    observation=novel_interfaces,
+    hypothesis=binder_success_rate,
+    alternative=alt_copying_pdb_interfaces,
     reason=(
-        "@novel_interfaces shows that the designed binding interfaces are often highly "
-        "distinct from natural interfaces to these targets in the PDB, confirming that "
-        "@binder_success_rate reflects genuinely de novo design rather than recapitulation "
-        "of known binding modes."
+        "The observation (@novel_interfaces) that designed binding interfaces are often "
+        "highly distinct from known PDB interfaces to the same targets is best explained "
+        "by @binder_success_rate reflecting genuinely de novo design. The alternative — "
+        "that success comes from copying known binding modes — is directly contradicted "
+        "by the structural novelty of the interfaces."
     ),
 )
 

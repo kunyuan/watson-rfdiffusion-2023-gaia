@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:f3fe8afb261d3eb079bfdd4087f38b4d08fb0db29a12e0551cfb64af1e0d7778",
+  "ir_hash": "sha256:030e805876d507a4d6e1ba69551e1a716aa015695353ade0310c4bbe93eb5501",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -602,6 +602,42 @@
       "type": "claim"
     },
     {
+      "content": "RFdiffusion's scaffolding success could be due to memorizing motifs seen during training rather than genuine generalization to new motifs.",
+      "content_hash": "9ec22980c78179623567eadb3d4c8784bd64cdbc878a5ac7aa42899a381be805",
+      "declaration_index": 12,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_memorization",
+      "label": "alt_memorization",
+      "module": "s5_motif_scaffolding",
+      "parameters": [],
+      "title": "Alternative: training set memorization",
+      "type": "claim"
+    },
+    {
+      "content": "Improvement without noise could reflect overfitting to the benchmark set rather than genuine model quality.",
+      "content_hash": "f232939be5e9441c9d836fc0a36a2e91cacf1294af4e439b6bf4b8fe4dc985a3",
+      "declaration_index": 13,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_noise_free_overfitting",
+      "label": "alt_noise_free_overfitting",
+      "module": "s5_motif_scaffolding",
+      "parameters": [],
+      "title": "Alternative: noise-free improvement is overfitting",
+      "type": "claim"
+    },
+    {
+      "content": "The lack of correlation between success and training set membership could be a sampling artifact rather than genuine generalization.",
+      "content_hash": "d764345349b3e676d81120412d57bcbe49245baed21918d41dad2cd9274cb66f",
+      "declaration_index": 14,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_training_correlation_artifact",
+      "label": "alt_training_correlation_artifact",
+      "module": "s5_motif_scaffolding",
+      "parameters": [],
+      "title": "Alternative: training correlation is sampling artifact",
+      "type": "claim"
+    },
+    {
       "content": "Divalent transition metal ions show distinct preferences for specific coordination geometries (square planar, tetrahedral, octahedral) with ion-specific optimal sidechain-metal bond lengths. RFdiffusion provides a general route to building symmetric protein assemblies around such sites, with the symmetry of the assembly matching the symmetry of the coordination geometry.",
       "content_hash": "fb51200c1e3b956fe6b31d6d829a694891fa0190c1ed83215f931be9224514c6",
       "declaration_index": 0,
@@ -854,9 +890,21 @@
       "type": "claim"
     },
     {
+      "content": "The high binder success rate could be due to RFdiffusion recapitulating known binding modes from the PDB training set rather than generating genuinely new protein-protein interfaces.",
+      "content_hash": "a249fffd824748df67eee47509249713a6c8fc44cb1189ae102fa0471faf4411",
+      "declaration_index": 11,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces",
+      "label": "alt_copying_pdb_interfaces",
+      "module": "s7_binder_design",
+      "parameters": [],
+      "title": "Alternative: recapitulating PDB binding modes",
+      "type": "claim"
+    },
+    {
       "content": "The binders could achieve high BLI signals through non-specific adhesion to the target surface rather than site-specific binding at the designed interface.",
       "content_hash": "469f28ea375f78790ce2e25a3f34062fb52af4f9a268caad8c756c4992300a3a",
-      "declaration_index": 11,
+      "declaration_index": 12,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_nonspecific_adhesion",
       "label": "alt_nonspecific_adhesion",
@@ -868,7 +916,7 @@
     {
       "content": "The cryo-EM density could be fit to a different structural model that does not resemble the RFdiffusion design, indicating the binder adopted an alternative conformation.",
       "content_hash": "a3bde0382b897ca279b6e63f52a40200ad8beabebab14feb6b8f5bcda5959cc2",
-      "declaration_index": 12,
+      "declaration_index": 13,
       "exported": false,
       "id": "github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation",
       "label": "alt_ha20_alternative_conformation",
@@ -935,6 +983,66 @@
       "module": "s8_discussion",
       "parameters": [],
       "title": "Future extension to explicit ligand modeling",
+      "type": "claim"
+    },
+    {
+      "content": "RFdiffusion's statistical superiority over Hallucination (z=9.5) could be an artifact of the specific benchmark setup or in silico metric rather than genuine method superiority.",
+      "content_hash": "21f294fe7069c326c07a2e6e51ccdc843c6d581a82475d6f01a97d7ae1595445",
+      "declaration_index": 5,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation",
+      "label": "alt_outperforms_other_explanation",
+      "module": "s8_discussion",
+      "parameters": [],
+      "title": "Alternative: benchmark artifact for unconditional generation",
+      "type": "claim"
+    },
+    {
+      "content": "Solving 23/25 motif scaffolding problems could reflect an easy benchmark rather than genuine method capability.",
+      "content_hash": "8400d34f4dd193a9f9c4cd8873f91c67a410b438be3783d1d8c962ea5c24d3f6",
+      "declaration_index": 6,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation",
+      "label": "alt_benchmark_other_explanation",
+      "module": "s8_discussion",
+      "parameters": [],
+      "title": "Alternative: easy benchmark set",
+      "type": "claim"
+    },
+    {
+      "content": "The 19% binder success rate could be inflated by the AF2 filtering step rather than reflecting RFdiffusion's backbone generation quality.",
+      "content_hash": "aba1fa40be88aca62d4ee4ea6320fb73589f4d2cc8ca9fe3ab5fa754aa441eed",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_binder_other_explanation",
+      "label": "alt_binder_other_explanation",
+      "module": "s8_discussion",
+      "parameters": [],
+      "title": "Alternative: success due to AF2 filtering alone",
+      "type": "claim"
+    },
+    {
+      "content": "The CD spectra and thermostability of unconditional designs could reflect non-specific stable folds rather than the designed topologies.",
+      "content_hash": "8a5eab2c53768744eb8bc35e138e791ff6c04e0ed9a98ab4f186b0e98c0999e7",
+      "declaration_index": 8,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact",
+      "label": "alt_ideality_exp_artifact",
+      "module": "s8_discussion",
+      "parameters": [],
+      "title": "Alternative: non-specific stability for unconditional designs",
+      "type": "claim"
+    },
+    {
+      "content": "The TIM barrel experimental success (8/11) could be due to the inherent stability of the TIM barrel fold rather than RFdiffusion design quality.",
+      "content_hash": "f385aae82b6e164d54f5e27941ea74d6fe3e3d3d34e90b07c0890f63887d1adb",
+      "declaration_index": 9,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact",
+      "label": "alt_ideality_fold_artifact",
+      "module": "s8_discussion",
+      "parameters": [],
+      "title": "Alternative: inherent TIM barrel stability",
       "type": "claim"
     },
     {
@@ -1138,6 +1246,126 @@
       "type": "claim"
     },
     {
+      "content": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
+      "content_hash": "5d4130af010f0c6535aa8fa32a561a88bdc7afe0a3e6169190f92af4cae8fb51",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
+      "label": "__disjunction_result_baccee84",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_28b4a35090824d66",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
+      "content_hash": "a737770b9e7712f5494592c9de56549093cfeb8a48479fc2804948200860e9ec",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
+      "label": "__equivalence_result_9dea8459",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_baccee84,github:watson_rfdiffusion_2023::motif_not_from_training)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_28b4a35090824d66",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::noise_free_reverse)",
+      "content_hash": "a16ed4ff38d29d52b0458c41f156449e9b27599b0ce56644bf6f1887a5651254",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0",
+      "label": "__disjunction_result_105d49f0",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::noise_free_reverse)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_e181b2baec42b74d",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_105d49f0,github:watson_rfdiffusion_2023::noise_free_reverse)",
+      "content_hash": "5294f4726ebd78e814396fa8eb36e7532d52dd50d62befef8c556f1d2db78b6b",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_7d8b79f4",
+      "label": "__equivalence_result_7d8b79f4",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_105d49f0,github:watson_rfdiffusion_2023::noise_free_reverse)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_e181b2baec42b74d",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
+      "content_hash": "5d4130af010f0c6535aa8fa32a561a88bdc7afe0a3e6169190f92af4cae8fb51",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
+      "label": "__disjunction_result_ca424a58",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::motif_not_from_training)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_c86a9f82ea1986db",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_ca424a58,github:watson_rfdiffusion_2023::motif_not_from_training)",
+      "content_hash": "89384331e2319e90c469fc5c33ec54926649102677d9fcb5c72278c37a90190c",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_548dbe75",
+      "label": "__equivalence_result_548dbe75",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_ca424a58,github:watson_rfdiffusion_2023::motif_not_from_training)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_c86a9f82ea1986db",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "explains(github:watson_rfdiffusion_2023::ni_binding_experimental)",
       "content_hash": "0dd4c17c1b902e9c0fc7fe551f2aa46558797724a258cbdece4efdf829b7c9c7",
       "exported": false,
@@ -1258,6 +1486,46 @@
       "type": "claim"
     },
     {
+      "content": "explains(github:watson_rfdiffusion_2023::novel_interfaces)",
+      "content_hash": "7438c74485c01415cc099d350d1536d05a0ca3810ce63c326e4437214ac2e505",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_b10e681e",
+      "label": "__disjunction_result_b10e681e",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::novel_interfaces)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_64b566e52e17b337",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_b10e681e,github:watson_rfdiffusion_2023::novel_interfaces)",
+      "content_hash": "69a0515d453afb27244454f473959435ea663a25cc91178fda5ea3a09129385c",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_a4979a59",
+      "label": "__equivalence_result_a4979a59",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_b10e681e,github:watson_rfdiffusion_2023::novel_interfaces)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_64b566e52e17b337",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "explains(github:watson_rfdiffusion_2023::binder_specificity)",
       "content_hash": "7e89389c6c118b91a83818b59a23ee4ed7a8e300824461071e1e95126cb61156",
       "exported": false,
@@ -1331,6 +1599,206 @@
         "helper_visibility": "formal_internal",
         "intermediate_role": "equivalence_result",
         "owning_strategy_id": "lcs_33ae3f4a0ccf6749",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::outperforms_hallucination)",
+      "content_hash": "b7748e394c3d013bee0322fa1f0cf26c98c8861e7c04bfabac356061c9d8c8db",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_e739fb28",
+      "label": "__disjunction_result_e739fb28",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::outperforms_hallucination)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_2d5692d7ab3eb7ff",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_e739fb28,github:watson_rfdiffusion_2023::outperforms_hallucination)",
+      "content_hash": "4c78a3b58bbe9242cc4f9d1510100a381dbd0b7d64abe3783eba5ee8aa8ce436",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_552b2b1a",
+      "label": "__equivalence_result_552b2b1a",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_e739fb28,github:watson_rfdiffusion_2023::outperforms_hallucination)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_2d5692d7ab3eb7ff",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance)",
+      "content_hash": "2f2bb66801ea3294d986236af13faf1b17af1dcc30beb697833b612e1e458bc9",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b",
+      "label": "__disjunction_result_d9c8364b",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_a3bd40d781f06292",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b,github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance)",
+      "content_hash": "7a78460cd898111782acef6275403dfc509ec76e9e8f0bf2b99d8d1dfebb2d1b",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_d96646ec",
+      "label": "__equivalence_result_d96646ec",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b,github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_a3bd40d781f06292",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::binder_success_rate)",
+      "content_hash": "ba0de641cb549d4686eb1b0e4526cf3b92ae4248da7c175efdf78f1b0fc99bb4",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6",
+      "label": "__disjunction_result_15c2c5d6",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::binder_success_rate)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_9946552e52eeeffc",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6,github:watson_rfdiffusion_2023::binder_success_rate)",
+      "content_hash": "540f92fc4b5ede8ea5c7914217ebcc305ee51ea99c77135809ffdb99c8fd5ac4",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_e1b3d054",
+      "label": "__equivalence_result_e1b3d054",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6,github:watson_rfdiffusion_2023::binder_success_rate)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_9946552e52eeeffc",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::experimental_validation_monomers)",
+      "content_hash": "4e8225e8fccaadfd1d8c8ecfe243ebe723c378f457e0ffb2e4ce157467cec309",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_93e88891",
+      "label": "__disjunction_result_93e88891",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::experimental_validation_monomers)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_4af9a122c6269bc2",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_93e88891,github:watson_rfdiffusion_2023::experimental_validation_monomers)",
+      "content_hash": "44eea0b96edc4778aeb4999b02654bcbce5def4ab91121cb682091eb77ca1561",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_ce147ad4",
+      "label": "__equivalence_result_ce147ad4",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_93e88891,github:watson_rfdiffusion_2023::experimental_validation_monomers)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_4af9a122c6269bc2",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:watson_rfdiffusion_2023::fold_conditioned_generation)",
+      "content_hash": "646ed11788a62a73c21551e0dfe6310cd70fb03511c811f8117429b6b166c4bb",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__disjunction_result_aee73650",
+      "label": "__disjunction_result_aee73650",
+      "metadata": {
+        "canonical_name": "explains(github:watson_rfdiffusion_2023::fold_conditioned_generation)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_e15b2f78882d9538",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_aee73650,github:watson_rfdiffusion_2023::fold_conditioned_generation)",
+      "content_hash": "fe96164a1c49c13ee5295d8aa796310976afeb2c96ae3ff0ac084dd2534a82a5",
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::__equivalence_result_b4a9c34d",
+      "label": "__equivalence_result_b4a9c34d",
+      "metadata": {
+        "canonical_name": "same_truth(github:watson_rfdiffusion_2023::__disjunction_result_aee73650,github:watson_rfdiffusion_2023::fold_conditioned_generation)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_e15b2f78882d9538",
         "owning_strategy_type": "abduction",
         "visibility": "formal_internal"
       },
@@ -1761,27 +2229,149 @@
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+              "github:watson_rfdiffusion_2023::alt_memorization"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
+              "github:watson_rfdiffusion_2023::motif_not_from_training"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "@motif_not_from_training (Supplementary Fig. 7) shows that scaffolding success is uncorrelated with whether the motif appeared in the training set, providing evidence that @rfdiffusion_benchmark_performance reflects genuine generalization rather than memorization."
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_memorization"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::motif_not_from_training"
+          ]
+        },
+        "reason": "The observation (@motif_not_from_training, Supplementary Fig. 7) that scaffolding success is uncorrelated with training set membership is best explained by @rfdiffusion_benchmark_performance reflecting genuine generalization. The alternative — that success comes from memorizing training motifs — is directly contradicted by the lack of correlation."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::motif_not_from_training"
+        "github:watson_rfdiffusion_2023::motif_not_from_training",
+        "github:watson_rfdiffusion_2023::alt_memorization"
       ],
       "scope": "local",
-      "strategy_id": "lcs_aab06b7522bf8d55",
-      "type": "noisy_and"
+      "strategy_id": "lcs_28b4a35090824d66",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+              "github:watson_rfdiffusion_2023::alt_noise_free_overfitting"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_7d8b79f4",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0",
+              "github:watson_rfdiffusion_2023::noise_free_reverse"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_noise_free_overfitting"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::noise_free_reverse"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::noise_free_reverse",
+        "github:watson_rfdiffusion_2023::alt_noise_free_overfitting"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_e181b2baec42b74d",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+              "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_548dbe75",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_ca424a58",
+              "github:watson_rfdiffusion_2023::motif_not_from_training"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::motif_not_from_training"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::motif_not_from_training",
+        "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_c86a9f82ea1986db",
+      "type": "abduction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
       "metadata": {
-        "reason": "@noise_free_reverse shows that in 17/23 solved problems, removing noise during reverse trajectories improved success rates, a technical insight contributing to @rfdiffusion_benchmark_performance's high numbers."
+        "reason": "Two independent technical findings support @rfdiffusion_benchmark_performance: @noise_free_reverse (17/23 problems improve without noise) reveals that the model's deterministic predictions are already high-quality; @motif_not_from_training confirms generalization beyond the training set. Both point to a robust scaffolding capability."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::noise_free_reverse"
+        "github:watson_rfdiffusion_2023::noise_free_reverse",
+        "github:watson_rfdiffusion_2023::motif_not_from_training",
+        "github:watson_rfdiffusion_2023::alt_noise_free_overfitting",
+        "github:watson_rfdiffusion_2023::alt_training_correlation_artifact"
       ],
       "scope": "local",
-      "strategy_id": "lcs_d5a8e1dd060298ef",
-      "type": "noisy_and"
+      "strategy_id": "lcs_5f69d447f0cab289",
+      "sub_strategies": [
+        "lcs_e181b2baec42b74d",
+        "lcs_c86a9f82ea1986db"
+      ],
+      "type": "induction"
     },
     {
       "background": [
@@ -2005,15 +2595,46 @@
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::binder_success_rate",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_b10e681e",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::binder_success_rate",
+              "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_a4979a59",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_b10e681e",
+              "github:watson_rfdiffusion_2023::novel_interfaces"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "@novel_interfaces shows that the designed binding interfaces are often highly distinct from natural interfaces to these targets in the PDB, confirming that @binder_success_rate reflects genuinely de novo design rather than recapitulation of known binding modes."
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::novel_interfaces"
+          ]
+        },
+        "reason": "The observation (@novel_interfaces) that designed binding interfaces are often highly distinct from known PDB interfaces to the same targets is best explained by @binder_success_rate reflecting genuinely de novo design. The alternative — that success comes from copying known binding modes — is directly contradicted by the structural novelty of the interfaces."
       },
       "premises": [
-        "github:watson_rfdiffusion_2023::novel_interfaces"
+        "github:watson_rfdiffusion_2023::novel_interfaces",
+        "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces"
       ],
       "scope": "local",
-      "strategy_id": "lcs_058ae0d20ed2e2eb",
-      "type": "noisy_and"
+      "strategy_id": "lcs_64b566e52e17b337",
+      "type": "abduction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::binder_success_rate",
@@ -2116,30 +2737,254 @@
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::comprehensive_improvement",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_e739fb28",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::comprehensive_improvement",
+              "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_552b2b1a",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_e739fb28",
+              "github:watson_rfdiffusion_2023::outperforms_hallucination"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "Three independent lines of evidence establish comprehensive improvement: (1) @outperforms_hallucination — significantly better unconditional generation (z = 9.5, P = 1.6 × 10⁻²¹). (2) @rfdiffusion_benchmark_performance — 23/25 scaffolding problems solved. (3) @binder_success_rate — 19% binder success, ~100× over Rosetta. Symmetric oligomer success (separately validated) further supports this."
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::outperforms_hallucination"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::outperforms_hallucination",
+        "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_2d5692d7ab3eb7ff",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::comprehensive_improvement",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::comprehensive_improvement",
+              "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_d96646ec",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b",
+              "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+        "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_a3bd40d781f06292",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::comprehensive_improvement",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::comprehensive_improvement",
+              "github:watson_rfdiffusion_2023::alt_binder_other_explanation"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_e1b3d054",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6",
+              "github:watson_rfdiffusion_2023::binder_success_rate"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_binder_other_explanation"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::binder_success_rate"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::binder_success_rate",
+        "github:watson_rfdiffusion_2023::alt_binder_other_explanation"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_9946552e52eeeffc",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::comprehensive_improvement",
+      "metadata": {
+        "reason": "Three independent application areas each demonstrate clear superiority: (1) @outperforms_hallucination — unconditional generation (z = 9.5, P = 1.6 × 10⁻²¹). (2) @rfdiffusion_benchmark_performance — 23/25 scaffolding benchmark problems. (3) @binder_success_rate — 19% binder success, ~100× over Rosetta. Each application area provides independent evidence for the general claim of comprehensive improvement; the pattern of success across diverse tasks supports the inductive conclusion."
       },
       "premises": [
         "github:watson_rfdiffusion_2023::outperforms_hallucination",
         "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
-        "github:watson_rfdiffusion_2023::binder_success_rate"
+        "github:watson_rfdiffusion_2023::binder_success_rate",
+        "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation",
+        "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation",
+        "github:watson_rfdiffusion_2023::alt_binder_other_explanation"
       ],
       "scope": "local",
-      "strategy_id": "lcs_a3f1c38f724f4d15",
-      "type": "noisy_and"
+      "strategy_id": "lcs_b1c729491f5f9fd1",
+      "sub_strategies": [
+        "lcs_2d5692d7ab3eb7ff",
+        "lcs_a3bd40d781f06292",
+        "lcs_9946552e52eeeffc"
+      ],
+      "type": "induction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::ideality_and_stability",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_93e88891",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::ideality_and_stability",
+              "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_ce147ad4",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_93e88891",
+              "github:watson_rfdiffusion_2023::experimental_validation_monomers"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::experimental_validation_monomers"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::experimental_validation_monomers",
+        "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_4af9a122c6269bc2",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:watson_rfdiffusion_2023::ideality_and_stability",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__disjunction_result_aee73650",
+            "operator": "disjunction",
+            "variables": [
+              "github:watson_rfdiffusion_2023::ideality_and_stability",
+              "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact"
+            ]
+          },
+          {
+            "conclusion": "github:watson_rfdiffusion_2023::__equivalence_result_b4a9c34d",
+            "operator": "equivalence",
+            "variables": [
+              "github:watson_rfdiffusion_2023::__disjunction_result_aee73650",
+              "github:watson_rfdiffusion_2023::fold_conditioned_generation"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact"
+          ],
+          "observation": [
+            "github:watson_rfdiffusion_2023::fold_conditioned_generation"
+          ]
+        }
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::fold_conditioned_generation",
+        "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_e15b2f78882d9538",
+      "type": "abduction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::ideality_and_stability",
       "metadata": {
-        "reason": "@experimental_validation_monomers shows 9 designs with correct CD spectra and extreme thermostability. @fold_conditioned_generation shows 8/11 TIM barrel designs soluble and thermostable. Together these confirm Rosetta-level ideality despite increased structural complexity."
+        "reason": "Two independent sets of experimental characterization both show Rosetta-level design quality: @experimental_validation_monomers (9 unconditional designs with correct CD and thermostability) and @fold_conditioned_generation (8/11 TIM barrels soluble and thermostable). The consistency across different design types inductively supports the general ideality claim."
       },
       "premises": [
         "github:watson_rfdiffusion_2023::experimental_validation_monomers",
-        "github:watson_rfdiffusion_2023::fold_conditioned_generation"
+        "github:watson_rfdiffusion_2023::fold_conditioned_generation",
+        "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact",
+        "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact"
       ],
       "scope": "local",
-      "strategy_id": "lcs_7c6e5de6be6ac162",
-      "type": "noisy_and"
+      "strategy_id": "lcs_ceab2a78aba56d15",
+      "sub_strategies": [
+        "lcs_4af9a122c6269bc2",
+        "lcs_e15b2f78882d9538"
+      ],
+      "type": "induction"
     },
     {
       "conclusion": "github:watson_rfdiffusion_2023::rfdiffusion_broad_success",
