@@ -1,6 +1,70 @@
 # Critical Analysis: Watson et al. 2023 — RFdiffusion
 
-Based on belief propagation over the formalized knowledge graph (131 knowledge nodes, 43 strategies, 52 leaf priors).
+## Package Statistics
+
+### Knowledge Graph
+
+| Metric | Count |
+|--------|-------|
+| Modules | 8 |
+| Total knowledge nodes | 131 |
+| Settings | 14 |
+| User claims | 75 |
+| Auto-generated claims (from abduction/induction formalization) | 42 |
+| Exported conclusions | 7 |
+
+### Strategies
+
+| Type | Count | Fraction |
+|------|-------|----------|
+| abduction | 21 | 49% |
+| noisy_and | 19 | 44% |
+| induction | 3 | 7% |
+| **Total** | **43** | |
+
+### Claim Classification
+
+| Category | Count | Fraction of user claims |
+|----------|-------|------------------------|
+| Leaf (independent premises) | 52 | 69% |
+| Derived (BP propagated) | 23 | 31% |
+| Orphaned (future directions only) | 2 | 3% |
+
+### Figure References
+
+| Metric | Value |
+|--------|-------|
+| Total images in artifacts/ | 37 |
+| Unique figures referenced by claims | 6 (all 6 main figures) |
+| Claims with figure metadata | 28 |
+| Image coverage | 6/37 (16%) |
+
+All 6 main figures (Fig. 1-6) are referenced by claims. The remaining 31 images are extended data figures and supplementary figures whose data is captured in claim content but not individually referenced.
+
+### Belief Propagation Results
+
+| Metric | Value |
+|--------|-------|
+| Leaf priors assigned | 52 |
+| Strategy parameters (noisy_and) | 19 |
+| Auto-parameterized (abduction + induction) | 24 |
+| Derived claims with belief >= 0.8 | 19/23 (83%) |
+| Mean derived claim belief | 0.903 |
+| Lowest derived claim belief | 0.611 (generality_claim) |
+
+### Exported Claim Beliefs
+
+| Claim | Belief |
+|-------|--------|
+| rfdiffusion_benchmark_performance | 1.000 |
+| symmetric_high_success | 1.000 |
+| binder_success_rate | 1.000 |
+| comprehensive_improvement | 0.993 |
+| ha20_atomic_accuracy | 0.875 |
+| rfdiffusion_broad_success | 0.763 |
+| generality_claim | 0.611 |
+
+---
 
 ## Summary
 
