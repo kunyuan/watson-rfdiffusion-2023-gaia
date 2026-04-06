@@ -146,6 +146,7 @@ The authors reasoned that improved diffusion models for protein design could be 
 
 ```mermaid
 graph TD
+    rosettafold_definition["RoseTTAFold structure prediction network"]:::external
     alphafold2_definition["AlphaFold2 as validation tool"]:::external
     proteinmpnn_definition["ProteinMPNN for sequence design"]:::external
     in_silico_success_definition["In silico success metric"]:::external
@@ -154,11 +155,15 @@ graph TD
     frame_representation["RF frame representation"]:::setting
     mse_loss_design["MSE loss for training RFdiffusion (0.79)"]:::derived
     denoising_process["Iterative denoising generation process (1.00)"]:::premise
-    self_conditioning_improvement["Self-conditioning improves RFdiffusion performance (0.88)"]:::orphan
-    pretraining_benefit["Pretraining from RF weights is critical (0.88)"]:::orphan
+    self_conditioning_improvement["Self-conditioning improves RFdiffusion performance (1.00)"]:::premise
+    pretraining_benefit["Pretraining from RF weights is critical (1.00)"]:::premise
     mse_vs_fape_ablation["MSE loss ablation shows its necessity (0.88)"]:::premise
     pipeline_description["RFdiffusion design pipeline (1.00)"]:::derived
     compute_efficiency["RFdiffusion compute efficiency (0.92)"]:::derived
+    method_design_validated["Ablation studies validate method design choices (1.00)"]:::derived
+    strat_0(["noisy_and"]):::weak
+    rosettafold_definition -.-> strat_0
+    strat_0 --> key_insight
     strat_1(["noisy_and"]):::weak
     key_insight --> strat_1
     mse_vs_fape_ablation --> strat_1
@@ -166,15 +171,21 @@ graph TD
     pdb_training_data -.-> strat_1
     strat_1 --> mse_loss_design
     strat_2(["noisy_and"]):::weak
-    key_insight --> strat_2
-    denoising_process --> strat_2
-    proteinmpnn_definition -.-> strat_2
-    alphafold2_definition -.-> strat_2
-    in_silico_success_definition -.-> strat_2
-    strat_2 --> pipeline_description
-    strat_5(["noisy_and"]):::weak
-    pipeline_description --> strat_5
-    strat_5 --> compute_efficiency
+    self_conditioning_improvement --> strat_2
+    pretraining_benefit --> strat_2
+    rosettafold_definition -.-> strat_2
+    strat_2 --> method_design_validated
+    strat_3(["noisy_and"]):::weak
+    key_insight --> strat_3
+    denoising_process --> strat_3
+    method_design_validated --> strat_3
+    proteinmpnn_definition -.-> strat_3
+    alphafold2_definition -.-> strat_3
+    in_silico_success_definition -.-> strat_3
+    strat_3 --> pipeline_description
+    strat_6(["noisy_and"]):::weak
+    pipeline_description --> strat_6
+    strat_6 --> compute_efficiency
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -235,7 +246,7 @@ The choice of m.s.e. loss follows from @key_insight that RF should be fine-tuned
 
 #### Self-conditioning improves RFdiffusion performance
 
-📌 `self_conditioning_improvement`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `self_conditioning_improvement`   |   Prior: 0.88   |   Belief: **1.00**
 
 > Self-conditioning — in which the model conditions on its previous prediction between timesteps, inspired by 'recycling' in AlphaFold2 — notably improved performance on in silico benchmarks encompassing both conditional and unconditional protein design tasks. Increased coherence of predictions within self-conditioned trajectories may at least in part explain these performance increases.
 
@@ -244,7 +255,7 @@ The choice of m.s.e. loss follows from @key_insight that RF should be fine-tuned
 
 #### Pretraining from RF weights is critical
 
-📌 `pretraining_benefit`   |   Prior: 0.88   |   Belief: **0.88**
+📌 `pretraining_benefit`   |   Prior: 0.88   |   Belief: **1.00**
 
 > Fine-tuning RFdiffusion from pretrained RoseTTAFold weights was far more successful than training for an equivalent length of time from untrained (randomly initialized) weights, as measured by in silico success rates on unconditional generation benchmarks.
 
@@ -266,11 +277,11 @@ The choice of m.s.e. loss follows from @key_insight that RF should be fine-tuned
 
 > The RFdiffusion design pipeline consists of: (1) RFdiffusion generates a protein backbone structure via iterative denoising, (2) ProteinMPNN designs amino acid sequences for the backbone (typically 8 sequences per design), (3) AF2 predicts the structure from each designed sequence for validation. The pipeline can be conditioned on various inputs including partial sequence, fold information, symmetry specifications, or fixed functional-motif coordinates.
 
-🔗 **noisy_and**([Key insight: fine-tuning RF as diffusion denoiser](#key_insight), [Iterative denoising generation process](#denoising_process))
+🔗 **noisy_and**([Key insight: fine-tuning RF as diffusion denoiser](#key_insight), [Iterative denoising generation process](#denoising_process), [Ablation studies validate method design choices](#method_design_validated))
 
 <details><summary>Reasoning</summary>
 
-The three-stage pipeline follows from the design: @key_insight establishes that RF fine-tuned as a denoiser generates backbone structures; @denoising_process describes the iterative denoising mechanism. ProteinMPNN then designs sequences for the generated backbones, and AF2 validates them, completing the pipeline.
+The three-stage pipeline follows from: @key_insight establishes that RF fine-tuned as a denoiser generates backbone structures; @denoising_process describes the iterative denoising mechanism; @method_design_validated confirms the training recipe (self-conditioning + pretrained weights) is essential. ProteinMPNN then designs sequences for the generated backbones, and AF2 validates them.
 
 </details>
 
@@ -292,6 +303,23 @@ The @pipeline_description's iterative denoising process generates a 100-residue 
 </details>
 
 
+<a id="method_design_validated"></a>
+
+#### Ablation studies validate method design choices
+
+📌 `method_design_validated`   |   Belief: **1.00**
+
+> Ablation studies confirm that both self-conditioning between timesteps and fine-tuning from pretrained RoseTTAFold weights are each essential for RFdiffusion's performance: removing either notably decreases in silico success rates on unconditional generation benchmarks.
+
+🔗 **noisy_and**([Self-conditioning improves RFdiffusion performance](#self_conditioning_improvement), [Pretraining from RF weights is critical](#pretraining_benefit))
+
+<details><summary>Reasoning</summary>
+
+@self_conditioning_improvement shows that conditioning on previous predictions between timesteps notably improved both conditional and unconditional benchmarks. @pretraining_benefit shows that starting from pretrained RF weights was far more successful than training from scratch. Together these ablation studies confirm that the key design choices in the training recipe are each essential.
+
+</details>
+
+
 ## Unconditional Protein Monomer Generation — RFdiffusion generates diverse, novel protein structures from random noise.
 
 ```mermaid
@@ -303,14 +331,14 @@ graph TD
     outperforms_hallucination["RFdiffusion outperforms RF Hallucination (0.92)"]:::premise
     fold_conditioned_generation["Fold-conditioned generation achieves high success rates (0.88)"]:::premise
     alt_nonspecific_folding["Alternative: non-specific folding (0.33)"]:::premise
-    strat_3(["noisy_and"]):::weak
-    unconditional_generates_diverse_structures --> strat_3
-    alphafold2_definition -.-> strat_3
-    strat_3 --> af2_validates_unconditional_designs
-    strat_4(["abduction"]):::weak
-    experimental_validation_monomers --> strat_4
-    alt_nonspecific_folding --> strat_4
-    strat_4 --> unconditional_generates_diverse_structures
+    strat_4(["noisy_and"]):::weak
+    unconditional_generates_diverse_structures --> strat_4
+    alphafold2_definition -.-> strat_4
+    strat_4 --> af2_validates_unconditional_designs
+    strat_5(["abduction"]):::weak
+    experimental_validation_monomers --> strat_5
+    alt_nonspecific_folding --> strat_5
+    strat_5 --> unconditional_generates_diverse_structures
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -410,36 +438,36 @@ graph TD
     alt_coincidental_sec_profiles["Alternative: coincidental SEC profiles (0.30)"]:::premise
     alt_structural_mimicry_in_nsem["Alternative: structural mimicry in nsEM (0.12)"]:::premise
     alt_disordered_aggregates_mimicking_icosahedral["Alternative: disordered aggregates mimicking icosahedral symmetry (0.08)"]:::premise
-    strat_2(["noisy_and"]):::weak
-    in_silico_success_definition -.-> strat_2
-    strat_2 --> pipeline_description
-    strat_6(["noisy_and"]):::weak
-    pipeline_description --> strat_6
-    symmetric_design_approach -.-> strat_6
-    in_silico_success_definition -.-> strat_6
-    strat_6 --> symmetric_high_success
+    strat_3(["noisy_and"]):::weak
+    in_silico_success_definition -.-> strat_3
+    strat_3 --> pipeline_description
     strat_7(["noisy_and"]):::weak
-    symmetric_high_success --> strat_7
-    strat_7 --> novel_oligomeric_topologies
-    strat_8(["abduction"]):::weak
-    sec_validation_oligomers --> strat_8
-    alt_coincidental_sec_profiles --> strat_8
-    strat_8 --> symmetric_high_success
+    pipeline_description --> strat_7
+    symmetric_design_approach -.-> strat_7
+    in_silico_success_definition -.-> strat_7
+    strat_7 --> symmetric_high_success
+    strat_8(["noisy_and"]):::weak
+    symmetric_high_success --> strat_8
+    strat_8 --> novel_oligomeric_topologies
     strat_9(["abduction"]):::weak
-    nsem_validates_cyclic --> strat_9
-    alt_structural_mimicry_in_nsem --> strat_9
+    sec_validation_oligomers --> strat_9
+    alt_coincidental_sec_profiles --> strat_9
     strat_9 --> symmetric_high_success
-    strat_10(["noisy_and"]):::weak
-    symmetric_high_success --> strat_10
-    strat_10 --> expanded_tim_barrels
+    strat_10(["abduction"]):::weak
+    nsem_validates_cyclic --> strat_10
+    alt_structural_mimicry_in_nsem --> strat_10
+    strat_10 --> symmetric_high_success
     strat_11(["noisy_and"]):::weak
     symmetric_high_success --> strat_11
-    sec_validation_oligomers --> strat_11
-    strat_11 --> dihedral_tetrahedral_icosahedral
-    strat_12(["abduction"]):::weak
-    icosahedral_he0902 --> strat_12
-    alt_disordered_aggregates_mimicking_icosahedral --> strat_12
-    strat_12 --> symmetric_high_success
+    strat_11 --> expanded_tim_barrels
+    strat_12(["noisy_and"]):::weak
+    symmetric_high_success --> strat_12
+    sec_validation_oligomers --> strat_12
+    strat_12 --> dihedral_tetrahedral_icosahedral
+    strat_13(["abduction"]):::weak
+    icosahedral_he0902 --> strat_13
+    alt_disordered_aggregates_mimicking_icosahedral --> strat_13
+    strat_13 --> symmetric_high_success
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -601,29 +629,29 @@ graph TD
     enzyme_scaffolding_success["Enzyme active site scaffolding succeeds after fine-tuning (0.75)"]:::derived
     retroaldolase_demonstration["Retroaldolase active site scaffolding with implicit substrate (0.80)"]:::orphan
     alt_nonspecific_binding_p53_mdm2["Alternative: non-specific binding in p53-MDM2 screens (0.24)"]:::premise
-    strat_2(["noisy_and"]):::weak
-    in_silico_success_definition -.-> strat_2
-    strat_2 --> pipeline_description
-    strat_13(["noisy_and"]):::weak
-    pipeline_description --> strat_13
-    hallucination_benchmark --> strat_13
-    rf_inpainting_benchmark --> strat_13
-    benchmark_definition -.-> strat_13
-    motif_scaffolding_definition -.-> strat_13
-    in_silico_success_definition -.-> strat_13
-    strat_13 --> rfdiffusion_benchmark_performance
-    strat_14(["abduction"]):::weak
-    p53_mdm2_design --> strat_14
-    alt_nonspecific_binding_p53_mdm2 --> strat_14
+    strat_3(["noisy_and"]):::weak
+    in_silico_success_definition -.-> strat_3
+    strat_3 --> pipeline_description
+    strat_14(["noisy_and"]):::weak
+    pipeline_description --> strat_14
+    hallucination_benchmark --> strat_14
+    rf_inpainting_benchmark --> strat_14
+    benchmark_definition -.-> strat_14
+    motif_scaffolding_definition -.-> strat_14
+    in_silico_success_definition -.-> strat_14
     strat_14 --> rfdiffusion_benchmark_performance
-    strat_15(["noisy_and"]):::weak
+    strat_15(["abduction"]):::weak
     p53_mdm2_design --> strat_15
-    strat_15 --> p53_mdm2_affinity
+    alt_nonspecific_binding_p53_mdm2 --> strat_15
+    strat_15 --> rfdiffusion_benchmark_performance
     strat_16(["noisy_and"]):::weak
-    pipeline_description --> strat_16
-    motif_scaffolding_definition -.-> strat_16
-    in_silico_success_definition -.-> strat_16
-    strat_16 --> enzyme_scaffolding_success
+    p53_mdm2_design --> strat_16
+    strat_16 --> p53_mdm2_affinity
+    strat_17(["noisy_and"]):::weak
+    pipeline_description --> strat_17
+    motif_scaffolding_definition -.-> strat_17
+    in_silico_success_definition -.-> strat_17
+    strat_17 --> enzyme_scaffolding_success
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -785,28 +813,28 @@ graph TD
     alt_nonspecific_metal_chelation["Alternative: non-specific metal chelation (0.22)"]:::premise
     alt_indirect_structural_disruption_h52a["Alternative: indirect structural disruption by H52A (0.12)"]:::premise
     alt_alternative_c4_arrangement["Alternative: alternative C4 arrangement without designed site (0.12)"]:::premise
-    strat_17(["noisy_and"]):::weak
-    symmetric_high_success --> strat_17
-    rfdiffusion_benchmark_performance --> strat_17
-    alphafold2_definition -.-> strat_17
-    strat_17 --> sars_cov2_trimeric_binder_design
     strat_18(["noisy_and"]):::weak
     symmetric_high_success --> strat_18
-    metal_coordination_geometry -.-> strat_18
+    rfdiffusion_benchmark_performance --> strat_18
     alphafold2_definition -.-> strat_18
-    strat_18 --> ni_binding_design
-    strat_19(["abduction"]):::weak
-    ni_binding_experimental --> strat_19
-    alt_nonspecific_metal_chelation --> strat_19
+    strat_18 --> sars_cov2_trimeric_binder_design
+    strat_19(["noisy_and"]):::weak
+    symmetric_high_success --> strat_19
+    metal_coordination_geometry -.-> strat_19
+    alphafold2_definition -.-> strat_19
     strat_19 --> ni_binding_design
     strat_20(["abduction"]):::weak
-    ni_binding_histidine_dependence --> strat_20
-    alt_indirect_structural_disruption_h52a --> strat_20
+    ni_binding_experimental --> strat_20
+    alt_nonspecific_metal_chelation --> strat_20
     strat_20 --> ni_binding_design
     strat_21(["abduction"]):::weak
-    ni_binding_nsem --> strat_21
-    alt_alternative_c4_arrangement --> strat_21
+    ni_binding_histidine_dependence --> strat_21
+    alt_indirect_structural_disruption_h52a --> strat_21
     strat_21 --> ni_binding_design
+    strat_22(["abduction"]):::weak
+    ni_binding_nsem --> strat_22
+    alt_alternative_c4_arrangement --> strat_22
+    strat_22 --> ni_binding_design
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -943,28 +971,28 @@ graph TD
     ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design (0.77)"]:::derived
     alt_nonspecific_adhesion["Alternative: non-specific adhesion (0.27)"]:::premise
     alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation (0.10)"]:::premise
-    strat_22(["noisy_and"]):::weak
-    pipeline_description --> strat_22
-    previous_binder_design_limitations --> strat_22
-    two_orders_attribution --> strat_22
-    binder_design_approach -.-> strat_22
-    binder_filtering -.-> strat_22
-    strat_22 --> binder_success_rate
     strat_23(["noisy_and"]):::weak
-    binder_success_rate --> strat_23
-    strat_23 --> binder_targets_and_affinities
-    strat_24(["abduction"]):::weak
-    binder_specificity --> strat_24
-    alt_nonspecific_adhesion --> strat_24
-    strat_24 --> binder_success_rate
+    pipeline_description --> strat_23
+    previous_binder_design_limitations --> strat_23
+    two_orders_attribution --> strat_23
+    binder_design_approach -.-> strat_23
+    binder_filtering -.-> strat_23
+    strat_23 --> binder_success_rate
+    strat_24(["noisy_and"]):::weak
+    binder_success_rate --> strat_24
+    strat_24 --> binder_targets_and_affinities
     strat_25(["abduction"]):::weak
-    ha20_cryoem_structure --> strat_25
-    alt_ha20_alternative_conformation --> strat_25
-    strat_25 --> ha20_matches_design
-    strat_26(["noisy_and"]):::weak
-    ha20_matches_design --> strat_26
-    binder_success_rate --> strat_26
-    strat_26 --> ha20_atomic_accuracy
+    binder_specificity --> strat_25
+    alt_nonspecific_adhesion --> strat_25
+    strat_25 --> binder_success_rate
+    strat_26(["abduction"]):::weak
+    ha20_cryoem_structure --> strat_26
+    alt_ha20_alternative_conformation --> strat_26
+    strat_26 --> ha20_matches_design
+    strat_27(["noisy_and"]):::weak
+    ha20_matches_design --> strat_27
+    binder_success_rate --> strat_27
+    strat_27 --> ha20_atomic_accuracy
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1141,21 +1169,21 @@ graph TD
     generality_claim["RFdiffusion enables protein design from minimal specifications (0.41)"]:::derived
     future_nucleic_acids["Future extension to nucleic acids via RoseTTAFoldNA (0.70)"]:::orphan
     future_ligands["Future extension to explicit ligand modeling (0.65)"]:::orphan
-    strat_27(["noisy_and"]):::weak
-    outperforms_hallucination --> strat_27
-    rfdiffusion_benchmark_performance --> strat_27
-    binder_success_rate --> strat_27
-    strat_27 --> comprehensive_improvement
     strat_28(["noisy_and"]):::weak
-    experimental_validation_monomers --> strat_28
-    fold_conditioned_generation --> strat_28
-    strat_28 --> ideality_and_stability
+    outperforms_hallucination --> strat_28
+    rfdiffusion_benchmark_performance --> strat_28
+    binder_success_rate --> strat_28
+    strat_28 --> comprehensive_improvement
     strat_29(["noisy_and"]):::weak
-    comprehensive_improvement --> strat_29
-    strat_29 --> rfdiffusion_broad_success
+    experimental_validation_monomers --> strat_29
+    fold_conditioned_generation --> strat_29
+    strat_29 --> ideality_and_stability
     strat_30(["noisy_and"]):::weak
-    rfdiffusion_broad_success --> strat_30
-    strat_30 --> generality_claim
+    comprehensive_improvement --> strat_30
+    strat_30 --> rfdiffusion_broad_success
+    strat_31(["noisy_and"]):::weak
+    rfdiffusion_broad_success --> strat_31
+    strat_31 --> generality_claim
 
     classDef setting fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -1256,16 +1284,16 @@ Three independent lines of evidence establish comprehensive improvement: (1) @ou
 | [generality_claim](#generality_claim) | claim | — | 0.4069 | derived |
 | [rfdiffusion_broad_success](#rfdiffusion_broad_success) | claim | — | 0.5080 | derived |
 | [future_ligands](#future_ligands) | claim | 0.65 | 0.6500 | orphaned |
-| [comprehensive_improvement](#comprehensive_improvement) | claim | — | 0.6600 | derived |
+| [comprehensive_improvement](#comprehensive_improvement) | claim | — | 0.6599 | derived |
 | [future_nucleic_acids](#future_nucleic_acids) | claim | 0.70 | 0.7000 | orphaned |
 | [af2_validates_unconditional_designs](#af2_validates_unconditional_designs) | claim | — | 0.7330 | derived |
 | [ideality_and_stability](#ideality_and_stability) | claim | — | 0.7473 | derived |
 | [enzyme_scaffolding_success](#enzyme_scaffolding_success) | claim | — | 0.7499 | derived |
 | [ha20_atomic_accuracy](#ha20_atomic_accuracy) | claim | — | 0.7737 | derived |
-| [mse_loss_design](#mse_loss_design) | claim | — | 0.7899 | derived |
+| [mse_loss_design](#mse_loss_design) | claim | — | 0.7893 | derived |
 | [retroaldolase_demonstration](#retroaldolase_demonstration) | claim | 0.80 | 0.8000 | orphaned |
-| [sars_cov2_trimeric_binder_design](#sars_cov2_trimeric_binder_design) | claim | — | 0.8106 | derived |
-| [binder_targets_and_affinities](#binder_targets_and_affinities) | claim | — | 0.8138 | derived |
+| [sars_cov2_trimeric_binder_design](#sars_cov2_trimeric_binder_design) | claim | — | 0.8105 | derived |
+| [binder_targets_and_affinities](#binder_targets_and_affinities) | claim | — | 0.8137 | derived |
 | [unconditional_generates_diverse_structures](#unconditional_generates_diverse_structures) | claim | — | 0.8327 | derived |
 | [dihedral_tetrahedral_icosahedral](#dihedral_tetrahedral_icosahedral) | claim | — | 0.8790 | derived |
 | [p53_mdm2_affinity](#p53_mdm2_affinity) | claim | — | 0.8798 | derived |
@@ -1276,33 +1304,34 @@ Three independent lines of evidence establish comprehensive improvement: (1) @ou
 | [ni_binding_endothermic](#ni_binding_endothermic) | claim | 0.88 | 0.8800 | orphaned |
 | [noise_free_reverse](#noise_free_reverse) | claim | 0.88 | 0.8800 | orphaned |
 | [novel_interfaces](#novel_interfaces) | claim | 0.88 | 0.8800 | orphaned |
-| [pretraining_benefit](#pretraining_benefit) | claim | 0.88 | 0.8800 | orphaned |
-| [self_conditioning_improvement](#self_conditioning_improvement) | claim | 0.88 | 0.8800 | orphaned |
 | [binder_success_rate](#binder_success_rate) | claim | — | 0.8844 | derived |
-| [compute_efficiency](#compute_efficiency) | claim | — | 0.9199 | derived |
+| [compute_efficiency](#compute_efficiency) | claim | — | 0.9198 | derived |
 | [novel_oligomeric_topologies](#novel_oligomeric_topologies) | claim | — | 0.9200 | derived |
 | [outperforms_hallucination](#outperforms_hallucination) | claim | 0.92 | 0.9200 | independent |
-| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 0.9219 | derived |
+| [rfdiffusion_benchmark_performance](#rfdiffusion_benchmark_performance) | claim | — | 0.9218 | derived |
 | [two_orders_attribution](#two_orders_attribution) | claim | 0.75 | 0.9305 | independent |
 | [ha20_matches_design](#ha20_matches_design) | claim | — | 0.9515 | derived |
 | [previous_binder_design_limitations](#previous_binder_design_limitations) | claim | 0.88 | 0.9666 | independent |
 | [hallucination_benchmark](#hallucination_benchmark) | claim | 0.88 | 0.9704 | independent |
 | [rf_inpainting_benchmark](#rf_inpainting_benchmark) | claim | 0.88 | 0.9704 | independent |
-| [key_insight](#key_insight) | claim | — | 0.9981 | derived |
-| [prior_ddpm_limitations](#prior_ddpm_limitations) | claim | 0.85 | 0.9989 | independent |
-| [rf_inpainting_limitations](#rf_inpainting_limitations) | claim | 0.85 | 0.9989 | independent |
-| [ddpm_properties_for_protein_design](#ddpm_properties_for_protein_design) | claim | 0.90 | 0.9992 | independent |
+| [key_insight](#key_insight) | claim | — | 0.9972 | derived |
+| [method_design_validated](#method_design_validated) | claim | — | 0.9981 | derived |
+| [prior_ddpm_limitations](#prior_ddpm_limitations) | claim | 0.85 | 0.9986 | independent |
+| [rf_inpainting_limitations](#rf_inpainting_limitations) | claim | 0.85 | 0.9986 | independent |
+| [pretraining_benefit](#pretraining_benefit) | claim | 0.88 | 0.9989 | independent |
+| [self_conditioning_improvement](#self_conditioning_improvement) | claim | 0.88 | 0.9989 | independent |
+| [ddpm_properties_for_protein_design](#ddpm_properties_for_protein_design) | claim | 0.90 | 0.9990 | independent |
 | [ni_binding_design](#ni_binding_design) | claim | — | 0.9994 | derived |
+| [denoising_process](#denoising_process) | claim | 0.92 | 0.9995 | independent |
 | [binder_specificity](#binder_specificity) | claim | 0.88 | 0.9997 | independent |
-| [denoising_process](#denoising_process) | claim | 0.92 | 0.9997 | independent |
 | [ni_binding_nsem](#ni_binding_nsem) | claim | 0.88 | 0.9997 | independent |
 | [icosahedral_he0902](#icosahedral_he0902) | claim | 0.88 | 0.9997 | independent |
 | [experimental_validation_monomers](#experimental_validation_monomers) | claim | 0.92 | 0.9998 | independent |
 | [p53_mdm2_design](#p53_mdm2_design) | claim | 0.92 | 0.9998 | independent |
 | [ni_binding_histidine_dependence](#ni_binding_histidine_dependence) | claim | 0.92 | 0.9998 | independent |
 | [ni_binding_experimental](#ni_binding_experimental) | claim | 0.92 | 0.9998 | independent |
+| [pipeline_description](#pipeline_description) | claim | — | 0.9998 | derived |
 | [nsem_validates_cyclic](#nsem_validates_cyclic) | claim | 0.92 | 0.9998 | independent |
 | [sec_validation_oligomers](#sec_validation_oligomers) | claim | 0.92 | 0.9998 | independent |
 | [ha20_cryoem_structure](#ha20_cryoem_structure) | claim | 0.95 | 0.9998 | independent |
-| [pipeline_description](#pipeline_description) | claim | — | 0.9999 | derived |
 | [symmetric_high_success](#symmetric_high_success) | claim | — | 1.0000 | derived |

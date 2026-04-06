@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:0430e089612066d1018e1ace0e97658102bb791c21b21b457270fd5558ac4775",
+  "ir_hash": "sha256:fda21d09556208059b5a41c9f29b40c4b2a879d44de62bf44365583d7f186daa",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -239,6 +239,18 @@
       "module": "s2_method",
       "parameters": [],
       "title": "RFdiffusion compute efficiency",
+      "type": "claim"
+    },
+    {
+      "content": "Ablation studies confirm that both self-conditioning between timesteps and fine-tuning from pretrained RoseTTAFold weights are each essential for RFdiffusion's performance: removing either notably decreases in silico success rates on unconditional generation benchmarks.",
+      "content_hash": "6bad056da7a019f9b4d156510b2e50ad5798a474aacd9199311d613215291eae",
+      "declaration_index": 9,
+      "exported": false,
+      "id": "github:watson_rfdiffusion_2023::method_design_validated",
+      "label": "method_design_validated",
+      "module": "s2_method",
+      "parameters": [],
+      "title": "Ablation studies validate method design choices",
       "type": "claim"
     },
     {
@@ -1388,20 +1400,37 @@
     },
     {
       "background": [
+        "github:watson_rfdiffusion_2023::rosettafold_definition"
+      ],
+      "conclusion": "github:watson_rfdiffusion_2023::method_design_validated",
+      "metadata": {
+        "reason": "@self_conditioning_improvement shows that conditioning on previous predictions between timesteps notably improved both conditional and unconditional benchmarks. @pretraining_benefit shows that starting from pretrained RF weights was far more successful than training from scratch. Together these ablation studies confirm that the key design choices in the training recipe are each essential."
+      },
+      "premises": [
+        "github:watson_rfdiffusion_2023::self_conditioning_improvement",
+        "github:watson_rfdiffusion_2023::pretraining_benefit"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_62d45272311cf936",
+      "type": "noisy_and"
+    },
+    {
+      "background": [
         "github:watson_rfdiffusion_2023::proteinmpnn_definition",
         "github:watson_rfdiffusion_2023::alphafold2_definition",
         "github:watson_rfdiffusion_2023::in_silico_success_definition"
       ],
       "conclusion": "github:watson_rfdiffusion_2023::pipeline_description",
       "metadata": {
-        "reason": "The three-stage pipeline follows from the design: @key_insight establishes that RF fine-tuned as a denoiser generates backbone structures; @denoising_process describes the iterative denoising mechanism. ProteinMPNN then designs sequences for the generated backbones, and AF2 validates them, completing the pipeline."
+        "reason": "The three-stage pipeline follows from: @key_insight establishes that RF fine-tuned as a denoiser generates backbone structures; @denoising_process describes the iterative denoising mechanism; @method_design_validated confirms the training recipe (self-conditioning + pretrained weights) is essential. ProteinMPNN then designs sequences for the generated backbones, and AF2 validates them."
       },
       "premises": [
         "github:watson_rfdiffusion_2023::key_insight",
-        "github:watson_rfdiffusion_2023::denoising_process"
+        "github:watson_rfdiffusion_2023::denoising_process",
+        "github:watson_rfdiffusion_2023::method_design_validated"
       ],
       "scope": "local",
-      "strategy_id": "lcs_547a07f127bdf3da",
+      "strategy_id": "lcs_8dbdeac9793bd505",
       "type": "noisy_and"
     },
     {

@@ -97,6 +97,14 @@ compute_efficiency = claim(
     title="RFdiffusion compute efficiency",
 )
 
+method_design_validated = claim(
+    "Ablation studies confirm that both self-conditioning between timesteps and "
+    "fine-tuning from pretrained RoseTTAFold weights are each essential for "
+    "RFdiffusion's performance: removing either notably decreases in silico "
+    "success rates on unconditional generation benchmarks.",
+    title="Ablation studies validate method design choices",
+)
+
 # --- Strategies ---
 
 _strat_mse_loss = noisy_and(
@@ -113,14 +121,28 @@ _strat_mse_loss = noisy_and(
     background=[frame_representation, pdb_training_data],
 )
 
+_strat_ablation = noisy_and(
+    [self_conditioning_improvement, pretraining_benefit],
+    method_design_validated,
+    reason=(
+        "@self_conditioning_improvement shows that conditioning on previous predictions "
+        "between timesteps notably improved both conditional and unconditional benchmarks. "
+        "@pretraining_benefit shows that starting from pretrained RF weights was far more "
+        "successful than training from scratch. Together these ablation studies confirm "
+        "that the key design choices in the training recipe are each essential."
+    ),
+    background=[rosettafold_definition],
+)
+
 _strat_pipeline = noisy_and(
-    [key_insight, denoising_process],
+    [key_insight, denoising_process, method_design_validated],
     pipeline_description,
     reason=(
-        "The three-stage pipeline follows from the design: @key_insight establishes that "
-        "RF fine-tuned as a denoiser generates backbone structures; @denoising_process "
-        "describes the iterative denoising mechanism. ProteinMPNN then designs sequences "
-        "for the generated backbones, and AF2 validates them, completing the pipeline."
+        "The three-stage pipeline follows from: @key_insight establishes that RF fine-tuned "
+        "as a denoiser generates backbone structures; @denoising_process describes the "
+        "iterative denoising mechanism; @method_design_validated confirms the training "
+        "recipe (self-conditioning + pretrained weights) is essential. ProteinMPNN then "
+        "designs sequences for the generated backbones, and AF2 validates them."
     ),
     background=[proteinmpnn_definition, alphafold2_definition, in_silico_success_definition],
 )

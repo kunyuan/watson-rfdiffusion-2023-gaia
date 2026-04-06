@@ -9,7 +9,7 @@ from .s8_discussion import *
 
 # Explicitly import underscore-prefixed names needed for review
 from .motivation import _strat_key_insight
-from .s2_method import _strat_mse_loss, _strat_pipeline
+from .s2_method import _strat_mse_loss, _strat_ablation, _strat_pipeline
 from .s3_unconditional import (
     _strat_exp_validation,
     _strat_af2_validates,
