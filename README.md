@@ -2,8 +2,8 @@
 
 Gaia knowledge package: Watson et al. 2023 — De novo design of protein structure and function with RFdiffusion (Nature)
 
-<!-- badges:start -->
-<!-- badges:end -->
+[![Interactive Paper](https://img.shields.io/badge/📖_Interactive_Paper-GitHub_Pages-blue)](https://kunyuan.github.io/watson-rfdiffusion-2023-gaia/)
+[![Knowledge Reference](https://img.shields.io/badge/📚_Reference-Wiki-green)](https://github.com/kunyuan/watson-rfdiffusion-2023-gaia/wiki)
 
 ## Overview
 
