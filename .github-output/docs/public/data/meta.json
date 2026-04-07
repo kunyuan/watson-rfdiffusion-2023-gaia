@@ -1,0 +1,6 @@
+{
+  "package_name": "watson_rfdiffusion_2023",
+  "namespace": "github",
+  "name": "watson-rfdiffusion-2023-gaia",
+  "description": "Gaia knowledge package: Watson et al. 2023 — De novo design of protein structure and function with RFdiffusion (Nature)"
+}
