@@ -1,0 +1,959 @@
+{
+  "beliefs": [
+    {
+      "belief": 0.9999998747208151,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_0bd542df",
+      "label": "__disjunction_result_0bd542df"
+    },
+    {
+      "belief": 0.9999999984200275,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0",
+      "label": "__disjunction_result_105d49f0"
+    },
+    {
+      "belief": 0.999999836396817,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_106b4a3b",
+      "label": "__disjunction_result_106b4a3b"
+    },
+    {
+      "belief": 0.9999995367160254,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6",
+      "label": "__disjunction_result_15c2c5d6"
+    },
+    {
+      "belief": 0.9999998487247032,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_1789dad2",
+      "label": "__disjunction_result_1789dad2"
+    },
+    {
+      "belief": 0.9999997979949092,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b",
+      "label": "__disjunction_result_31d7f19b"
+    },
+    {
+      "belief": 0.9999998598086534,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_31f640e8",
+      "label": "__disjunction_result_31f640e8"
+    },
+    {
+      "belief": 0.9999505178801835,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_42d8d213",
+      "label": "__disjunction_result_42d8d213"
+    },
+    {
+      "belief": 0.9999861631304557,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02",
+      "label": "__disjunction_result_6aa63b02"
+    },
+    {
+      "belief": 0.999999750684078,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_93e88891",
+      "label": "__disjunction_result_93e88891"
+    },
+    {
+      "belief": 0.9999999102250531,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_955bd1da",
+      "label": "__disjunction_result_955bd1da"
+    },
+    {
+      "belief": 0.9999999106696702,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_a60dd46a",
+      "label": "__disjunction_result_a60dd46a"
+    },
+    {
+      "belief": 0.9999776190554377,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_aee73650",
+      "label": "__disjunction_result_aee73650"
+    },
+    {
+      "belief": 0.9999998456541946,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_b10e681e",
+      "label": "__disjunction_result_b10e681e"
+    },
+    {
+      "belief": 0.9999997455992605,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_b573dbc0",
+      "label": "__disjunction_result_b573dbc0"
+    },
+    {
+      "belief": 0.9999999978195767,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_baccee84",
+      "label": "__disjunction_result_baccee84"
+    },
+    {
+      "belief": 0.9999999098198248,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_d2077d01",
+      "label": "__disjunction_result_d2077d01"
+    },
+    {
+      "belief": 0.9999998942720644,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b",
+      "label": "__disjunction_result_d9c8364b"
+    },
+    {
+      "belief": 0.9999962858185093,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_e739fb28",
+      "label": "__disjunction_result_e739fb28"
+    },
+    {
+      "belief": 0.9999996720460221,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__disjunction_result_fb06e62f",
+      "label": "__disjunction_result_fb06e62f"
+    },
+    {
+      "belief": 0.9998625340922469,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_01aa8f77",
+      "label": "__equivalence_result_01aa8f77"
+    },
+    {
+      "belief": 0.9999119684460249,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_16cb6d19",
+      "label": "__equivalence_result_16cb6d19"
+    },
+    {
+      "belief": 0.9999119688424434,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_215952dd",
+      "label": "__equivalence_result_215952dd"
+    },
+    {
+      "belief": 0.9999987367594148,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_22739cf8",
+      "label": "__equivalence_result_22739cf8"
+    },
+    {
+      "belief": 0.9999129210698591,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_552b2b1a",
+      "label": "__equivalence_result_552b2b1a"
+    },
+    {
+      "belief": 0.9999118153508469,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_6889ee9f",
+      "label": "__equivalence_result_6889ee9f"
+    },
+    {
+      "belief": 0.9998625344523259,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_6fa4bcc2",
+      "label": "__equivalence_result_6fa4bcc2"
+    },
+    {
+      "belief": 0.9998635174978602,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_7d8b79f4",
+      "label": "__equivalence_result_7d8b79f4"
+    },
+    {
+      "belief": 0.9998625345309994,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_81bf1a13",
+      "label": "__equivalence_result_81bf1a13"
+    },
+    {
+      "belief": 0.9999454154376501,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_8b50b093",
+      "label": "__equivalence_result_8b50b093"
+    },
+    {
+      "belief": 0.9999119688474077,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_991ec7a7",
+      "label": "__equivalence_result_991ec7a7"
+    },
+    {
+      "belief": 0.9998635174935664,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459",
+      "label": "__equivalence_result_9dea8459"
+    },
+    {
+      "belief": 0.9998625344305314,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_a4979a59",
+      "label": "__equivalence_result_a4979a59"
+    },
+    {
+      "belief": 0.9998633574709344,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_b4a9c34d",
+      "label": "__equivalence_result_b4a9c34d"
+    },
+    {
+      "belief": 0.9999119688379189,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_bc9db1de",
+      "label": "__equivalence_result_bc9db1de"
+    },
+    {
+      "belief": 0.9999119680181227,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_c2943016",
+      "label": "__equivalence_result_c2943016"
+    },
+    {
+      "belief": 0.9999996014044175,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_ce147ad4",
+      "label": "__equivalence_result_ce147ad4"
+    },
+    {
+      "belief": 0.9998625337203436,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_d7156b4e",
+      "label": "__equivalence_result_d7156b4e"
+    },
+    {
+      "belief": 0.9999974235787604,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_d96646ec",
+      "label": "__equivalence_result_d96646ec"
+    },
+    {
+      "belief": 0.9999802464580876,
+      "knowledge_id": "github:watson_rfdiffusion_2023::__equivalence_result_e1b3d054",
+      "label": "__equivalence_result_e1b3d054"
+    },
+    {
+      "belief": 0.9998124202806299,
+      "knowledge_id": "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs",
+      "label": "af2_validates_unconditional_designs"
+    },
+    {
+      "belief": 0.23084906163096378,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_af2_coincidence",
+      "label": "alt_af2_coincidence"
+    },
+    {
+      "belief": 0.12010023867261437,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_alternative_c4_arrangement",
+      "label": "alt_alternative_c4_arrangement"
+    },
+    {
+      "belief": 0.2059586751596053,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation",
+      "label": "alt_benchmark_other_explanation"
+    },
+    {
+      "belief": 0.25558589941406124,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_binder_other_explanation",
+      "label": "alt_binder_other_explanation"
+    },
+    {
+      "belief": 0.300000703967094,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_coincidental_sec_profiles",
+      "label": "alt_coincidental_sec_profiles"
+    },
+    {
+      "belief": 0.15001703262083227,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces",
+      "label": "alt_copying_pdb_interfaces"
+    },
+    {
+      "belief": 0.08000091552427643,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_disordered_aggregates_mimicking_icosahedral",
+      "label": "alt_disordered_aggregates_mimicking_icosahedral"
+    },
+    {
+      "belief": 0.09514721611983076,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation",
+      "label": "alt_ha20_alternative_conformation"
+    },
+    {
+      "belief": 0.3023411708113431,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact",
+      "label": "alt_ideality_exp_artifact"
+    },
+    {
+      "belief": 0.3488296439956406,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact",
+      "label": "alt_ideality_fold_artifact"
+    },
+    {
+      "belief": 0.12010027968537734,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a",
+      "label": "alt_indirect_structural_disruption_h52a"
+    },
+    {
+      "belief": 0.15000222830519233,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_memorization",
+      "label": "alt_memorization"
+    },
+    {
+      "belief": 0.2000020977122109,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_noise_free_overfitting",
+      "label": "alt_noise_free_overfitting"
+    },
+    {
+      "belief": 0.18001645216554454,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_adhesion",
+      "label": "alt_nonspecific_adhesion"
+    },
+    {
+      "belief": 0.18000213867864617,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_binding_p53_mdm2",
+      "label": "alt_nonspecific_binding_p53_mdm2"
+    },
+    {
+      "belief": 0.23086243001109916,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_folding",
+      "label": "alt_nonspecific_folding"
+    },
+    {
+      "belief": 0.22008924984911563,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_metal_chelation",
+      "label": "alt_nonspecific_metal_chelation"
+    },
+    {
+      "belief": 0.15632748004351335,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation",
+      "label": "alt_outperforms_other_explanation"
+    },
+    {
+      "belief": 0.1200008802021276,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_structural_mimicry_in_nsem",
+      "label": "alt_structural_mimicry_in_nsem"
+    },
+    {
+      "belief": 0.2000914706128195,
+      "knowledge_id": "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism",
+      "label": "alt_uniform_nonspecific_mechanism"
+    },
+    {
+      "belief": 0.9997269254639839,
+      "knowledge_id": "github:watson_rfdiffusion_2023::binder_specificity",
+      "label": "binder_specificity"
+    },
+    {
+      "belief": 0.9999798092284121,
+      "knowledge_id": "github:watson_rfdiffusion_2023::binder_success_rate",
+      "label": "binder_success_rate"
+    },
+    {
+      "belief": 0.9199814446809109,
+      "knowledge_id": "github:watson_rfdiffusion_2023::binder_targets_and_affinities",
+      "label": "binder_targets_and_affinities"
+    },
+    {
+      "belief": 0.9925514865785338,
+      "knowledge_id": "github:watson_rfdiffusion_2023::comprehensive_improvement",
+      "label": "comprehensive_improvement"
+    },
+    {
+      "belief": 0.9199999789952799,
+      "knowledge_id": "github:watson_rfdiffusion_2023::compute_efficiency",
+      "label": "compute_efficiency"
+    },
+    {
+      "belief": 0.9990737005117383,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ddpm_properties_for_protein_design",
+      "label": "ddpm_properties_for_protein_design"
+    },
+    {
+      "belief": 0.9995249512551814,
+      "knowledge_id": "github:watson_rfdiffusion_2023::denoising_process",
+      "label": "denoising_process"
+    },
+    {
+      "belief": 0.8789673485155557,
+      "knowledge_id": "github:watson_rfdiffusion_2023::dihedral_tetrahedral_icosahedral",
+      "label": "dihedral_tetrahedral_icosahedral"
+    },
+    {
+      "belief": 0.6237325857845905,
+      "knowledge_id": "github:watson_rfdiffusion_2023::enzyme_scaffolding_success",
+      "label": "enzyme_scaffolding_success"
+    },
+    {
+      "belief": 0.8799991128030616,
+      "knowledge_id": "github:watson_rfdiffusion_2023::expanded_tim_barrels",
+      "label": "expanded_tim_barrels"
+    },
+    {
+      "belief": 0.9999997726844333,
+      "knowledge_id": "github:watson_rfdiffusion_2023::experimental_validation_monomers",
+      "label": "experimental_validation_monomers"
+    },
+    {
+      "belief": 0.9998411672630652,
+      "knowledge_id": "github:watson_rfdiffusion_2023::fold_conditioned_generation",
+      "label": "fold_conditioned_generation"
+    },
+    {
+      "belief": 0.6499999999999999,
+      "knowledge_id": "github:watson_rfdiffusion_2023::future_ligands",
+      "label": "future_ligands"
+    },
+    {
+      "belief": 0.7,
+      "knowledge_id": "github:watson_rfdiffusion_2023::future_nucleic_acids",
+      "label": "future_nucleic_acids"
+    },
+    {
+      "belief": 0.6109259719812326,
+      "knowledge_id": "github:watson_rfdiffusion_2023::generality_claim",
+      "label": "generality_claim"
+    },
+    {
+      "belief": 0.8745554907491457,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ha20_atomic_accuracy",
+      "label": "ha20_atomic_accuracy"
+    },
+    {
+      "belief": 0.9998469790032354,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ha20_cryoem_structure",
+      "label": "ha20_cryoem_structure"
+    },
+    {
+      "belief": 0.9514721611983074,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ha20_matches_design",
+      "label": "ha20_matches_design"
+    },
+    {
+      "belief": 0.9996680155579781,
+      "knowledge_id": "github:watson_rfdiffusion_2023::hallucination_benchmark",
+      "label": "hallucination_benchmark"
+    },
+    {
+      "belief": 0.9997269363845365,
+      "knowledge_id": "github:watson_rfdiffusion_2023::icosahedral_he0902",
+      "label": "icosahedral_he0902"
+    },
+    {
+      "belief": 0.9302111601192354,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ideality_and_stability",
+      "label": "ideality_and_stability"
+    },
+    {
+      "belief": 0.9973445198284614,
+      "knowledge_id": "github:watson_rfdiffusion_2023::key_insight",
+      "label": "key_insight"
+    },
+    {
+      "belief": 0.9981989252999709,
+      "knowledge_id": "github:watson_rfdiffusion_2023::method_design_validated",
+      "label": "method_design_validated"
+    },
+    {
+      "belief": 0.9998633797297003,
+      "knowledge_id": "github:watson_rfdiffusion_2023::motif_not_from_training",
+      "label": "motif_not_from_training"
+    },
+    {
+      "belief": 0.7893401581336388,
+      "knowledge_id": "github:watson_rfdiffusion_2023::mse_loss_design",
+      "label": "mse_loss_design"
+    },
+    {
+      "belief": 0.88,
+      "knowledge_id": "github:watson_rfdiffusion_2023::mse_vs_fape_ablation",
+      "label": "mse_vs_fape_ablation"
+    },
+    {
+      "belief": 0.9998850095673439,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ni_binding_design",
+      "label": "ni_binding_design"
+    },
+    {
+      "belief": 0.9997268754820405,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ni_binding_endothermic",
+      "label": "ni_binding_endothermic"
+    },
+    {
+      "belief": 0.9998258209068326,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ni_binding_experimental",
+      "label": "ni_binding_experimental"
+    },
+    {
+      "belief": 0.9998257834519817,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ni_binding_histidine_dependence",
+      "label": "ni_binding_histidine_dependence"
+    },
+    {
+      "belief": 0.9997268238587999,
+      "knowledge_id": "github:watson_rfdiffusion_2023::ni_binding_nsem",
+      "label": "ni_binding_nsem"
+    },
+    {
+      "belief": 0.9998633803256892,
+      "knowledge_id": "github:watson_rfdiffusion_2023::noise_free_reverse",
+      "label": "noise_free_reverse"
+    },
+    {
+      "belief": 0.9997269224387405,
+      "knowledge_id": "github:watson_rfdiffusion_2023::novel_interfaces",
+      "label": "novel_interfaces"
+    },
+    {
+      "belief": 0.9199990724300497,
+      "knowledge_id": "github:watson_rfdiffusion_2023::novel_oligomeric_topologies",
+      "label": "novel_oligomeric_topologies"
+    },
+    {
+      "belief": 0.9998258556058727,
+      "knowledge_id": "github:watson_rfdiffusion_2023::nsem_validates_cyclic",
+      "label": "nsem_validates_cyclic"
+    },
+    {
+      "belief": 0.9999092053483735,
+      "knowledge_id": "github:watson_rfdiffusion_2023::outperforms_hallucination",
+      "label": "outperforms_hallucination"
+    },
+    {
+      "belief": 0.8798469267294445,
+      "knowledge_id": "github:watson_rfdiffusion_2023::p53_mdm2_affinity",
+      "label": "p53_mdm2_affinity"
+    },
+    {
+      "belief": 0.9998258552098345,
+      "knowledge_id": "github:watson_rfdiffusion_2023::p53_mdm2_design",
+      "label": "p53_mdm2_design"
+    },
+    {
+      "belief": 0.9999999771439388,
+      "knowledge_id": "github:watson_rfdiffusion_2023::pipeline_description",
+      "label": "pipeline_description"
+    },
+    {
+      "belief": 0.9989622806929823,
+      "knowledge_id": "github:watson_rfdiffusion_2023::pretraining_benefit",
+      "label": "pretraining_benefit"
+    },
+    {
+      "belief": 0.9996060515560866,
+      "knowledge_id": "github:watson_rfdiffusion_2023::previous_binder_design_limitations",
+      "label": "previous_binder_design_limitations"
+    },
+    {
+      "belief": 0.9986105507676074,
+      "knowledge_id": "github:watson_rfdiffusion_2023::prior_ddpm_limitations",
+      "label": "prior_ddpm_limitations"
+    },
+    {
+      "belief": 0.8,
+      "knowledge_id": "github:watson_rfdiffusion_2023::retroaldolase_demonstration",
+      "label": "retroaldolase_demonstration"
+    },
+    {
+      "belief": 0.9996680155579781,
+      "knowledge_id": "github:watson_rfdiffusion_2023::rf_inpainting_benchmark",
+      "label": "rf_inpainting_benchmark"
+    },
+    {
+      "belief": 0.9986105507676074,
+      "knowledge_id": "github:watson_rfdiffusion_2023::rf_inpainting_limitations",
+      "label": "rf_inpainting_limitations"
+    },
+    {
+      "belief": 0.9999973760438315,
+      "knowledge_id": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
+      "label": "rfdiffusion_benchmark_performance"
+    },
+    {
+      "belief": 0.7633616670603659,
+      "knowledge_id": "github:watson_rfdiffusion_2023::rfdiffusion_broad_success",
+      "label": "rfdiffusion_broad_success"
+    },
+    {
+      "belief": 0.8791178127355601,
+      "knowledge_id": "github:watson_rfdiffusion_2023::sars_cov2_trimeric_binder_design",
+      "label": "sars_cov2_trimeric_binder_design"
+    },
+    {
+      "belief": 0.9998258560404063,
+      "knowledge_id": "github:watson_rfdiffusion_2023::sec_validation_oligomers",
+      "label": "sec_validation_oligomers"
+    },
+    {
+      "belief": 0.9989622806929823,
+      "knowledge_id": "github:watson_rfdiffusion_2023::self_conditioning_improvement",
+      "label": "self_conditioning_improvement"
+    },
+    {
+      "belief": 0.9999989906747005,
+      "knowledge_id": "github:watson_rfdiffusion_2023::symmetric_high_success",
+      "label": "symmetric_high_success"
+    },
+    {
+      "belief": 0.9991792740751804,
+      "knowledge_id": "github:watson_rfdiffusion_2023::two_orders_attribution",
+      "label": "two_orders_attribution"
+    },
+    {
+      "belief": 0.9612282780339513,
+      "knowledge_id": "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures",
+      "label": "unconditional_generates_diverse_structures"
+    }
+  ],
+  "diagnostics": {
+    "belief_history": {
+      "_m_na_lcs_08c6a565dc7d7efa": [
+        0.9988251974010872
+      ],
+      "_m_na_lcs_0da4135154b6d1bf": [
+        0.8673056508081524
+      ],
+      "_m_na_lcs_1e3938487fc664b0": [
+        0.8769078510941479
+      ],
+      "_m_na_lcs_3e37fcca055718bc": [
+        0.7993999817517209
+      ],
+      "_m_na_lcs_5bc42c228c086505": [
+        0.999666150649319
+      ],
+      "_m_na_lcs_62d45272311cf936": [
+        0.998334427644815
+      ],
+      "_m_na_lcs_6a526c248cd6ed36": [
+        0.950550044340746
+      ],
+      "_m_na_lcs_86e4a133fe229b01": [
+        0.9972918984504267
+      ],
+      "_m_na_lcs_8dbdeac9793bd505": [
+        0.9979818983096532
+      ],
+      "_m_na_lcs_c39211b3a575dc14": [
+        0.998996373988123
+      ],
+      "_m_na_lcs_cc42eb87c09cdb24": [
+        0.9993977312090426
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_0bd542df": [
+        0.9999998747208151
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_105d49f0": [
+        0.9999999984200275
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_106b4a3b": [
+        0.999999836396817
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_15c2c5d6": [
+        0.9999995367160254
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_1789dad2": [
+        0.9999998487247032
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_31d7f19b": [
+        0.9999997979949092
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_31f640e8": [
+        0.9999998598086534
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_42d8d213": [
+        0.9999505178801835
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_6aa63b02": [
+        0.9999861631304557
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_93e88891": [
+        0.999999750684078
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_955bd1da": [
+        0.9999999102250531
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_a60dd46a": [
+        0.9999999106696702
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_aee73650": [
+        0.9999776190554377
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_b10e681e": [
+        0.9999998456541946
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_b573dbc0": [
+        0.9999997455992605
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_baccee84": [
+        0.9999999978195767
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_d2077d01": [
+        0.9999999098198248
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_d9c8364b": [
+        0.9999998942720644
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_e739fb28": [
+        0.9999962858185093
+      ],
+      "github:watson_rfdiffusion_2023::__disjunction_result_fb06e62f": [
+        0.9999996720460221
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_01aa8f77": [
+        0.9998625340922469
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_16cb6d19": [
+        0.9999119684460249
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_215952dd": [
+        0.9999119688424434
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_22739cf8": [
+        0.9999987367594148
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_552b2b1a": [
+        0.9999129210698591
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_6889ee9f": [
+        0.9999118153508469
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_6fa4bcc2": [
+        0.9998625344523259
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_7d8b79f4": [
+        0.9998635174978602
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_81bf1a13": [
+        0.9998625345309994
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_8b50b093": [
+        0.9999454154376501
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_991ec7a7": [
+        0.9999119688474077
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_9dea8459": [
+        0.9998635174935664
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_a4979a59": [
+        0.9998625344305314
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_b4a9c34d": [
+        0.9998633574709344
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_bc9db1de": [
+        0.9999119688379189
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_c2943016": [
+        0.9999119680181227
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_ce147ad4": [
+        0.9999996014044175
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_d7156b4e": [
+        0.9998625337203436
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_d96646ec": [
+        0.9999974235787604
+      ],
+      "github:watson_rfdiffusion_2023::__equivalence_result_e1b3d054": [
+        0.9999802464580876
+      ],
+      "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs": [
+        0.9998124202806299
+      ],
+      "github:watson_rfdiffusion_2023::alt_af2_coincidence": [
+        0.23084906163096378
+      ],
+      "github:watson_rfdiffusion_2023::alt_alternative_c4_arrangement": [
+        0.12010023867261437
+      ],
+      "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation": [
+        0.2059586751596053
+      ],
+      "github:watson_rfdiffusion_2023::alt_binder_other_explanation": [
+        0.25558589941406124
+      ],
+      "github:watson_rfdiffusion_2023::alt_coincidental_sec_profiles": [
+        0.300000703967094
+      ],
+      "github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces": [
+        0.15001703262083227
+      ],
+      "github:watson_rfdiffusion_2023::alt_disordered_aggregates_mimicking_icosahedral": [
+        0.08000091552427643
+      ],
+      "github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation": [
+        0.09514721611983076
+      ],
+      "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact": [
+        0.3023411708113431
+      ],
+      "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact": [
+        0.3488296439956406
+      ],
+      "github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a": [
+        0.12010027968537734
+      ],
+      "github:watson_rfdiffusion_2023::alt_memorization": [
+        0.15000222830519233
+      ],
+      "github:watson_rfdiffusion_2023::alt_noise_free_overfitting": [
+        0.2000020977122109
+      ],
+      "github:watson_rfdiffusion_2023::alt_nonspecific_adhesion": [
+        0.18001645216554454
+      ],
+      "github:watson_rfdiffusion_2023::alt_nonspecific_binding_p53_mdm2": [
+        0.18000213867864617
+      ],
+      "github:watson_rfdiffusion_2023::alt_nonspecific_folding": [
+        0.23086243001109916
+      ],
+      "github:watson_rfdiffusion_2023::alt_nonspecific_metal_chelation": [
+        0.22008924984911563
+      ],
+      "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation": [
+        0.15632748004351335
+      ],
+      "github:watson_rfdiffusion_2023::alt_structural_mimicry_in_nsem": [
+        0.1200008802021276
+      ],
+      "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism": [
+        0.2000914706128195
+      ],
+      "github:watson_rfdiffusion_2023::binder_specificity": [
+        0.9997269254639839
+      ],
+      "github:watson_rfdiffusion_2023::binder_success_rate": [
+        0.9999798092284121
+      ],
+      "github:watson_rfdiffusion_2023::binder_targets_and_affinities": [
+        0.9199814446809109
+      ],
+      "github:watson_rfdiffusion_2023::comprehensive_improvement": [
+        0.9925514865785338
+      ],
+      "github:watson_rfdiffusion_2023::compute_efficiency": [
+        0.9199999789952799
+      ],
+      "github:watson_rfdiffusion_2023::ddpm_properties_for_protein_design": [
+        0.9990737005117383
+      ],
+      "github:watson_rfdiffusion_2023::denoising_process": [
+        0.9995249512551814
+      ],
+      "github:watson_rfdiffusion_2023::dihedral_tetrahedral_icosahedral": [
+        0.8789673485155557
+      ],
+      "github:watson_rfdiffusion_2023::enzyme_scaffolding_success": [
+        0.6237325857845905
+      ],
+      "github:watson_rfdiffusion_2023::expanded_tim_barrels": [
+        0.8799991128030616
+      ],
+      "github:watson_rfdiffusion_2023::experimental_validation_monomers": [
+        0.9999997726844333
+      ],
+      "github:watson_rfdiffusion_2023::fold_conditioned_generation": [
+        0.9998411672630652
+      ],
+      "github:watson_rfdiffusion_2023::future_ligands": [
+        0.6499999999999999
+      ],
+      "github:watson_rfdiffusion_2023::future_nucleic_acids": [
+        0.7
+      ],
+      "github:watson_rfdiffusion_2023::generality_claim": [
+        0.6109259719812326
+      ],
+      "github:watson_rfdiffusion_2023::ha20_atomic_accuracy": [
+        0.8745554907491457
+      ],
+      "github:watson_rfdiffusion_2023::ha20_cryoem_structure": [
+        0.9998469790032354
+      ],
+      "github:watson_rfdiffusion_2023::ha20_matches_design": [
+        0.9514721611983074
+      ],
+      "github:watson_rfdiffusion_2023::hallucination_benchmark": [
+        0.9996680155579781
+      ],
+      "github:watson_rfdiffusion_2023::icosahedral_he0902": [
+        0.9997269363845365
+      ],
+      "github:watson_rfdiffusion_2023::ideality_and_stability": [
+        0.9302111601192354
+      ],
+      "github:watson_rfdiffusion_2023::key_insight": [
+        0.9973445198284614
+      ],
+      "github:watson_rfdiffusion_2023::method_design_validated": [
+        0.9981989252999709
+      ],
+      "github:watson_rfdiffusion_2023::motif_not_from_training": [
+        0.9998633797297003
+      ],
+      "github:watson_rfdiffusion_2023::mse_loss_design": [
+        0.7893401581336388
+      ],
+      "github:watson_rfdiffusion_2023::mse_vs_fape_ablation": [
+        0.88
+      ],
+      "github:watson_rfdiffusion_2023::ni_binding_design": [
+        0.9998850095673439
+      ],
+      "github:watson_rfdiffusion_2023::ni_binding_endothermic": [
+        0.9997268754820405
+      ],
+      "github:watson_rfdiffusion_2023::ni_binding_experimental": [
+        0.9998258209068326
+      ],
+      "github:watson_rfdiffusion_2023::ni_binding_histidine_dependence": [
+        0.9998257834519817
+      ],
+      "github:watson_rfdiffusion_2023::ni_binding_nsem": [
+        0.9997268238587999
+      ],
+      "github:watson_rfdiffusion_2023::noise_free_reverse": [
+        0.9998633803256892
+      ],
+      "github:watson_rfdiffusion_2023::novel_interfaces": [
+        0.9997269224387405
+      ],
+      "github:watson_rfdiffusion_2023::novel_oligomeric_topologies": [
+        0.9199990724300497
+      ],
+      "github:watson_rfdiffusion_2023::nsem_validates_cyclic": [
+        0.9998258556058727
+      ],
+      "github:watson_rfdiffusion_2023::outperforms_hallucination": [
+        0.9999092053483735
+      ],
+      "github:watson_rfdiffusion_2023::p53_mdm2_affinity": [
+        0.8798469267294445
+      ],
+      "github:watson_rfdiffusion_2023::p53_mdm2_design": [
+        0.9998258552098345
+      ],
+      "github:watson_rfdiffusion_2023::pipeline_description": [
+        0.9999999771439388
+      ],
+      "github:watson_rfdiffusion_2023::pretraining_benefit": [
+        0.9989622806929823
+      ],
+      "github:watson_rfdiffusion_2023::previous_binder_design_limitations": [
+        0.9996060515560866
+      ],
+      "github:watson_rfdiffusion_2023::prior_ddpm_limitations": [
+        0.9986105507676074
+      ],
+      "github:watson_rfdiffusion_2023::retroaldolase_demonstration": [
+        0.8
+      ],
+      "github:watson_rfdiffusion_2023::rf_inpainting_benchmark": [
+        0.9996680155579781
+      ],
+      "github:watson_rfdiffusion_2023::rf_inpainting_limitations": [
+        0.9986105507676074
+      ],
+      "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance": [
+        0.9999973760438315
+      ],
+      "github:watson_rfdiffusion_2023::rfdiffusion_broad_success": [
+        0.7633616670603659
+      ],
+      "github:watson_rfdiffusion_2023::sars_cov2_trimeric_binder_design": [
+        0.8791178127355601
+      ],
+      "github:watson_rfdiffusion_2023::sec_validation_oligomers": [
+        0.9998258560404063
+      ],
+      "github:watson_rfdiffusion_2023::self_conditioning_improvement": [
+        0.9989622806929823
+      ],
+      "github:watson_rfdiffusion_2023::symmetric_high_success": [
+        0.9999989906747005
+      ],
+      "github:watson_rfdiffusion_2023::two_orders_attribution": [
+        0.9991792740751804
+      ],
+      "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures": [
+        0.9612282780339513
+      ]
+    },
+    "converged": true,
+    "direction_changes": {},
+    "iterations_run": 2,
+    "max_change_at_stop": 0.0,
+    "treewidth": 3
+  },
+  "ir_hash": "sha256:5ee7a41edf4ac87c4005cb43344f842b556961ffdfb20b82a5373c3e2a19d6c8"
+}
