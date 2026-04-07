@@ -2,72 +2,205 @@
 
 Gaia knowledge package: Watson et al. 2023 — De novo design of protein structure and function with RFdiffusion (Nature)
 
-[![Interactive Paper](https://img.shields.io/badge/📖_Interactive_Paper-GitHub_Pages-blue)](https://kunyuan.github.io/watson-rfdiffusion-2023-gaia/) [![Knowledge Reference](https://img.shields.io/badge/📚_Reference-Wiki-green)](https://github.com/kunyuan/watson-rfdiffusion-2023-gaia/wiki)
+[![Interactive Paper](https://img.shields.io/badge/📖_Interactive_Paper-GitHub_Pages-blue)](https://kunyuan.github.io/watson-rfdiffusion-2023-gaia/)
+[![Knowledge Reference](https://img.shields.io/badge/📚_Reference-Wiki-green)](https://github.com/kunyuan/watson-rfdiffusion-2023-gaia/wiki)
+
+## Summary
+
+Watson et al. demonstrate that fine-tuning the RoseTTAFold structure prediction network as a denoising diffusion probabilistic model (DDPM) yields RFdiffusion, a generative method for de novo protein design that comprehensively outperforms all prior approaches (belief 0.99). RFdiffusion solves 23 of 25 motif-scaffolding benchmark problems (belief 1.00), generates symmetric oligomers with high in silico success despite never training on symmetric inputs (belief 1.00), and achieves a 19% experimental binder success rate across five therapeutic targets -- roughly 100-fold over Rosetta (belief 1.00). Cryo-EM validation of the influenza binder HA_20 at 2.9 A confirms atomic-level design accuracy with 0.63 A backbone r.m.s.d. to the computational model (belief 0.87). While these results strongly support broad design success (belief 0.76), the final generality claim -- that RFdiffusion enables protein design from minimal specifications analogous to text-to-image generation -- remains only partially supported (belief 0.61), reflecting the gap between demonstrated applications and the universal promise.
 
 ## Overview
 
-```mermaid
-graph TD
-    rfdiffusion_broad_success["RFdiffusion achieves broad design success ★ (0.50 → 0.76)"]:::exported
-    pipeline_description["RFdiffusion design pipeline (0.50 → 1.00)"]:::derived
-    symmetric_high_success["High in silico success for symmetric oligomers ★ (0.50 → 1.00)"]:::exported
-    rfdiffusion_benchmark_performance["RFdiffusion solves 23/25 benchmark problems ★ (0.50 → 1.00)"]:::exported
-    binder_success_rate["19% binder success rate — 100× improvement over Rosetta ★ (0.50 → 1.00)"]:::exported
-    ha20_atomic_accuracy["RFdiffusion achieves atomic-level accuracy in binder design ★ (0.50 → 0.87)"]:::exported
-    comprehensive_improvement["RFdiffusion is comprehensive improvement over prior methods ★ (0.50 → 0.99)"]:::exported
-    generality_claim["RFdiffusion enables protein design from minimal specifications ★ (0.50 → 0.61)"]:::exported
-    strat_7(["noisy_and"]):::weak
-    pipeline_description --> strat_7
-    strat_7 --> symmetric_high_success
-    strat_14(["noisy_and"]):::weak
-    pipeline_description --> strat_14
-    strat_14 --> rfdiffusion_benchmark_performance
-    strat_27(["noisy_and"]):::weak
-    pipeline_description --> strat_27
-    strat_27 --> binder_success_rate
-    strat_32(["noisy_and"]):::weak
-    binder_success_rate --> strat_32
-    strat_32 --> ha20_atomic_accuracy
-    strat_34(["abduction"]):::weak
-    rfdiffusion_benchmark_performance --> strat_34
-    strat_34 --> comprehensive_improvement
-    strat_35(["abduction"]):::weak
-    binder_success_rate --> strat_35
-    strat_35 --> comprehensive_improvement
-    strat_36(["induction"]):::weak
-    rfdiffusion_benchmark_performance --> strat_36
-    binder_success_rate --> strat_36
-    strat_36 --> comprehensive_improvement
-    strat_40(["noisy_and"]):::weak
-    comprehensive_improvement --> strat_40
-    ha20_atomic_accuracy --> strat_40
-    strat_40 --> rfdiffusion_broad_success
-    strat_41(["noisy_and"]):::weak
-    rfdiffusion_broad_success --> strat_41
-    strat_41 --> generality_claim
+> **Reasoning graph information gain: `1.5 bits`**
+>
+> <sub>Total mutual information between leaf premises and exported conclusions -- measures how much the reasoning structure reduces uncertainty about the results.</sub>
 
-    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 80
+    nodeSpacing: 30
+---
+graph TB
+    ddpm_properties_for_protein_design["DDPM properties suited for protein design\n(0.90 → 1.00)"]:::premise
+    prior_ddpm_limitations["Limitations of prior protein diffusion methods\n(0.85 → 1.00)"]:::premise
+    rf_inpainting_limitations["RFjoint Inpainting limitations\n(0.85 → 1.00)"]:::premise
+    rfdiffusion_broad_success["★ RFdiffusion achieves broad design success\n(0.50 → 0.76)"]:::exported
+    denoising_process["Iterative denoising generation process\n(0.92 → 1.00)"]:::premise
+    self_conditioning_improvement["Self-conditioning improves RFdiffusion performance\n(0.88 → 1.00)"]:::premise
+    pretraining_benefit["Pretraining from RF weights is critical\n(0.88 → 1.00)"]:::premise
+    outperforms_hallucination["RFdiffusion outperforms RF Hallucination\n(0.92 → 1.00)"]:::premise
+    symmetric_high_success["★ High in silico success for symmetric oligomers\n(0.50 → 1.00)"]:::exported
+    sec_validation_oligomers["SEC validates oligomeric states\n(0.92 → 1.00)"]:::premise
+    nsem_validates_cyclic["nsEM confirms cyclic oligomer structures\n(0.92 → 1.00)"]:::premise
+    icosahedral_he0902["Icosahedral assembly HE0902 validated by nsEM\n(0.88 → 1.00)"]:::premise
+    alt_coincidental_sec_profiles["Alternative: coincidental SEC profiles\n(0.30 → 0.30)"]:::premise
+    alt_structural_mimicry_in_nsem["Alternative: structural mimicry in nsEM\n(0.12 → 0.12)"]:::premise
+    alt_disordered_aggregates_mimicking_icosahedral["Alternative: disordered aggregates mimicking icosahedral symmetry\n(0.08 → 0.08)"]:::premise
+    rfdiffusion_benchmark_performance["★ RFdiffusion solves 23/25 benchmark problems\n(0.50 → 1.00)"]:::exported
+    hallucination_benchmark["Hallucination solves 15/25 benchmark problems\n(0.88 → 1.00)"]:::premise
+    rf_inpainting_benchmark["RFjoint Inpainting solves 19/25 benchmark problems\n(0.88 → 1.00)"]:::premise
+    noise_free_reverse["Noise-free reverse trajectories often improve success\n(0.88 → 1.00)"]:::premise
+    motif_not_from_training["Scaffolding success independent of training set membership\n(0.88 → 1.00)"]:::premise
+    p53_mdm2_design["p53-MDM2 binder scaffolding: 55/96 designs show binding\n(0.92 → 1.00)"]:::premise
+    alt_nonspecific_binding_p53_mdm2["Alternative: non-specific binding in p53-MDM2 screens\n(0.18 → 0.18)"]:::premise
+    alt_memorization["Alternative: training set memorization\n(0.15 → 0.15)"]:::premise
+    alt_noise_free_overfitting["Alternative: noise-free improvement is overfitting\n(0.20 → 0.20)"]:::premise
+    previous_binder_design_limitations["Prior binder design methods had low success rates\n(0.88 → 1.00)"]:::premise
+    binder_success_rate["★ 19% binder success rate — 100× improvement over Rosetta\n(0.50 → 1.00)"]:::exported
+    two_orders_attribution["Success rate improvement attributed to RFdiffusion + AF2 filtering\n(0.75 → 1.00)"]:::premise
+    binder_specificity["IL-7Rα binders show site-specific binding\n(0.88 → 1.00)"]:::premise
+    novel_interfaces["Novel binding interfaces distinct from PDB\n(0.88 → 1.00)"]:::premise
+    ha20_cryoem_structure["Cryo-EM structure of HA_20-HA complex at 2.9 Å\n(0.95 → 1.00)"]:::premise
+    ha20_atomic_accuracy["★ RFdiffusion achieves atomic-level accuracy in binder design\n(0.50 → 0.87)"]:::exported
+    alt_copying_pdb_interfaces["Alternative: recapitulating PDB binding modes\n(0.15 → 0.15)"]:::premise
+    alt_nonspecific_adhesion["Alternative: non-specific adhesion\n(0.18 → 0.18)"]:::premise
+    alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation\n(0.05 → 0.10)"]:::premise
+    comprehensive_improvement["★ RFdiffusion is comprehensive improvement over prior methods\n(0.50 → 0.99)"]:::exported
+    generality_claim["★ RFdiffusion enables protein design from minimal specifications\n(0.50 → 0.61)"]:::exported
+    alt_outperforms_other_explanation["Alternative: benchmark artifact for unconditional generation\n(0.15 → 0.16)"]:::premise
+    alt_benchmark_other_explanation["Alternative: easy benchmark set\n(0.20 → 0.21)"]:::premise
+    alt_binder_other_explanation["Alternative: success due to AF2 filtering alone\n(0.25 → 0.26)"]:::premise
+    strat_0(["infer\n0.03 bits"]):::weak
+    alt_benchmark_other_explanation --> strat_0
+    alt_binder_other_explanation --> strat_0
+    alt_outperforms_other_explanation --> strat_0
+    binder_success_rate --> strat_0
+    outperforms_hallucination --> strat_0
+    rfdiffusion_benchmark_performance --> strat_0
+    strat_0 --> comprehensive_improvement
+    strat_1(["infer"]):::weak
+    alt_coincidental_sec_profiles --> strat_1
+    alt_disordered_aggregates_mimicking_icosahedral --> strat_1
+    alt_structural_mimicry_in_nsem --> strat_1
+    ddpm_properties_for_protein_design --> strat_1
+    denoising_process --> strat_1
+    icosahedral_he0902 --> strat_1
+    nsem_validates_cyclic --> strat_1
+    pretraining_benefit --> strat_1
+    prior_ddpm_limitations --> strat_1
+    rf_inpainting_limitations --> strat_1
+    sec_validation_oligomers --> strat_1
+    self_conditioning_improvement --> strat_1
+    strat_1 --> symmetric_high_success
+    strat_2(["infer"]):::weak
+    alt_copying_pdb_interfaces --> strat_2
+    alt_nonspecific_adhesion --> strat_2
+    binder_specificity --> strat_2
+    ddpm_properties_for_protein_design --> strat_2
+    denoising_process --> strat_2
+    novel_interfaces --> strat_2
+    pretraining_benefit --> strat_2
+    previous_binder_design_limitations --> strat_2
+    prior_ddpm_limitations --> strat_2
+    rf_inpainting_limitations --> strat_2
+    self_conditioning_improvement --> strat_2
+    two_orders_attribution --> strat_2
+    strat_2 --> binder_success_rate
+    strat_3(["infer\n0.27 bits"]):::weak
+    alt_ha20_alternative_conformation --> strat_3
+    binder_success_rate --> strat_3
+    ha20_cryoem_structure --> strat_3
+    strat_3 --> ha20_atomic_accuracy
+    strat_4(["infer"]):::weak
+    alt_memorization --> strat_4
+    alt_noise_free_overfitting --> strat_4
+    alt_nonspecific_binding_p53_mdm2 --> strat_4
+    ddpm_properties_for_protein_design --> strat_4
+    denoising_process --> strat_4
+    hallucination_benchmark --> strat_4
+    motif_not_from_training --> strat_4
+    noise_free_reverse --> strat_4
+    p53_mdm2_design --> strat_4
+    pretraining_benefit --> strat_4
+    prior_ddpm_limitations --> strat_4
+    rf_inpainting_benchmark --> strat_4
+    rf_inpainting_limitations --> strat_4
+    self_conditioning_improvement --> strat_4
+    strat_4 --> rfdiffusion_benchmark_performance
+    strat_5(["infer\n0.61 bits"]):::weak
+    comprehensive_improvement --> strat_5
+    ha20_atomic_accuracy --> strat_5
+    strat_5 --> rfdiffusion_broad_success
+    strat_6(["infer\n0.60 bits"]):::weak
+    rfdiffusion_broad_success --> strat_6
+    strat_6 --> generality_claim
+
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
-    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
-    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
     classDef exported fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
     classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
     classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
+## Reasoning Structure
+
+### Noise-free reverse trajectories often improve success
+
+RFdiffusion's core innovation is fine-tuning the RoseTTAFold structure prediction network on protein structure denoising tasks, converting it into a generative diffusion model. The key insight (belief 1.00) is that iterative stochastic denoising from random noise overcomes both the poor backbone quality of prior DDPMs and the limited diversity of deterministic RFjoint Inpainting. Self-conditioning between timesteps (prior 0.88, belief 1.00) and pretraining from RF weights (prior 0.88, belief 1.00) are each shown to be essential by ablation studies. The iterative denoising process (prior 0.92, belief 1.00) generates diverse protein backbones in as little as 11 seconds per 100-residue protein. In unconditional generation, RFdiffusion significantly outperforms RF Hallucination (z = 9.5, P = 1.6 x 10^-21; belief 1.00), generating structures spanning alpha, beta, and mixed topologies with little resemblance to PDB training data. Noise-free reverse trajectories improve in silico success in 17 of 23 solved scaffolding problems (belief 1.00), suggesting the model's deterministic predictions are already high-quality. The 25-problem motif-scaffolding benchmark provides the most controlled comparison: RFdiffusion solves 23 problems vs. 19 for RFjoint Inpainting and 15 for Hallucination (belief 1.00), with no hyperparameter tuning required. Experimental validation of p53-MDM2 scaffolds (55/96 show binding; belief 1.00) and sub-nanomolar affinities (0.5-0.7 nM vs. 600 nM native peptide) confirms that the in silico benchmark performance translates to functional designs.
+
+![Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.](artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg)
+
+### Cryo-EM structure of HA_20-HA complex at 2.9 A
+
+The strongest piece of structural evidence in the paper is the cryo-EM structure of the highest-affinity influenza binder HA_20 (Kd = 28 nM) in complex with Iowa43 HA, solved at 2.9 A resolution (belief 1.00). Heterogeneous 3D refinement without imposed symmetry revealed full occupancy of all three HA stem epitopes, and the experimental structure matches the RFdiffusion design model at 0.63 A backbone r.m.s.d. -- well within experimental error. The alternative hypothesis that HA_20 adopts an unrelated conformation receives very low support (prior 0.05, belief 0.10). This near-perfect agreement between computation and experiment drives the atomic-accuracy conclusion (prior 0.50, belief 0.87), which carries 0.27 bits of mutual information -- the inference chain is short but high-confidence, limited mainly by the single-structure nature of the evidence.
+
+![Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 A.](artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg)
+
+### RFdiffusion outperforms RF Hallucination
+
+RFdiffusion's unconditional generation produces diverse novel protein structures up to 600 residues (belief 0.96), validated independently by both AlphaFold2 and ESMFold structure predictions. Experimental characterization of nine monomer designs confirms mixed alpha-beta CD spectra consistent with design models and extreme thermostability (belief 1.00). The statistical comparison with Hallucination is definitive: at protein lengths beyond 100 amino acids, Hallucination success rates rapidly deteriorate while RFdiffusion maintains high performance (z = 9.5, P = 1.6 x 10^-21; belief 1.00). Fold-conditioned generation further demonstrates controllability, with 42.5% in silico success for TIM barrels and 54.1% for NTF2 folds, and at least 8 of 11 experimentally tested TIM barrel designs were soluble and thermostable (belief 1.00). Despite this increased structural complexity, RFdiffusion designs retain Rosetta-level ideality and stability (belief 0.93), indicating that the diffusion approach does not sacrifice physical quality for diversity.
+
+![Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.](artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg)
+
+### High in silico success for symmetric oligomers
+
+Despite never training on symmetric inputs, RFdiffusion generates symmetric oligomers with high in silico success (prior 0.50, belief 1.00) by leveraging the rotational equivariance inherited from RoseTTAFold. The design approach arranges copies of a single monomer subunit with specified point group symmetry, and explicit resymmetrization at each denoising step changes structures only slightly. Of 608 designs tested experimentally, at least 87 showed SEC profiles consistent with designed oligomeric states within 95% confidence (belief 1.00). Negative stain EM provided direct structural confirmation: cyclic oligomers like C3 design HE0822 (1050 residues total) showed 2D class averages and 3D reconstructions matching the distinctive pinwheel design model (belief 1.00). The results extend well beyond cyclic symmetries -- dihedral (D2, D3, D4), tetrahedral, and icosahedral architectures were all validated. The crown achievement is icosahedral assembly HE0902, a 15 nm porous particle whose nsEM 3D reconstruction very closely matches the designed model, including triangular hubs arrayed around empty C5 axes (belief 1.00). Several oligomeric topologies, including expanded TIM barrel-like structures with 18 strands and 18 helices (C6) or 16 strands and 16 helices (C8), have no counterpart in the PDB, demonstrating exploration of structural space beyond natural evolution. The alternative explanations -- coincidental SEC profiles (belief 0.30), structural mimicry in nsEM (belief 0.12), and disordered aggregates mimicking icosahedral symmetry (belief 0.08) -- remain low, collectively failing to account for the systematic multi-technique validation.
+
+![Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.](artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg)
+
+### RFdiffusion is comprehensive improvement over prior methods
+
+The comprehensive-improvement conclusion (prior 0.50, belief 0.99) is reached by induction across three independent application areas: unconditional generation outperforming Hallucination, motif scaffolding solving 23/25 benchmark problems, and binder design achieving 19% experimental success rates. Each area independently overcomes its respective alternative explanations -- benchmark artifacts (belief 0.16), easy benchmark sets (belief 0.21), and success due to AF2 filtering alone (belief 0.26). The induction carries only 0.03 bits of mutual information because the individual pieces of evidence are already so strong (all at or near belief 1.00) that combining them adds little additional surprise. The more informative reasoning step is the aggregation into broad design success (prior 0.50, belief 0.76, 0.61 bits), which requires both comprehensive improvement across applications and atomic-level structural accuracy from the cryo-EM validation. The gap between comprehensive improvement (0.99) and broad success (0.76) reflects the weight of the atomic-accuracy leg: with only a single cryo-EM structure (belief 0.87), the structural proof -- while compelling -- provides less certainty than the large-N experimental campaigns.
+
+### RFdiffusion achieves broad design success
+
+The top-level reasoning chain -- from broad design success (belief 0.76) to the generality claim that RFdiffusion enables protein design from minimal specifications (prior 0.50, belief 0.61, 0.60 bits) -- is where the paper's evidence meets its most ambitious aspiration. Broad success draws on two legs: the near-certain comprehensive improvement across unconditional generation, symmetric oligomers, motif scaffolding, and binder design, plus the atomic-level accuracy demonstrated by the HA_20 cryo-EM structure. The generality claim extends this further, drawing an analogy to text-to-image networks where users specify what they want and the model generates diverse solutions. The belief reaches only 0.61 because the analogy outstrips the evidence in several ways: the paper demonstrates success on specific protein design tasks with protein-expert-designed conditioning, not truly "minimal specifications" accessible to non-specialists. The 0.60 bits of information gain at this step is the highest in the entire graph, indicating that this is precisely where the reasoning structure does the most uncertainty reduction -- and also where it most honestly acknowledges the gap between what has been shown and what is claimed.
+
+![Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.](artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg)
+
+### RFdiffusion enables protein design from minimal specifications
+
+The binder design results represent the most therapeutically relevant demonstration in the paper. RFdiffusion was fine-tuned on protein complex structures with interface hotspot residue conditioning, then tested against five therapeutic targets: Influenza HA, IL-7Ra, PD-L1, Insulin Receptor, and TrkA. The overall 19% experimental success rate (belief 1.00) from fewer than 100 designs per target contrasts sharply with prior Rosetta methods that required screening thousands of designs (belief 1.00). The two-orders-of-magnitude improvement is attributed roughly one order to RFdiffusion's better backbone generation and one order to AF2-based filtering (belief 1.00). Three lines of evidence confirm that these are genuine designed interactions, not artifacts: competition BLI shows all six tested IL-7Ra binders compete with a structurally validated positive control for the same binding site (belief 1.00); binding interfaces are often highly distinct from known PDB interfaces to the same targets (belief 1.00), ruling out simple recapitulation of known binding modes; and the HA_20 cryo-EM structure provides atomic-level proof that the designed protein folds as predicted. Symmetric motif scaffolding extends these capabilities further -- C3-symmetric SARS-CoV-2 trimeric binders rigidly hold three copies of a binding domain to match the spike trimer, and C4 Ni2+-binding assemblies position histidine residues in ideal square-planar coordination geometry, with 18 of 36 designs experimentally confirmed to bind nickel (belief 1.00) and H52A mutations abolishing binding in all 17 tested cases (belief 1.00).
+
+![Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni2+-binding assemblies with ITC and nsEM validation.](artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg)
+
 ## Conclusions
 
-| Label | Content | Belief |
-|-------|---------|--------|
-| binder_success_rate | The overall experimental success rate for RFdiffusion binders (binding at or ... | 1.00 |
-| comprehensive_improvement | RFdiffusion is a comprehensive improvement over current protein design method... | 0.99 |
-| generality_claim | In a manner analogous to networks that produce images from user-specified inp... | 0.61 |
-| ha20_atomic_accuracy | The near-perfect agreement between the cryo-EM structure and the RFdiffusion ... | 0.87 |
-| rfdiffusion_benchmark_performance | RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compare... | 1.00 |
-| rfdiffusion_broad_success | RFdiffusion achieves outstanding performance on unconditional and topology-co... | 0.76 |
-| symmetric_high_success | Despite not being trained on symmetric inputs, RFdiffusion generates symmetri... | 1.00 |
+| Label | Content | Prior | Belief |
+|-------|---------|-------|--------|
+| binder_success_rate | The overall experimental success rate for RFdiffusion binders (binding at or ... | 0.50 | 1.00 |
+| comprehensive_improvement | RFdiffusion is a comprehensive improvement over current protein design method... | 0.50 | 0.99 |
+| generality_claim | In a manner analogous to networks that produce images from user-specified inp... | 0.50 | 0.61 |
+| ha20_atomic_accuracy | The near-perfect agreement between the cryo-EM structure and the RFdiffusion ... | 0.50 | 0.87 |
+| rfdiffusion_benchmark_performance | RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compare... | 0.50 | 1.00 |
+| rfdiffusion_broad_success | RFdiffusion achieves outstanding performance on unconditional and topology-co... | 0.50 | 0.76 |
+| symmetric_high_success | Despite not being trained on symmetric inputs, RFdiffusion generates symmetri... | 0.50 | 1.00 |
 
-<!-- content:start -->
-<!-- content:end -->
+## Weak Points
+
+**Single cryo-EM structure anchors the atomic-accuracy claim.** The HA_20 binder is the only design validated at atomic resolution by cryo-EM. While the 0.63 A r.m.s.d. agreement is striking, the atomic-accuracy conclusion (belief 0.87) rests on this single structure-function demonstration. Additional cryo-EM or crystal structures for binders to other targets, symmetric oligomers, or scaffolded enzymes would substantially strengthen the case. The alternative that HA_20 adopted an unrelated conformation (belief 0.10) is low but not negligible, and would be eliminated entirely with independent structural validation on a second target.
+
+**AF2 filtering confounds attribution of binder success.** The paper attributes roughly half the 100-fold binder success improvement to AF2 filtering rather than to RFdiffusion itself (belief 1.00 for the attribution claim). The alternative that success is primarily due to AF2 filtering alone (belief 0.26) is the highest-belief alternative in the binder design subgraph. Without systematic ablation -- testing binders selected without AF2 filtering -- it remains unclear how much design quality comes from the generative model versus the in silico selection step. This conflation weakens the inference from binder success to RFdiffusion's intrinsic capability.
+
+**Symmetric oligomer validation relies heavily on low-resolution techniques.** SEC profiles and nsEM 2D class averages provide the bulk of symmetric oligomer validation. The coincidental SEC profiles alternative retains the highest belief among oligomer alternatives (0.30), because SEC alone cannot distinguish designed oligomers from non-specific aggregates of similar size. Only one oligomer (D4 design HE0537) received cryo-EM characterization, and the icosahedral assembly HE0902 was validated only by nsEM 3D reconstruction. Higher-resolution structural data on a broader set of designs would close this gap.
+
+**Enzyme active site scaffolding lacks experimental validation.** While in silico results show scaffolding success across EC1-5 enzyme classes after additional fine-tuning (belief 0.62), no experimental characterization of enzyme scaffolds is presented. The retroaldolase demonstration with implicit substrate modeling remains purely computational. This is the weakest application area in terms of evidence depth, and the low belief reflects the absence of wet-lab confirmation.
+
+## Evidence Gaps
+
+**No experimental characterization beyond five binder targets.** The 19% binder success rate comes from five targets chosen to include therapeutically important proteins (HA, IL-7Ra, PD-L1, InsR, TrkA). Whether this rate generalizes to structurally diverse targets with unusual binding site geometries, membrane-proximal epitopes, or flexible regions is untested. The generality claim (belief 0.61) is bottlenecked precisely here.
+
+**Missing head-to-head comparison with concurrent deep learning methods.** The paper benchmarks RFdiffusion against RF Hallucination and RFjoint Inpainting, but not against other emerging deep learning approaches to protein design (e.g., ProteinGenerator, Chroma, or Genie, which appeared around the same timeframe). The benchmark artifact alternative (belief 0.16) would be further suppressed by successful cross-method comparisons on standardized benchmarks.
+
+**No long-term stability or in vivo functional data.** Experimental characterization is limited to in vitro biophysics (CD, SEC, BLI, ITC, nsEM, cryo-EM). None of the designs are tested for in vivo stability, immunogenicity, pharmacokinetics, or therapeutic efficacy. For the binder designs targeting therapeutic proteins, this gap between in vitro binding and clinical utility represents a significant unknown that the reasoning graph does not capture.
