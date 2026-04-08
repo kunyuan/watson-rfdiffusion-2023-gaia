@@ -16,7 +16,8 @@
 **Belief:** 0.88
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::symmetric_high_success`, `github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance`
-**metadata:** {'figure': 'artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg', 'caption': 'Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.'}
+**figure:** artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg
+**caption:** Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.
 
 ### ni_binding_design
 
@@ -35,7 +36,8 @@
 **Premises:** `github:watson_rfdiffusion_2023::ni_binding_histidine_dependence`, `github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a`
 **Derived from:** abduction
 **Premises:** `github:watson_rfdiffusion_2023::ni_binding_nsem`, `github:watson_rfdiffusion_2023::alt_alternative_c4_arrangement`
-**metadata:** {'figure': 'artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg', 'caption': 'Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.'}
+**figure:** artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg
+**caption:** Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.
 
 ### ni_binding_experimental
 
@@ -45,7 +47,8 @@
 **Content:** Of 44 Ni²⁺-binding C4 designs expressed and purified in E. coli, 37 had SEC chromatograms consistent with the intended oligomeric state. Of 36 tested by isothermal titration calorimetry (ITC), 18 bound Ni²⁺ with dissociation constants ranging from low nanomolar to low micromolar. Inflection points in wild-type isotherms indicated binding with the designed 1:4 stoichiometry (ion:monomer).
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg', 'caption': 'Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.'}
+**figure:** artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg
+**caption:** Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ni_binding_design`
 
 ### ni_binding_histidine_dependence
@@ -56,7 +59,8 @@
 **Content:** Mutation of the designed histidine residue (H52) to alanine abolished or notably reduced Ni²⁺ binding in 17 out of 17 cases with successful expression, confirming that metal binding is mediated by the scaffolded histidine residues.
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg', 'caption': 'Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.'}
+**figure:** artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg
+**caption:** Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ni_binding_design`
 
 ### ni_binding_nsem
@@ -67,7 +71,8 @@
 **Content:** nsEM characterization of four Ni²⁺-binding designs (NiB1.12, NiB1.15, NiB1.17, NiB1.20) that showed histidine-dependent binding all showed clear fourfold symmetry in raw micrographs and 2D class averages. A 3D reconstruction of NiB1.17 was in close agreement with the design model.
 **Prior:** 0.88
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg', 'caption': 'Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.'}
+**figure:** artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg
+**caption:** Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ni_binding_design`
 
 ### ni_binding_endothermic

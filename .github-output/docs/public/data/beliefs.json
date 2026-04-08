@@ -206,7 +206,7 @@
       "label": "af2_validates_unconditional_designs"
     },
     {
-      "belief": 0.23084906163096378,
+      "belief": 0.23084906163096372,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_af2_coincidence",
       "label": "alt_af2_coincidence"
     },
@@ -216,12 +216,12 @@
       "label": "alt_alternative_c4_arrangement"
     },
     {
-      "belief": 0.2059586751596053,
+      "belief": 0.20595867515960528,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation",
       "label": "alt_benchmark_other_explanation"
     },
     {
-      "belief": 0.25558589941406124,
+      "belief": 0.2555858994140612,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_binder_other_explanation",
       "label": "alt_binder_other_explanation"
     },
@@ -236,7 +236,7 @@
       "label": "alt_copying_pdb_interfaces"
     },
     {
-      "belief": 0.08000091552427643,
+      "belief": 0.08000091552427645,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_disordered_aggregates_mimicking_icosahedral",
       "label": "alt_disordered_aggregates_mimicking_icosahedral"
     },
@@ -246,17 +246,17 @@
       "label": "alt_ha20_alternative_conformation"
     },
     {
-      "belief": 0.3023411708113431,
+      "belief": 0.30234117081134315,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact",
       "label": "alt_ideality_exp_artifact"
     },
     {
-      "belief": 0.3488296439956406,
+      "belief": 0.34882964399564054,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact",
       "label": "alt_ideality_fold_artifact"
     },
     {
-      "belief": 0.12010027968537734,
+      "belief": 0.12010027968537731,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a",
       "label": "alt_indirect_structural_disruption_h52a"
     },
@@ -266,42 +266,42 @@
       "label": "alt_memorization"
     },
     {
-      "belief": 0.2000020977122109,
+      "belief": 0.20000209771221092,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_noise_free_overfitting",
       "label": "alt_noise_free_overfitting"
     },
     {
-      "belief": 0.18001645216554454,
+      "belief": 0.18001645216554457,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_adhesion",
       "label": "alt_nonspecific_adhesion"
     },
     {
-      "belief": 0.18000213867864617,
+      "belief": 0.1800021386786462,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_binding_p53_mdm2",
       "label": "alt_nonspecific_binding_p53_mdm2"
     },
     {
-      "belief": 0.23086243001109916,
+      "belief": 0.23086243001109918,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_folding",
       "label": "alt_nonspecific_folding"
     },
     {
-      "belief": 0.22008924984911563,
+      "belief": 0.22008924984911565,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_nonspecific_metal_chelation",
       "label": "alt_nonspecific_metal_chelation"
     },
     {
-      "belief": 0.15632748004351335,
+      "belief": 0.1563274800435133,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation",
       "label": "alt_outperforms_other_explanation"
     },
     {
-      "belief": 0.1200008802021276,
+      "belief": 0.12000088020212757,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_structural_mimicry_in_nsem",
       "label": "alt_structural_mimicry_in_nsem"
     },
     {
-      "belief": 0.2000914706128195,
+      "belief": 0.20009147061281954,
       "knowledge_id": "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism",
       "label": "alt_uniform_nonspecific_mechanism"
     },
@@ -316,7 +316,7 @@
       "label": "binder_success_rate"
     },
     {
-      "belief": 0.9199814446809109,
+      "belief": 0.9199814446809108,
       "knowledge_id": "github:watson_rfdiffusion_2023::binder_targets_and_affinities",
       "label": "binder_targets_and_affinities"
     },
@@ -326,7 +326,7 @@
       "label": "comprehensive_improvement"
     },
     {
-      "belief": 0.9199999789952799,
+      "belief": 0.9199999789952797,
       "knowledge_id": "github:watson_rfdiffusion_2023::compute_efficiency",
       "label": "compute_efficiency"
     },
@@ -346,12 +346,12 @@
       "label": "dihedral_tetrahedral_icosahedral"
     },
     {
-      "belief": 0.6237325857845905,
+      "belief": 0.6237325857845906,
       "knowledge_id": "github:watson_rfdiffusion_2023::enzyme_scaffolding_success",
       "label": "enzyme_scaffolding_success"
     },
     {
-      "belief": 0.8799991128030616,
+      "belief": 0.8799991128030618,
       "knowledge_id": "github:watson_rfdiffusion_2023::expanded_tim_barrels",
       "label": "expanded_tim_barrels"
     },
@@ -366,7 +366,7 @@
       "label": "fold_conditioned_generation"
     },
     {
-      "belief": 0.6499999999999999,
+      "belief": 0.65,
       "knowledge_id": "github:watson_rfdiffusion_2023::future_ligands",
       "label": "future_ligands"
     },
@@ -376,7 +376,7 @@
       "label": "future_nucleic_acids"
     },
     {
-      "belief": 0.6109259719812326,
+      "belief": 0.6109259719812324,
       "knowledge_id": "github:watson_rfdiffusion_2023::generality_claim",
       "label": "generality_claim"
     },
@@ -391,7 +391,7 @@
       "label": "ha20_cryoem_structure"
     },
     {
-      "belief": 0.9514721611983074,
+      "belief": 0.9514721611983076,
       "knowledge_id": "github:watson_rfdiffusion_2023::ha20_matches_design",
       "label": "ha20_matches_design"
     },
@@ -406,7 +406,7 @@
       "label": "icosahedral_he0902"
     },
     {
-      "belief": 0.9302111601192354,
+      "belief": 0.9302111601192353,
       "knowledge_id": "github:watson_rfdiffusion_2023::ideality_and_stability",
       "label": "ideality_and_stability"
     },
@@ -426,7 +426,7 @@
       "label": "motif_not_from_training"
     },
     {
-      "belief": 0.7893401581336388,
+      "belief": 0.7893401581336389,
       "knowledge_id": "github:watson_rfdiffusion_2023::mse_loss_design",
       "label": "mse_loss_design"
     },
@@ -471,7 +471,7 @@
       "label": "novel_interfaces"
     },
     {
-      "belief": 0.9199990724300497,
+      "belief": 0.9199990724300499,
       "knowledge_id": "github:watson_rfdiffusion_2023::novel_oligomeric_topologies",
       "label": "novel_oligomeric_topologies"
     },
@@ -536,7 +536,7 @@
       "label": "rfdiffusion_benchmark_performance"
     },
     {
-      "belief": 0.7633616670603659,
+      "belief": 0.763361667060366,
       "knowledge_id": "github:watson_rfdiffusion_2023::rfdiffusion_broad_success",
       "label": "rfdiffusion_broad_success"
     },
@@ -577,10 +577,10 @@
         0.9988251974010872
       ],
       "_m_na_lcs_0da4135154b6d1bf": [
-        0.8673056508081524
+        0.8673056508081525
       ],
       "_m_na_lcs_1e3938487fc664b0": [
-        0.8769078510941479
+        0.8769078510941478
       ],
       "_m_na_lcs_3e37fcca055718bc": [
         0.7993999817517209
@@ -592,7 +592,7 @@
         0.998334427644815
       ],
       "_m_na_lcs_6a526c248cd6ed36": [
-        0.950550044340746
+        0.9505500443407462
       ],
       "_m_na_lcs_86e4a133fe229b01": [
         0.9972918984504267
@@ -730,16 +730,16 @@
         0.9998124202806299
       ],
       "github:watson_rfdiffusion_2023::alt_af2_coincidence": [
-        0.23084906163096378
+        0.23084906163096372
       ],
       "github:watson_rfdiffusion_2023::alt_alternative_c4_arrangement": [
         0.12010023867261437
       ],
       "github:watson_rfdiffusion_2023::alt_benchmark_other_explanation": [
-        0.2059586751596053
+        0.20595867515960528
       ],
       "github:watson_rfdiffusion_2023::alt_binder_other_explanation": [
-        0.25558589941406124
+        0.2555858994140612
       ],
       "github:watson_rfdiffusion_2023::alt_coincidental_sec_profiles": [
         0.300000703967094
@@ -748,46 +748,46 @@
         0.15001703262083227
       ],
       "github:watson_rfdiffusion_2023::alt_disordered_aggregates_mimicking_icosahedral": [
-        0.08000091552427643
+        0.08000091552427645
       ],
       "github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation": [
         0.09514721611983076
       ],
       "github:watson_rfdiffusion_2023::alt_ideality_exp_artifact": [
-        0.3023411708113431
+        0.30234117081134315
       ],
       "github:watson_rfdiffusion_2023::alt_ideality_fold_artifact": [
-        0.3488296439956406
+        0.34882964399564054
       ],
       "github:watson_rfdiffusion_2023::alt_indirect_structural_disruption_h52a": [
-        0.12010027968537734
+        0.12010027968537731
       ],
       "github:watson_rfdiffusion_2023::alt_memorization": [
         0.15000222830519233
       ],
       "github:watson_rfdiffusion_2023::alt_noise_free_overfitting": [
-        0.2000020977122109
+        0.20000209771221092
       ],
       "github:watson_rfdiffusion_2023::alt_nonspecific_adhesion": [
-        0.18001645216554454
+        0.18001645216554457
       ],
       "github:watson_rfdiffusion_2023::alt_nonspecific_binding_p53_mdm2": [
-        0.18000213867864617
+        0.1800021386786462
       ],
       "github:watson_rfdiffusion_2023::alt_nonspecific_folding": [
-        0.23086243001109916
+        0.23086243001109918
       ],
       "github:watson_rfdiffusion_2023::alt_nonspecific_metal_chelation": [
-        0.22008924984911563
+        0.22008924984911565
       ],
       "github:watson_rfdiffusion_2023::alt_outperforms_other_explanation": [
-        0.15632748004351335
+        0.1563274800435133
       ],
       "github:watson_rfdiffusion_2023::alt_structural_mimicry_in_nsem": [
-        0.1200008802021276
+        0.12000088020212757
       ],
       "github:watson_rfdiffusion_2023::alt_uniform_nonspecific_mechanism": [
-        0.2000914706128195
+        0.20009147061281954
       ],
       "github:watson_rfdiffusion_2023::binder_specificity": [
         0.9997269254639839
@@ -796,13 +796,13 @@
         0.9999798092284121
       ],
       "github:watson_rfdiffusion_2023::binder_targets_and_affinities": [
-        0.9199814446809109
+        0.9199814446809108
       ],
       "github:watson_rfdiffusion_2023::comprehensive_improvement": [
         0.9925514865785338
       ],
       "github:watson_rfdiffusion_2023::compute_efficiency": [
-        0.9199999789952799
+        0.9199999789952797
       ],
       "github:watson_rfdiffusion_2023::ddpm_properties_for_protein_design": [
         0.9990737005117383
@@ -814,10 +814,10 @@
         0.8789673485155557
       ],
       "github:watson_rfdiffusion_2023::enzyme_scaffolding_success": [
-        0.6237325857845905
+        0.6237325857845906
       ],
       "github:watson_rfdiffusion_2023::expanded_tim_barrels": [
-        0.8799991128030616
+        0.8799991128030618
       ],
       "github:watson_rfdiffusion_2023::experimental_validation_monomers": [
         0.9999997726844333
@@ -826,13 +826,13 @@
         0.9998411672630652
       ],
       "github:watson_rfdiffusion_2023::future_ligands": [
-        0.6499999999999999
+        0.65
       ],
       "github:watson_rfdiffusion_2023::future_nucleic_acids": [
         0.7
       ],
       "github:watson_rfdiffusion_2023::generality_claim": [
-        0.6109259719812326
+        0.6109259719812324
       ],
       "github:watson_rfdiffusion_2023::ha20_atomic_accuracy": [
         0.8745554907491457
@@ -841,7 +841,7 @@
         0.9998469790032354
       ],
       "github:watson_rfdiffusion_2023::ha20_matches_design": [
-        0.9514721611983074
+        0.9514721611983076
       ],
       "github:watson_rfdiffusion_2023::hallucination_benchmark": [
         0.9996680155579781
@@ -850,7 +850,7 @@
         0.9997269363845365
       ],
       "github:watson_rfdiffusion_2023::ideality_and_stability": [
-        0.9302111601192354
+        0.9302111601192353
       ],
       "github:watson_rfdiffusion_2023::key_insight": [
         0.9973445198284614
@@ -862,7 +862,7 @@
         0.9998633797297003
       ],
       "github:watson_rfdiffusion_2023::mse_loss_design": [
-        0.7893401581336388
+        0.7893401581336389
       ],
       "github:watson_rfdiffusion_2023::mse_vs_fape_ablation": [
         0.88
@@ -889,7 +889,7 @@
         0.9997269224387405
       ],
       "github:watson_rfdiffusion_2023::novel_oligomeric_topologies": [
-        0.9199990724300497
+        0.9199990724300499
       ],
       "github:watson_rfdiffusion_2023::nsem_validates_cyclic": [
         0.9998258556058727
@@ -928,7 +928,7 @@
         0.9999973760438315
       ],
       "github:watson_rfdiffusion_2023::rfdiffusion_broad_success": [
-        0.7633616670603659
+        0.763361667060366
       ],
       "github:watson_rfdiffusion_2023::sars_cov2_trimeric_binder_design": [
         0.8791178127355601
@@ -955,5 +955,5 @@
     "max_change_at_stop": 0.0,
     "treewidth": 3
   },
-  "ir_hash": "sha256:5ee7a41edf4ac87c4005cb43344f842b556961ffdfb20b82a5373c3e2a19d6c8"
+  "ir_hash": "sha256:4c03ba068c8a4d3dbdbe20c56bd22540cc166d747595ce2bc6bb3b61160750bc"
 }
