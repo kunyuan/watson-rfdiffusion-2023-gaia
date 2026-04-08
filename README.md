@@ -14,7 +14,7 @@ RFdiffusion applies denoising diffusion probabilistic models to protein backbone
 ## Reasoning Graph
 
 > [!TIP]
-> **Reasoning graph information gain: `1.5 bits`**
+> **Reasoning graph information gain: `3.4 bits`**
 >
 > Total mutual information between leaf premises and exported conclusions — measures how much the reasoning structure reduces uncertainty about the results.
 
@@ -65,7 +65,7 @@ graph TB
     alt_outperforms_other_explanation["Alternative: benchmark artifact for unconditional generation\n(0.15 → 0.16)"]:::premise
     alt_benchmark_other_explanation["Alternative: easy benchmark set\n(0.20 → 0.21)"]:::premise
     alt_binder_other_explanation["Alternative: success due to AF2 filtering alone\n(0.25 → 0.26)"]:::premise
-    strat_0(["infer\n0.03 bits"]):::weak
+    strat_0(["infer\n0.68 bits"]):::weak
     alt_benchmark_other_explanation --> strat_0
     alt_binder_other_explanation --> strat_0
     alt_outperforms_other_explanation --> strat_0
@@ -73,7 +73,7 @@ graph TB
     outperforms_hallucination --> strat_0
     rfdiffusion_benchmark_performance --> strat_0
     strat_0 --> comprehensive_improvement
-    strat_1(["infer"]):::weak
+    strat_1(["infer\n0.05 bits"]):::weak
     alt_coincidental_sec_profiles --> strat_1
     alt_disordered_aggregates_mimicking_icosahedral --> strat_1
     alt_structural_mimicry_in_nsem --> strat_1
@@ -87,7 +87,7 @@ graph TB
     sec_validation_oligomers --> strat_1
     self_conditioning_improvement --> strat_1
     strat_1 --> symmetric_high_success
-    strat_2(["infer"]):::weak
+    strat_2(["infer\n0.43 bits"]):::weak
     alt_copying_pdb_interfaces --> strat_2
     alt_nonspecific_adhesion --> strat_2
     binder_specificity --> strat_2
@@ -101,12 +101,12 @@ graph TB
     self_conditioning_improvement --> strat_2
     two_orders_attribution --> strat_2
     strat_2 --> binder_success_rate
-    strat_3(["infer\n0.27 bits"]):::weak
+    strat_3(["infer\n0.76 bits"]):::weak
     alt_ha20_alternative_conformation --> strat_3
     binder_success_rate --> strat_3
     ha20_cryoem_structure --> strat_3
     strat_3 --> ha20_atomic_accuracy
-    strat_4(["infer"]):::weak
+    strat_4(["infer\n0.25 bits"]):::weak
     alt_memorization --> strat_4
     alt_noise_free_overfitting --> strat_4
     alt_nonspecific_binding_p53_mdm2 --> strat_4
