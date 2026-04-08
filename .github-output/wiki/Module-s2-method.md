@@ -32,7 +32,8 @@
 **Content:** To generate a new protein backbone, RFdiffusion first initializes random residue frames, makes a denoised prediction, and updates each residue frame by taking a step in the direction of this prediction with some noise added. The reverse step size and noise are chosen so the denoising process matches the distribution of the noising process. Through many such steps (typically 200), random frames converge on realistic protein backbone structures.
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg', 'caption': 'Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.'}
+**figure:** artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg
+**caption:** Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::pipeline_description`
 
 ### self_conditioning_improvement
@@ -43,7 +44,8 @@
 **Content:** Self-conditioning — in which the model conditions on its previous prediction between timesteps, inspired by 'recycling' in AlphaFold2 — notably improved performance on in silico benchmarks encompassing both conditional and unconditional protein design tasks. Increased coherence of predictions within self-conditioned trajectories may at least in part explain these performance increases.
 **Prior:** 0.88
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg', 'caption': 'Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.'}
+**figure:** artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg
+**caption:** Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::method_design_validated`
 
 ### pretraining_benefit
@@ -54,7 +56,8 @@
 **Content:** Fine-tuning RFdiffusion from pretrained RoseTTAFold weights was far more successful than training for an equivalent length of time from untrained (randomly initialized) weights, as measured by in silico success rates on unconditional generation benchmarks.
 **Prior:** 0.88
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg', 'caption': 'Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.'}
+**figure:** artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg
+**caption:** Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::method_design_validated`
 
 ### mse_vs_fape_ablation
@@ -65,7 +68,8 @@
 **Content:** Ablating the m.s.e. loss by training with FAPE loss instead notably decreases the performance of RFdiffusion for unconditional generation of 300 amino acid proteins, confirming that m.s.e. loss is essential.
 **Prior:** 0.88
 **Belief:** 0.88
-**metadata:** {'figure': 'artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg', 'caption': 'Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.'}
+**figure:** artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg
+**caption:** Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::mse_loss_design`
 
 ### pipeline_description
@@ -77,7 +81,8 @@
 **Belief:** 1.00
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::key_insight`, `github:watson_rfdiffusion_2023::denoising_process`, `github:watson_rfdiffusion_2023::method_design_validated`
-**metadata:** {'figure': 'artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg', 'caption': 'Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.'}
+**figure:** artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg
+**caption:** Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::compute_efficiency`; noisy_and -> `github:watson_rfdiffusion_2023::symmetric_high_success`; noisy_and -> `github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance`; noisy_and -> `github:watson_rfdiffusion_2023::enzyme_scaffolding_success`; noisy_and -> `github:watson_rfdiffusion_2023::binder_success_rate`
 
 ### compute_efficiency

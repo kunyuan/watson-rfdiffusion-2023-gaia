@@ -31,7 +31,8 @@
 **Premises:** `github:watson_rfdiffusion_2023::motif_not_from_training`, `github:watson_rfdiffusion_2023::alt_memorization`
 **Derived from:** induction
 **Premises:** `github:watson_rfdiffusion_2023::noise_free_reverse`, `github:watson_rfdiffusion_2023::motif_not_from_training`, `github:watson_rfdiffusion_2023::alt_noise_free_overfitting`, `github:watson_rfdiffusion_2023::alt_memorization`
-**metadata:** {'figure': 'artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg', 'caption': 'Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.'}
+**figure:** artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg
+**caption:** Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::sars_cov2_trimeric_binder_design`; abduction -> `github:watson_rfdiffusion_2023::comprehensive_improvement`; induction -> `github:watson_rfdiffusion_2023::comprehensive_improvement`
 
 ### hallucination_benchmark
@@ -82,7 +83,8 @@
 **Content:** RFdiffusion scaffolded the p53 helix that binds MDM2 in the presence of MDM2, so extra interactions could be designed. Out of 96 designs, 55 showed detectable binding at 10 μM. The overall experimental success rate (binding at or above 50% of maximal response) was high.
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg', 'caption': 'Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.'}
+**figure:** artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg
+**caption:** Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance`; noisy_and -> `github:watson_rfdiffusion_2023::p53_mdm2_affinity`
 
 ### p53_mdm2_affinity
@@ -94,7 +96,8 @@
 **Belief:** 0.88
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::p53_mdm2_design`
-**metadata:** {'figure': 'artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg', 'caption': 'Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.'}
+**figure:** artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg
+**caption:** Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.
 
 ### enzyme_scaffolding_success
 
@@ -105,7 +108,8 @@
 **Belief:** 0.62
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::pipeline_description`, `github:watson_rfdiffusion_2023::retroaldolase_demonstration`
-**metadata:** {'figure': 'artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg', 'caption': 'Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.'}
+**figure:** artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg
+**caption:** Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.
 
 ### retroaldolase_demonstration
 

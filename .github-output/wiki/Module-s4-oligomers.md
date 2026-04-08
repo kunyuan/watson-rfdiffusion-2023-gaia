@@ -42,7 +42,8 @@
 **Content:** Of 608 designs selected for experimental characterization, at least 87 had oligomerization states closely consistent with the design models by size-exclusion chromatography (SEC) within the 95% confidence interval (126 within the 99% CI).
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg', 'caption': 'Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.'}
+**figure:** artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg
+**caption:** Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::symmetric_high_success`; noisy_and -> `github:watson_rfdiffusion_2023::dihedral_tetrahedral_icosahedral`
 
 ### nsem_validates_cyclic
@@ -53,7 +54,8 @@
 **Content:** Negative stain electron microscopy (nsEM) characterization of cyclic oligomers showed distinct particles with shapes resembling design models. A C3 design (HE0822, 350 residues/subunit, 1050 total) showed 2D class averages consistent with top and side views, and a 3D reconstruction with the distinctive pinwheel shape matching the design. C5 and C6 designs with >750 residues also showed consistent 2D class averages.
 **Prior:** 0.92
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg', 'caption': 'Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.'}
+**figure:** artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg
+**caption:** Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::symmetric_high_success`
 
 ### expanded_tim_barrels
@@ -65,7 +67,8 @@
 **Belief:** 0.88
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::symmetric_high_success`
-**metadata:** {'figure': 'artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg', 'caption': 'Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.'}
+**figure:** artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg
+**caption:** Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.
 
 ### dihedral_tetrahedral_icosahedral
 
@@ -76,7 +79,8 @@
 **Belief:** 0.88
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::symmetric_high_success`, `github:watson_rfdiffusion_2023::sec_validation_oligomers`
-**metadata:** {'figure': 'artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg', 'caption': 'Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.'}
+**figure:** artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg
+**caption:** Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.
 
 ### icosahedral_he0902
 
@@ -86,7 +90,8 @@
 **Content:** Of 48 icosahedra selected for experimental validation, one (HE0902, a 15 nm diameter highly porous assembly) formed homogeneous particles observed by nsEM. 2D class averages and 3D reconstruction very closely match the design model, with triangular hubs arrayed around the empty C5 axes. Such large assemblies should be useful as nanomaterials and vaccine scaffolds.
 **Prior:** 0.88
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg', 'caption': 'Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.'}
+**figure:** artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg
+**caption:** Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::symmetric_high_success`
 
 ### alt_coincidental_sec_profiles

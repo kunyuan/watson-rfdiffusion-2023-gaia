@@ -37,7 +37,8 @@
 **Premises:** `github:watson_rfdiffusion_2023::novel_interfaces`, `github:watson_rfdiffusion_2023::alt_copying_pdb_interfaces`
 **Derived from:** abduction
 **Premises:** `github:watson_rfdiffusion_2023::binder_specificity`, `github:watson_rfdiffusion_2023::alt_nonspecific_adhesion`
-**metadata:** {'figure': 'artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg', 'caption': 'Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.'}
+**figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
+**caption:** Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::binder_targets_and_affinities`; noisy_and -> `github:watson_rfdiffusion_2023::ha20_atomic_accuracy`; abduction -> `github:watson_rfdiffusion_2023::comprehensive_improvement`; induction -> `github:watson_rfdiffusion_2023::comprehensive_improvement`
 
 ### binder_targets_and_affinities
@@ -49,7 +50,8 @@
 **Belief:** 0.92
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::binder_success_rate`
-**metadata:** {'figure': 'artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg', 'caption': 'Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.'}
+**figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
+**caption:** Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.
 
 ### two_orders_attribution
 
@@ -89,7 +91,8 @@
 **Content:** The cryo-EM structure of the highest affinity Influenza binder (HA_20, Kd = 28 nM) in complex with Iowa43 HA was solved at 2.9 Å resolution. 3D heterogeneous refinement without symmetry revealed full occupancy of all three HA stem epitopes by HA_20.
 **Prior:** 0.95
 **Belief:** 1.00
-**metadata:** {'figure': 'artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg', 'caption': 'Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.'}
+**figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
+**caption:** Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ha20_matches_design`
 
 ### ha20_matches_design
@@ -101,7 +104,8 @@
 **Belief:** 0.95
 **Derived from:** abduction
 **Premises:** `github:watson_rfdiffusion_2023::ha20_cryoem_structure`, `github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation`
-**metadata:** {'figure': 'artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg', 'caption': 'Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.'}
+**figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
+**caption:** Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::ha20_atomic_accuracy`
 
 ### ha20_atomic_accuracy

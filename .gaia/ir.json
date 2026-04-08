@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:5ee7a41edf4ac87c4005cb43344f842b556961ffdfb20b82a5373c3e2a19d6c8",
+  "ir_hash": "sha256:4c03ba068c8a4d3dbdbe20c56bd22540cc166d747595ce2bc6bb3b61160750bc",
   "knowledges": [
     {
       "content": "Denoising diffusion probabilistic models (DDPMs) are a class of generative machine learning models that learn to reverse a gradual noising process. They are trained to denoise data (images, text, protein structures) corrupted with Gaussian noise, and by stochastically reversing this corruption, they generate diverse outputs resembling the training data.",
@@ -177,10 +177,8 @@
       "id": "github:watson_rfdiffusion_2023::denoising_process",
       "label": "denoising_process",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
-          "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
-        }
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
       },
       "module": "s2_method",
       "parameters": [],
@@ -195,10 +193,8 @@
       "id": "github:watson_rfdiffusion_2023::self_conditioning_improvement",
       "label": "self_conditioning_improvement",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
-          "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
-        }
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
       },
       "module": "s2_method",
       "parameters": [],
@@ -213,10 +209,8 @@
       "id": "github:watson_rfdiffusion_2023::pretraining_benefit",
       "label": "pretraining_benefit",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s2_method",
       "parameters": [],
@@ -231,10 +225,8 @@
       "id": "github:watson_rfdiffusion_2023::mse_vs_fape_ablation",
       "label": "mse_vs_fape_ablation",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s2_method",
       "parameters": [],
@@ -249,10 +241,8 @@
       "id": "github:watson_rfdiffusion_2023::pipeline_description",
       "label": "pipeline_description",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
-          "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
-        }
+        "caption": "Fig. 1 | Protein design using RFdiffusion. Diffusion models for proteins trained to recover corrupted structures via iterative denoising. RF fine-tuned into RFdiffusion with self-conditioning.",
+        "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg"
       },
       "module": "s2_method",
       "parameters": [],
@@ -291,10 +281,8 @@
       "id": "github:watson_rfdiffusion_2023::unconditional_generates_diverse_structures",
       "label": "unconditional_generates_diverse_structures",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s3_unconditional",
       "parameters": [],
@@ -309,10 +297,8 @@
       "id": "github:watson_rfdiffusion_2023::af2_validates_unconditional_designs",
       "label": "af2_validates_unconditional_designs",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s3_unconditional",
       "parameters": [],
@@ -327,10 +313,8 @@
       "id": "github:watson_rfdiffusion_2023::experimental_validation_monomers",
       "label": "experimental_validation_monomers",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s3_unconditional",
       "parameters": [],
@@ -345,10 +329,8 @@
       "id": "github:watson_rfdiffusion_2023::outperforms_hallucination",
       "label": "outperforms_hallucination",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s3_unconditional",
       "parameters": [],
@@ -363,10 +345,8 @@
       "id": "github:watson_rfdiffusion_2023::fold_conditioned_generation",
       "label": "fold_conditioned_generation",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
-          "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
-        }
+        "caption": "Fig. 2 | Outstanding performance of RFdiffusion for monomer generation. Unconditional generation, TM-score novelty, AF2 validation, comparison with Hallucination, ablation studies, experimental CD/thermostability.",
+        "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg"
       },
       "module": "s3_unconditional",
       "parameters": [],
@@ -441,10 +421,8 @@
       "id": "github:watson_rfdiffusion_2023::sec_validation_oligomers",
       "label": "sec_validation_oligomers",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
-          "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
-        }
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
       },
       "module": "s4_oligomers",
       "parameters": [],
@@ -459,10 +437,8 @@
       "id": "github:watson_rfdiffusion_2023::nsem_validates_cyclic",
       "label": "nsem_validates_cyclic",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
-          "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
-        }
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
       },
       "module": "s4_oligomers",
       "parameters": [],
@@ -477,10 +453,8 @@
       "id": "github:watson_rfdiffusion_2023::expanded_tim_barrels",
       "label": "expanded_tim_barrels",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
-          "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
-        }
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
       },
       "module": "s4_oligomers",
       "parameters": [],
@@ -495,10 +469,8 @@
       "id": "github:watson_rfdiffusion_2023::dihedral_tetrahedral_icosahedral",
       "label": "dihedral_tetrahedral_icosahedral",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
-          "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
-        }
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
       },
       "module": "s4_oligomers",
       "parameters": [],
@@ -513,10 +485,8 @@
       "id": "github:watson_rfdiffusion_2023::icosahedral_he0902",
       "label": "icosahedral_he0902",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
-          "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
-        }
+        "caption": "Fig. 3 | Design and experimental characterization of symmetric oligomers. Cyclic (C3, C6, C8), dihedral (D3, D4), and icosahedral assemblies with nsEM validation.",
+        "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg"
       },
       "module": "s4_oligomers",
       "parameters": [],
@@ -591,10 +561,8 @@
       "id": "github:watson_rfdiffusion_2023::rfdiffusion_benchmark_performance",
       "label": "rfdiffusion_benchmark_performance",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
-          "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
-        }
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
       },
       "module": "s5_motif_scaffolding",
       "parameters": [],
@@ -657,10 +625,8 @@
       "id": "github:watson_rfdiffusion_2023::p53_mdm2_design",
       "label": "p53_mdm2_design",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
-          "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
-        }
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
       },
       "module": "s5_motif_scaffolding",
       "parameters": [],
@@ -675,10 +641,8 @@
       "id": "github:watson_rfdiffusion_2023::p53_mdm2_affinity",
       "label": "p53_mdm2_affinity",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
-          "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
-        }
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
       },
       "module": "s5_motif_scaffolding",
       "parameters": [],
@@ -693,10 +657,8 @@
       "id": "github:watson_rfdiffusion_2023::enzyme_scaffolding_success",
       "label": "enzyme_scaffolding_success",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
-          "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
-        }
+        "caption": "Fig. 4 | Scaffolding of diverse functional sites with RFdiffusion. 25-problem benchmark comparison, p53-MDM2 scaffolding, enzyme active site scaffolding.",
+        "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg"
       },
       "module": "s5_motif_scaffolding",
       "parameters": [],
@@ -771,10 +733,8 @@
       "id": "github:watson_rfdiffusion_2023::sars_cov2_trimeric_binder_design",
       "label": "sars_cov2_trimeric_binder_design",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
-          "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
-        }
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
       },
       "module": "s6_symmetric_motif",
       "parameters": [],
@@ -789,10 +749,8 @@
       "id": "github:watson_rfdiffusion_2023::ni_binding_design",
       "label": "ni_binding_design",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
-          "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
-        }
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
       },
       "module": "s6_symmetric_motif",
       "parameters": [],
@@ -807,10 +765,8 @@
       "id": "github:watson_rfdiffusion_2023::ni_binding_experimental",
       "label": "ni_binding_experimental",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
-          "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
-        }
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
       },
       "module": "s6_symmetric_motif",
       "parameters": [],
@@ -825,10 +781,8 @@
       "id": "github:watson_rfdiffusion_2023::ni_binding_histidine_dependence",
       "label": "ni_binding_histidine_dependence",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
-          "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
-        }
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
       },
       "module": "s6_symmetric_motif",
       "parameters": [],
@@ -843,10 +797,8 @@
       "id": "github:watson_rfdiffusion_2023::ni_binding_nsem",
       "label": "ni_binding_nsem",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
-          "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
-        }
+        "caption": "Fig. 5 | Symmetric motif scaffolding with RFdiffusion. C3-symmetric SARS-CoV-2 trimeric binders, C4 Ni²⁺-binding assemblies with ITC and nsEM validation.",
+        "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg"
       },
       "module": "s6_symmetric_motif",
       "parameters": [],
@@ -957,10 +909,8 @@
       "id": "github:watson_rfdiffusion_2023::binder_success_rate",
       "label": "binder_success_rate",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
-          "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
-        }
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
       },
       "module": "s7_binder_design",
       "parameters": [],
@@ -975,10 +925,8 @@
       "id": "github:watson_rfdiffusion_2023::binder_targets_and_affinities",
       "label": "binder_targets_and_affinities",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
-          "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
-        }
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
       },
       "module": "s7_binder_design",
       "parameters": [],
@@ -1029,10 +977,8 @@
       "id": "github:watson_rfdiffusion_2023::ha20_cryoem_structure",
       "label": "ha20_cryoem_structure",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
-          "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
-        }
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
       },
       "module": "s7_binder_design",
       "parameters": [],
@@ -1047,10 +993,8 @@
       "id": "github:watson_rfdiffusion_2023::ha20_matches_design",
       "label": "ha20_matches_design",
       "metadata": {
-        "metadata": {
-          "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
-          "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
-        }
+        "caption": "Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.",
+        "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg"
       },
       "module": "s7_binder_design",
       "parameters": [],
