@@ -89,7 +89,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** RFdiffusion achieves outstanding performance on unconditional and topology-constrained protein monomer design, protein binder design, symmetric oligomer design, enzyme active site scaffolding, and symmetric motif scaffolding for therapeutic and metal-binding protein design.
-**Belief:** 0.76
+**Belief:** 0.72
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::comprehensive_improvement`, `github:watson_rfdiffusion_2023::ha20_atomic_accuracy`
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::generality_claim`

@@ -2,7 +2,7 @@
 
 Auto-generated from the coarse reasoning graph. Sections are grouped by connectivity (high cohesion, low coupling) and ordered by topological layer. Use this as the backbone for writing narrative summaries.
 
-## Noise-free reverse trajectories often improve success
+## SEC validates oligomeric states
 
 1. **Alternative: disordered aggregates mimicking icosahedral symmetry** (prior: 0.08 → belief: 0.08)
    - → supports: symmetric_high_success
@@ -28,66 +28,66 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 8. **Alternative: coincidental SEC profiles** (prior: 0.30 → belief: 0.30)
    - → supports: symmetric_high_success
 
-9. **Limitations of prior protein diffusion methods** (prior: 0.85 → belief: 1.00)
-   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
+9. **Success rate improvement attributed to RFdiffusion + AF2 filtering** (prior: 0.75 → belief: 1.00)
+   - → supports: binder_success_rate
 
 10. **RFjoint Inpainting limitations** (prior: 0.85 → belief: 1.00)
    - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
 
-11. **Pretraining from RF weights is critical** (prior: 0.88 → belief: 1.00)
+11. **Limitations of prior protein diffusion methods** (prior: 0.85 → belief: 1.00)
    - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
 
-12. **Self-conditioning improves RFdiffusion performance** (prior: 0.88 → belief: 1.00)
-   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
-
-13. **DDPM properties suited for protein design** (prior: 0.90 → belief: 1.00)
-   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
-
-14. **Success rate improvement attributed to RFdiffusion + AF2 filtering** (prior: 0.75 → belief: 1.00)
+12. **Novel binding interfaces distinct from PDB** (prior: 0.88 → belief: 1.00)
    - → supports: binder_success_rate
 
-15. **Iterative denoising generation process** (prior: 0.92 → belief: 1.00)
+13. **IL-7Rα binders show site-specific binding** (prior: 0.88 → belief: 1.00)
+   - → supports: binder_success_rate
+
+14. **Pretraining from RF weights is critical** (prior: 0.88 → belief: 1.00)
+   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
+
+15. **Self-conditioning improves RFdiffusion performance** (prior: 0.88 → belief: 1.00)
    - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
 
 16. **Prior binder design methods had low success rates** (prior: 0.88 → belief: 1.00)
    - → supports: binder_success_rate
 
-17. **RFjoint Inpainting solves 19/25 benchmark problems** (prior: 0.88 → belief: 1.00)
+17. **DDPM properties suited for protein design** (prior: 0.90 → belief: 1.00)
+   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
+
+18. **Scaffolding success independent of training set membership** (prior: 0.88 → belief: 1.00)
    - → supports: rfdiffusion_benchmark_performance
 
-18. **Hallucination solves 15/25 benchmark problems** (prior: 0.88 → belief: 1.00)
+19. **Noise-free reverse trajectories often improve success** (prior: 0.88 → belief: 1.00)
    - → supports: rfdiffusion_benchmark_performance
 
-19. **Novel binding interfaces distinct from PDB** (prior: 0.88 → belief: 1.00)
-   - → supports: binder_success_rate
+20. **RFjoint Inpainting solves 19/25 benchmark problems** (prior: 0.88 → belief: 1.00)
+   - → supports: rfdiffusion_benchmark_performance
 
-20. **IL-7Rα binders show site-specific binding** (prior: 0.88 → belief: 1.00)
-   - → supports: binder_success_rate
+21. **Hallucination solves 15/25 benchmark problems** (prior: 0.88 → belief: 1.00)
+   - → supports: rfdiffusion_benchmark_performance
 
-21. **Icosahedral assembly HE0902 validated by nsEM** (prior: 0.88 → belief: 1.00)
+22. **Iterative denoising generation process** (prior: 0.92 → belief: 1.00)
+   - → supports: symmetric_high_success, binder_success_rate, rfdiffusion_benchmark_performance
+
+23. **Icosahedral assembly HE0902 validated by nsEM** (prior: 0.88 → belief: 1.00)
    - → supports: symmetric_high_success
 
-22. **p53-MDM2 binder scaffolding: 55/96 designs show binding** (prior: 0.92 → belief: 1.00)
+24. **p53-MDM2 binder scaffolding: 55/96 designs show binding** (prior: 0.92 → belief: 1.00)
    - → supports: rfdiffusion_benchmark_performance
 
-23. **nsEM confirms cyclic oligomer structures** (prior: 0.92 → belief: 1.00)
+25. **nsEM confirms cyclic oligomer structures** (prior: 0.92 → belief: 1.00)
    - → supports: symmetric_high_success
 
-24. **SEC validates oligomeric states** (prior: 0.92 → belief: 1.00)
+26. **SEC validates oligomeric states** (prior: 0.92 → belief: 1.00)
    - → supports: symmetric_high_success
-
-25. **Scaffolding success independent of training set membership** (prior: 0.88 → belief: 1.00)
-   - → supports: rfdiffusion_benchmark_performance
-
-26. **Noise-free reverse trajectories often improve success** (prior: 0.88 → belief: 1.00)
-   - → supports: rfdiffusion_benchmark_performance
 
 ## Cryo-EM structure of HA_20-HA complex at 2.9 Å
 
-27. **Alternative: HA_20 adopts alternative conformation** (prior: 0.05 → belief: 0.10)
+27. **Alternative: HA_20 adopts alternative conformation** (prior: 0.05 → belief: 0.09)
    - → supports: ha20_atomic_accuracy
 
-28. **Cryo-EM structure of HA_20-HA complex at 2.9 Å** (prior: 0.95 → belief: 1.00)
+28. **Cryo-EM structure of HA_20-HA complex at 2.9 Å** (prior: 0.95 → belief: 0.95)
    - → supports: ha20_atomic_accuracy
 
 ## RFdiffusion outperforms RF Hallucination
@@ -119,7 +119,7 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## RFdiffusion is comprehensive improvement over prior methods
 
-36. **RFdiffusion achieves atomic-level accuracy in binder design ★** (prior: 0.50 → belief: 0.87)
+36. **RFdiffusion achieves atomic-level accuracy in binder design ★** (prior: 0.50 → belief: 0.83)
    - ← infer(alt_ha20_alternative_conformation, binder_success_rate, ha20_cryoem_structure) [0.76 bits]
    - → supports: rfdiffusion_broad_success
 
@@ -129,11 +129,11 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## RFdiffusion achieves broad design success
 
-38. **RFdiffusion achieves broad design success ★** (prior: 0.50 → belief: 0.76)
+38. **RFdiffusion achieves broad design success ★** (prior: 0.50 → belief: 0.72)
    - ← infer(comprehensive_improvement, ha20_atomic_accuracy) [0.61 bits]
    - → supports: generality_claim
 
 ## RFdiffusion enables protein design from minimal specifications
 
-39. **RFdiffusion enables protein design from minimal specifications ★** (prior: 0.50 → belief: 0.61)
+39. **RFdiffusion enables protein design from minimal specifications ★** (prior: 0.50 → belief: 0.58)
    - ← infer(rfdiffusion_broad_success) [0.60 bits]

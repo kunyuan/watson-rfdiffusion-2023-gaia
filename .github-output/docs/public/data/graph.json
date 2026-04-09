@@ -80,7 +80,7 @@
       "module": "motivation",
       "content": "DDPMs have three properties well suited to protein design: (1) they generate highly diverse outputs because each denoising trajectory starts from different noise and follows a stochastic path; (2) they can be guided at each step towards specific design objectives through conditioning information; (3) rotationally equivariant DDPMs can model 3D protein structures in a global reference frame independent manner.",
       "prior": 0.9,
-      "belief": 0.9990737005117383,
+      "belief": 0.9990734670049545,
       "exported": false,
       "metadata": {}
     },
@@ -92,7 +92,7 @@
       "module": "motivation",
       "content": "Previous attempts to adapt DDPMs for protein monomer design (by conditioning on small protein 'motifs' or on secondary structure and block-adjacency information) showed limited success in generating sequences that fold to intended structures in silico, probably due to the limited ability of the denoising networks to generate realistic protein backbones, and were not tested experimentally.",
       "prior": 0.85,
-      "belief": 0.9986105507676074,
+      "belief": 0.9986102005074319,
       "exported": false,
       "metadata": {}
     },
@@ -104,7 +104,7 @@
       "module": "motivation",
       "content": "RFjoint Inpainting, a method that fine-tuned RoseTTAFold to complete protein backbones around input functional motifs in a single step, demonstrated that the method can scaffold a wide range of protein functional motifs with atomic accuracy. However, RFjoint Inpainting fails on minimalist site descriptions that do not sufficiently constrain the overall fold and, because it is deterministic, can produce only a limited diversity of designs for a given problem.",
       "prior": 0.85,
-      "belief": 0.9986105507676074,
+      "belief": 0.9986102005074319,
       "exported": false,
       "metadata": {}
     },
@@ -116,7 +116,7 @@
       "module": "motivation",
       "content": "By fine-tuning the RoseTTAFold structure prediction network on protein structure denoising tasks — rather than using it deterministically — a generative diffusion model can be obtained that overcomes the limitations of both prior DDPMs (poor backbone quality) and RFjoint Inpainting (limited diversity, failure on minimal specifications). Because the starting point is random noise, each denoising trajectory yields a different solution, and because structure is built up progressively through many denoising iterations, little to no starting structural information is required.",
       "prior": null,
-      "belief": 0.9973445198284614,
+      "belief": 0.9973434720983707,
       "exported": false,
       "metadata": {}
     },
@@ -128,7 +128,7 @@
       "module": "motivation",
       "content": "RFdiffusion achieves outstanding performance on unconditional and topology-constrained protein monomer design, protein binder design, symmetric oligomer design, enzyme active site scaffolding, and symmetric motif scaffolding for therapeutic and metal-binding protein design.",
       "prior": null,
-      "belief": 0.763361667060366,
+      "belief": 0.7228498693084374,
       "exported": true,
       "metadata": {}
     },
@@ -164,7 +164,7 @@
       "module": "s2_method",
       "content": "RFdiffusion is trained by minimizing a mean-squared error (m.s.e.) loss between frame predictions and the true protein structure (without alignment), averaged across all residues. Unlike the FAPE loss used in RF structure prediction training, m.s.e. loss is not invariant to the global reference frame and therefore promotes continuity of the global coordinate frame between timesteps. The m.s.e. loss is crucial for unconditional generation.",
       "prior": null,
-      "belief": 0.7893401581336389,
+      "belief": 0.7893393309111701,
       "exported": false,
       "metadata": {}
     },
@@ -176,7 +176,7 @@
       "module": "s2_method",
       "content": "To generate a new protein backbone, RFdiffusion first initializes random residue frames, makes a denoised prediction, and updates each residue frame by taking a step in the direction of this prediction with some noise added. The reverse step size and noise are chosen so the denoising process matches the distribution of the noising process. Through many such steps (typically 200), random frames converge on realistic protein backbone structures.",
       "prior": 0.92,
-      "belief": 0.9995249512551814,
+      "belief": 0.9995247638228405,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
@@ -191,7 +191,7 @@
       "module": "s2_method",
       "content": "Self-conditioning — in which the model conditions on its previous prediction between timesteps, inspired by 'recycling' in AlphaFold2 — notably improved performance on in silico benchmarks encompassing both conditional and unconditional protein design tasks. Increased coherence of predictions within self-conditioned trajectories may at least in part explain these performance increases.",
       "prior": 0.88,
-      "belief": 0.9989622806929823,
+      "belief": 0.9989620003108081,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
@@ -206,7 +206,7 @@
       "module": "s2_method",
       "content": "Fine-tuning RFdiffusion from pretrained RoseTTAFold weights was far more successful than training for an equivalent length of time from untrained (randomly initialized) weights, as measured by in silico success rates on unconditional generation benchmarks.",
       "prior": 0.88,
-      "belief": 0.9989622806929823,
+      "belief": 0.9989620003108081,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -236,7 +236,7 @@
       "module": "s2_method",
       "content": "The RFdiffusion design pipeline consists of: (1) RFdiffusion generates a protein backbone structure via iterative denoising, (2) ProteinMPNN designs amino acid sequences for the backbone (typically 8 sequences per design), (3) AF2 predicts the structure from each designed sequence for validation. The pipeline can be conditioned on various inputs including partial sequence, fold information, symmetry specifications, or fixed functional-motif coordinates.",
       "prior": null,
-      "belief": 0.9999999771439388,
+      "belief": 0.9999983739820764,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/14cc1b64b91e3a21683a33d848864cdbe08bf822d5b5e3710c4dfe442319dade.jpg",
@@ -251,7 +251,7 @@
       "module": "s2_method",
       "content": "RFdiffusion generation is more compute efficient than unconstrained Hallucination with RF. A 100-residue protein can be generated in as little as 11 seconds on an NVIDIA RTX A4000 GPU, compared to approximately 8.5 minutes for RF Hallucination. Efficiency can be further improved by taking larger steps at inference time and by truncating trajectories early.",
       "prior": null,
-      "belief": 0.9199999789952797,
+      "belief": 0.9199985056895282,
       "exported": false,
       "metadata": {}
     },
@@ -263,7 +263,7 @@
       "module": "s2_method",
       "content": "Ablation studies confirm that both self-conditioning between timesteps and fine-tuning from pretrained RoseTTAFold weights are each essential for RFdiffusion's performance: removing either notably decreases in silico success rates on unconditional generation benchmarks.",
       "prior": null,
-      "belief": 0.9981989252999709,
+      "belief": 0.9981982146789018,
       "exported": false,
       "metadata": {}
     },
@@ -275,7 +275,7 @@
       "module": "s3_unconditional",
       "content": "Starting from random noise with no conditioning information, RFdiffusion generates elaborate protein structures spanning a wide range of alpha, beta, and mixed alpha-beta topologies, with little overall structural similarity to structures seen during training (as quantified by TM-score to PDB), indicating considerable generalization beyond the PDB. The designs are diverse and the divergence from known structures increases with protein length.",
       "prior": null,
-      "belief": 0.9612282780339513,
+      "belief": 0.9431954555142336,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -290,7 +290,7 @@
       "module": "s3_unconditional",
       "content": "AF2 and ESMFold predictions are very close to the RFdiffusion design structure models for unconditional de novo designs with as many as 600 residues. Unconditional samples are closely repredicted by AF2 up to about 400 amino acids.",
       "prior": 0.92,
-      "belief": 0.9998124202806299,
+      "belief": 0.9852159046637837,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -305,7 +305,7 @@
       "module": "s3_unconditional",
       "content": "Experimental characterization of six 300-amino-acid designs and three 200-amino-acid designs showed circular dichroism (CD) spectra consistent with the mixed alpha-beta topologies of the designs and extreme thermostability.",
       "prior": 0.92,
-      "belief": 0.9999997726844333,
+      "belief": 0.9950406652615604,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -320,7 +320,7 @@
       "module": "s3_unconditional",
       "content": "RFdiffusion significantly outperforms Hallucination with RF at unconditional monomer generation (two-proportion z-test: n = 400 designs per condition, z = 9.5, P = 1.6 × 10⁻²¹). Although Hallucination successfully generates designs up to 100 amino acids in length, in silico success rates rapidly deteriorate beyond this length.",
       "prior": 0.92,
-      "belief": 0.9999092053483735,
+      "belief": 0.995218190538457,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -335,7 +335,7 @@
       "module": "s3_unconditional",
       "content": "RFdiffusion can be further fine-tuned to condition on secondary structure and/or fold information, enabling rapid and accurate generation of diverse designs with desired topologies. In silico success rates were 42.5% for TIM barrels and 54.1% for NTF2 folds. Experimental characterization of 11 TIM barrel designs indicated that at least 8 were soluble, thermostable, and had CD spectra consistent with the design model.",
       "prior": 0.88,
-      "belief": 0.9998411672630652,
+      "belief": 0.9766549904180183,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/a2edf1159fef613aca489410c9267ab0944878967855ac284ddd740f587eb780.jpg",
@@ -350,7 +350,7 @@
       "module": "s3_unconditional",
       "content": "The close agreement between AF2 predictions and RFdiffusion design models could be an artifact of both methods sharing similar biases from PDB training data, rather than reflecting genuine design quality.",
       "prior": 0.2,
-      "belief": 0.23084906163096372,
+      "belief": 0.2304149983213035,
       "exported": false,
       "metadata": {}
     },
@@ -362,7 +362,7 @@
       "module": "s3_unconditional",
       "content": "The observed CD spectra and thermostability could arise from non-specific aggregation or misfolded but stable structures rather than the designed alpha-beta topologies.",
       "prior": 0.2,
-      "belief": 0.23086243001109918,
+      "belief": 0.2399392703486108,
       "exported": false,
       "metadata": {}
     },
@@ -386,7 +386,7 @@
       "module": "s4_oligomers",
       "content": "Despite not being trained on symmetric inputs, RFdiffusion generates symmetric oligomers with high in silico success rates, particularly when guided by an auxiliary inter- and intrachain contact potential. RFdiffusion designs are nearly indistinguishable from AF2 predictions of the structures adopted by the designed sequences, and many show little resemblance to previously solved protein structures.",
       "prior": null,
-      "belief": 0.9999989906747005,
+      "belief": 0.99998312493304,
       "exported": true,
       "metadata": {}
     },
@@ -398,7 +398,7 @@
       "module": "s4_oligomers",
       "content": "Several of the oligomeric topologies generated by RFdiffusion are not seen in the PDB, including two-layer beta barrels (C10 symmetry) and complex mixed alpha/beta topologies (C8 symmetry, closest TM-align to PDB: 0.47 and 0.43).",
       "prior": null,
-      "belief": 0.9199990724300499,
+      "belief": 0.9199844918134636,
       "exported": false,
       "metadata": {}
     },
@@ -410,7 +410,7 @@
       "module": "s4_oligomers",
       "content": "Of 608 designs selected for experimental characterization, at least 87 had oligomerization states closely consistent with the design models by size-exclusion chromatography (SEC) within the 95% confidence interval (126 within the 99% CI).",
       "prior": 0.92,
-      "belief": 0.9998258560404063,
+      "belief": 0.99973610963532,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
@@ -425,7 +425,7 @@
       "module": "s4_oligomers",
       "content": "Negative stain electron microscopy (nsEM) characterization of cyclic oligomers showed distinct particles with shapes resembling design models. A C3 design (HE0822, 350 residues/subunit, 1050 total) showed 2D class averages consistent with top and side views, and a 3D reconstruction with the distinctive pinwheel shape matching the design. C5 and C6 designs with >750 residues also showed consistent 2D class averages.",
       "prior": 0.92,
-      "belief": 0.9998258556058727,
+      "belief": 0.9997324573068429,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
@@ -440,7 +440,7 @@
       "module": "s4_oligomers",
       "content": "RFdiffusion designed cyclic oligomers that extend considerably beyond the natural TIM barrel fold (8 strands, 8 helices): HE0626 is a C6 alpha-beta barrel with 18 strands and 18 helices; HE0675 is a C8 octamer with an inner ring of 16 strands and outer ring of 16 helices. nsEM 3D reconstructions for both agree with design models. Natural evolution has explored structural variations of the classic 8-strand TIM barrel, but RFdiffusion more readily explores global changes in barrel curvature.",
       "prior": null,
-      "belief": 0.8799991128030618,
+      "belief": 0.879985166816142,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
@@ -455,7 +455,7 @@
       "module": "s4_oligomers",
       "content": "RFdiffusion generated structures with dihedral (D2, D3, D4), tetrahedral, and icosahedral symmetries. SEC confirmed 38 D2, 7 D3, and 3 D4 designs had expected molecular weights. nsEM 2D class averages and 3D reconstructions of D3 and D4 designs were congruent with design models. Cryo-EM of D4 design HE0537 closely matched the design model, recapitulating the ~45° offset between tetrameric subunits.",
       "prior": null,
-      "belief": 0.8789673485155557,
+      "belief": 0.8788771859478162,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
@@ -470,7 +470,7 @@
       "module": "s4_oligomers",
       "content": "Of 48 icosahedra selected for experimental validation, one (HE0902, a 15 nm diameter highly porous assembly) formed homogeneous particles observed by nsEM. 2D class averages and 3D reconstruction very closely match the design model, with triangular hubs arrayed around the empty C5 axes. Such large assemblies should be useful as nanomaterials and vaccine scaffolds.",
       "prior": 0.88,
-      "belief": 0.9997269363845365,
+      "belief": 0.999580506636699,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/057ac95503218142d1bd88466d07855947b2fafdb2a21d7bd8bac1057bdd998a.jpg",
@@ -485,7 +485,7 @@
       "module": "s4_oligomers",
       "content": "The SEC elution profiles consistent with expected molecular weights could be coincidental: non-specific aggregation at similar sizes, or incomplete assembly with similar apparent mass.",
       "prior": 0.3,
-      "belief": 0.300000703967094,
+      "belief": 0.30000888553680255,
       "exported": false,
       "metadata": {}
     },
@@ -497,7 +497,7 @@
       "module": "s4_oligomers",
       "content": "The nsEM 2D class averages and 3D reconstructions showing shapes consistent with design models could reflect a different structure that happens to have similar overall dimensions and symmetry.",
       "prior": 0.12,
-      "belief": 0.12000088020212757,
+      "belief": 0.12000814356849887,
       "exported": false,
       "metadata": {}
     },
@@ -509,7 +509,7 @@
       "module": "s4_oligomers",
       "content": "The nsEM particles could represent disordered aggregates that coincidentally show icosahedral-like projections.",
       "prior": 0.08,
-      "belief": 0.08000091552427645,
+      "belief": 0.08000513526613853,
       "exported": false,
       "metadata": {}
     },
@@ -545,7 +545,7 @@
       "module": "s5_motif_scaffolding",
       "content": "RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compared to 15 for Hallucination and 19 for RFjoint Inpainting. For 19 out of 23 solved problems, RFdiffusion's fraction of successful designs is higher than either Hallucination or RFjoint Inpainting. RFdiffusion required no hyperparameter tuning or external potentials, unlike Hallucination which required problem-specific optimization.",
       "prior": null,
-      "belief": 0.9999973760438315,
+      "belief": 0.9994455463554173,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
@@ -560,7 +560,7 @@
       "module": "s5_motif_scaffolding",
       "content": "Hallucination with RF solves 15 of the 25 benchmark motif-scaffolding problems and sometimes requires problem-specific hyperparameter optimization.",
       "prior": 0.88,
-      "belief": 0.9996680155579781,
+      "belief": 0.9994612587242233,
       "exported": false,
       "metadata": {}
     },
@@ -572,7 +572,7 @@
       "module": "s5_motif_scaffolding",
       "content": "RFjoint Inpainting solves 19 of the 25 benchmark motif-scaffolding problems.",
       "prior": 0.88,
-      "belief": 0.9996680155579781,
+      "belief": 0.9994612587242233,
       "exported": false,
       "metadata": {}
     },
@@ -584,7 +584,7 @@
       "module": "s5_motif_scaffolding",
       "content": "In 17 out of 23 solved problems, RFdiffusion generated successful solutions with higher in silico success rates when noise was not added during the reverse diffusion trajectories.",
       "prior": 0.88,
-      "belief": 0.9998633803256892,
+      "belief": 0.9993966202968896,
       "exported": false,
       "metadata": {}
     },
@@ -596,7 +596,7 @@
       "module": "s5_motif_scaffolding",
       "content": "The ability of RFdiffusion to scaffold functional motifs is not related to their presence in the RFdiffusion training set.",
       "prior": 0.88,
-      "belief": 0.9998633797297003,
+      "belief": 0.9993514362188772,
       "exported": false,
       "metadata": {}
     },
@@ -608,7 +608,7 @@
       "module": "s5_motif_scaffolding",
       "content": "RFdiffusion scaffolded the p53 helix that binds MDM2 in the presence of MDM2, so extra interactions could be designed. Out of 96 designs, 55 showed detectable binding at 10 μM. The overall experimental success rate (binding at or above 50% of maximal response) was high.",
       "prior": 0.92,
-      "belief": 0.9998258552098345,
+      "belief": 0.999583216628527,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
@@ -623,7 +623,7 @@
       "module": "s5_motif_scaffolding",
       "content": "The highest affinity p53-MDM2 scaffold binders achieved dissociation constants of 0.5 nM and 0.7 nM by biolayer interferometry (BLI), three orders of magnitude higher affinity than the reported 600 nM affinity of the p53 peptide alone.",
       "prior": null,
-      "belief": 0.8798469267294445,
+      "belief": 0.8796336474164752,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
@@ -638,7 +638,7 @@
       "module": "s5_motif_scaffolding",
       "content": "Following fine-tuning on a task mimicking enzyme active site scaffolding, RFdiffusion was able to scaffold enzyme active sites comprising many sidechain and backbone functional groups with high accuracy and in silico success rates across a range of enzyme classes (EC1-5). In silico success for enzyme scaffolding required this fine-tuning step.",
       "prior": null,
-      "belief": 0.6237325857845906,
+      "belief": 0.6237315886922988,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/b9ba557d59edb1c6fc17c597416041b2cc53f83dc0abd00c7fdf2422273052f2.jpg",
@@ -653,7 +653,7 @@
       "module": "s5_motif_scaffolding",
       "content": "As a demonstration of implicit substrate modeling, RFdiffusion scaffolded a retroaldolase active site triad while implicitly modeling the reaction substrate using an external potential to guide pocket generation around the active site.",
       "prior": 0.8,
-      "belief": 0.8,
+      "belief": 0.7999999999999999,
       "exported": false,
       "metadata": {}
     },
@@ -665,7 +665,7 @@
       "module": "s5_motif_scaffolding",
       "content": "The 55/96 binding success rate for p53-MDM2 scaffolds could be due to non-specific interactions between the expressed proteins and MDM2, rather than specific binding mediated by the scaffolded p53 helix.",
       "prior": 0.18,
-      "belief": 0.1800021386786462,
+      "belief": 0.18029350916645712,
       "exported": false,
       "metadata": {}
     },
@@ -677,7 +677,7 @@
       "module": "s5_motif_scaffolding",
       "content": "RFdiffusion's scaffolding success could be due to memorizing motifs seen during training rather than genuine generalization to new motifs.",
       "prior": 0.15,
-      "belief": 0.15000222830519233,
+      "belief": 0.1502266828222431,
       "exported": false,
       "metadata": {}
     },
@@ -689,7 +689,7 @@
       "module": "s5_motif_scaffolding",
       "content": "Improvement without noise could reflect overfitting to the benchmark set rather than genuine model quality.",
       "prior": 0.2,
-      "belief": 0.20000209771221092,
+      "belief": 0.20024515858706318,
       "exported": false,
       "metadata": {}
     },
@@ -713,7 +713,7 @@
       "module": "s6_symmetric_motif",
       "content": "RFdiffusion designed C3-symmetric trimers that rigidly hold three copies of the ACE2 mimic AHB2 binding domain to match the ACE2 binding sites on the SARS-CoV-2 spike protein trimer. AF2 predictions recapitulated the AHB2 structure with 0.6 Å r.m.s.d. over the asymmetric unit and 2.9 Å r.m.s.d. over the C3 assembly. These rigid symmetric fusions reduce entropic cost of binding while maintaining avidity benefits from multivalency.",
       "prior": null,
-      "belief": 0.8791178127355601,
+      "belief": 0.8786199332902057,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
@@ -728,7 +728,7 @@
       "module": "s6_symmetric_motif",
       "content": "C4 protein assemblies were designed with four central histidine imidazoles arranged in an ideal Ni²⁺-binding site with square-planar coordination geometry. Diverse designs starting from distinct C4-symmetric histidine sites had good in silico success with histidine residues in near-ideal geometries for coordinating metal in the AF2-predicted structures.",
       "prior": null,
-      "belief": 0.9998850095673439,
+      "belief": 0.9992164648821612,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
@@ -743,7 +743,7 @@
       "module": "s6_symmetric_motif",
       "content": "Of 44 Ni²⁺-binding C4 designs expressed and purified in E. coli, 37 had SEC chromatograms consistent with the intended oligomeric state. Of 36 tested by isothermal titration calorimetry (ITC), 18 bound Ni²⁺ with dissociation constants ranging from low nanomolar to low micromolar. Inflection points in wild-type isotherms indicated binding with the designed 1:4 stoichiometry (ion:monomer).",
       "prior": 0.92,
-      "belief": 0.9998258209068326,
+      "belief": 0.9995558746585882,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
@@ -758,7 +758,7 @@
       "module": "s6_symmetric_motif",
       "content": "Mutation of the designed histidine residue (H52) to alanine abolished or notably reduced Ni²⁺ binding in 17 out of 17 cases with successful expression, confirming that metal binding is mediated by the scaffolded histidine residues.",
       "prior": 0.92,
-      "belief": 0.9998257834519817,
+      "belief": 0.9994380216690665,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
@@ -773,7 +773,7 @@
       "module": "s6_symmetric_motif",
       "content": "nsEM characterization of four Ni²⁺-binding designs (NiB1.12, NiB1.15, NiB1.17, NiB1.20) that showed histidine-dependent binding all showed clear fourfold symmetry in raw micrographs and 2D class averages. A 3D reconstruction of NiB1.17 was in close agreement with the design model.",
       "prior": 0.88,
-      "belief": 0.9997268238587999,
+      "belief": 0.9992034080481694,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/2f0036d9fb1bf924ca04b19874c78b2c9f147639a86d9b96af264f915aba96df.jpg",
@@ -788,7 +788,7 @@
       "module": "s6_symmetric_motif",
       "content": "Although most designed Ni²⁺-binding proteins showed exothermic metal coordination, a few cases (NiB2.9, NiB2.10, NiB2.15, NiB2.23) showed endothermic binding, suggesting that Ni²⁺ coordination is entropically driven in these assemblies.",
       "prior": 0.88,
-      "belief": 0.9997268754820405,
+      "belief": 0.9993164462297108,
       "exported": false,
       "metadata": {}
     },
@@ -800,7 +800,7 @@
       "module": "s6_symmetric_motif",
       "content": "The diversity of binding thermodynamics (exothermic and endothermic) could arise from varying degrees of non-specific surface interactions rather than designed coordination at distinct engineered sites.",
       "prior": 0.2,
-      "belief": 0.20009147061281954,
+      "belief": 0.2003464498146609,
       "exported": false,
       "metadata": {}
     },
@@ -812,7 +812,7 @@
       "module": "s6_symmetric_motif",
       "content": "The ITC binding signals could arise from non-specific metal chelation by surface-exposed histidine or other residues rather than the designed square-planar binding site.",
       "prior": 0.22,
-      "belief": 0.22008924984911565,
+      "belief": 0.22042172071866153,
       "exported": false,
       "metadata": {}
     },
@@ -824,7 +824,7 @@
       "module": "s6_symmetric_motif",
       "content": "Ni²⁺ binding could be mediated by other residues, with H52A mutation indirectly disrupting binding through structural perturbation rather than direct loss of the coordinating residue.",
       "prior": 0.12,
-      "belief": 0.12010027968537731,
+      "belief": 0.1203781183161194,
       "exported": false,
       "metadata": {}
     },
@@ -836,7 +836,7 @@
       "module": "s6_symmetric_motif",
       "content": "The fourfold symmetry in nsEM could arise from a different C4-symmetric arrangement that does not involve the designed metal-binding site.",
       "prior": 0.12,
-      "belief": 0.12010023867261437,
+      "belief": 0.12029355676918042,
       "exported": false,
       "metadata": {}
     },
@@ -872,7 +872,7 @@
       "module": "s7_binder_design",
       "content": "The previous Rosetta-based method for de novo binder design from target structure information alone required testing tens of thousands of designs (many thousands screened per campaign) with low experimental success rates, and relied on prespecifying particular protein scaffolds, limiting diversity and shape complementarity. No deep-learning method had previously demonstrated experimental general success in designing completely de novo binders.",
       "prior": 0.88,
-      "belief": 0.9996060515560866,
+      "belief": 0.9989900738206847,
       "exported": false,
       "metadata": {}
     },
@@ -884,7 +884,7 @@
       "module": "s7_binder_design",
       "content": "The overall experimental success rate for RFdiffusion binders (binding at or above 50% of maximal BLI response for positive control at 10 μM) was 19% across five targets, an increase of roughly two orders of magnitude over the previous Rosetta-based method on the same targets. Binders were identified for all five targets with fewer than 100 designs tested per target.",
       "prior": null,
-      "belief": 0.9999798092284121,
+      "belief": 0.9978203965232981,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
@@ -899,7 +899,7 @@
       "module": "s7_binder_design",
       "content": "De novo binders were designed against five targets: Influenza A H1 Haemagglutinin (HA), Interleukin-7 Receptor-α (IL-7Rα), Programmed Death-Ligand 1 (PD-L1), Insulin Receptor (InsR), and Tropomyosin Receptor Kinase A (TrkA). Full BLI titrations showed nanomolar affinities with no further experimental optimization, including HA and IL-7Rα binders with affinities of ~30 nM.",
       "prior": null,
-      "belief": 0.9199814446809108,
+      "belief": 0.917996944404911,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
@@ -914,7 +914,7 @@
       "module": "s7_binder_design",
       "content": "The two-orders-of-magnitude improvement in binder design success rate is attributed approximately one order of magnitude to RFdiffusion itself (better backbone generation) and the second order of magnitude to filtering with AF2 (better design selection).",
       "prior": 0.75,
-      "belief": 0.9991792740751804,
+      "belief": 0.9978959871264266,
       "exported": false,
       "metadata": {}
     },
@@ -926,7 +926,7 @@
       "module": "s7_binder_design",
       "content": "Six of the highest affinity IL-7Rα binders were assessed by competition BLI, and all six competed for binding with a structurally validated positive control binding to the same site, indicating site-specific binding.",
       "prior": 0.88,
-      "belief": 0.9997269254639839,
+      "belief": 0.9987630354174637,
       "exported": false,
       "metadata": {}
     },
@@ -938,7 +938,7 @@
       "module": "s7_binder_design",
       "content": "Binding interfaces designed by RFdiffusion were often highly distinct from interfaces to these targets found in the PDB.",
       "prior": 0.88,
-      "belief": 0.9997269224387405,
+      "belief": 0.9986502270382902,
       "exported": false,
       "metadata": {}
     },
@@ -950,7 +950,7 @@
       "module": "s7_binder_design",
       "content": "The cryo-EM structure of the highest affinity Influenza binder (HA_20, Kd = 28 nM) in complex with Iowa43 HA was solved at 2.9 Å resolution. 3D heterogeneous refinement without symmetry revealed full occupancy of all three HA stem epitopes by HA_20.",
       "prior": 0.95,
-      "belief": 0.9998469790032354,
+      "belief": 0.9545194016857466,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
@@ -965,7 +965,7 @@
       "module": "s7_binder_design",
       "content": "The cryo-EM 3D structure of the HA_20-HA complex almost perfectly matches the computational design model with 0.63 Å backbone r.m.s.d. Over the binder alone, the experimental structure deviates from the RFdiffusion design by only 0.6 Å.",
       "prior": null,
-      "belief": 0.9514721611983076,
+      "belief": 0.9067461517171964,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg",
@@ -980,7 +980,7 @@
       "module": "s7_binder_design",
       "content": "The near-perfect agreement between the cryo-EM structure and the RFdiffusion design model (0.63 Å r.m.s.d.) demonstrates that RFdiffusion can design functional proteins with atomic-level accuracy and precisely target functionally relevant sites on therapeutically important proteins.",
       "prior": null,
-      "belief": 0.8745554907491457,
+      "belief": 0.8317394835746298,
       "exported": true,
       "metadata": {}
     },
@@ -992,7 +992,7 @@
       "module": "s7_binder_design",
       "content": "The high binder success rate could be due to RFdiffusion recapitulating known binding modes from the PDB training set rather than generating genuinely new protein-protein interfaces.",
       "prior": 0.15,
-      "belief": 0.15001703262083227,
+      "belief": 0.15089110906258257,
       "exported": false,
       "metadata": {}
     },
@@ -1004,7 +1004,7 @@
       "module": "s7_binder_design",
       "content": "The binders could achieve high BLI signals through non-specific adhesion to the target surface rather than site-specific binding at the designed interface.",
       "prior": 0.18,
-      "belief": 0.18001645216554457,
+      "belief": 0.18094106185182665,
       "exported": false,
       "metadata": {}
     },
@@ -1016,7 +1016,7 @@
       "module": "s7_binder_design",
       "content": "The cryo-EM density could be fit to a different structural model that does not resemble the RFdiffusion design, indicating the binder adopted an alternative conformation.",
       "prior": 0.05,
-      "belief": 0.09514721611983076,
+      "belief": 0.09067461517171965,
       "exported": false,
       "metadata": {}
     },
@@ -1028,7 +1028,7 @@
       "module": "s8_discussion",
       "content": "RFdiffusion is a comprehensive improvement over current protein design methods: (1) it generates diverse unconditional designs up to 600 residues far exceeding previous methods; (2) it enables higher-order architectures with any desired symmetry, unlike Hallucination methods limited to cyclic symmetries; (3) it outperforms all previous methods on motif scaffolding benchmarks; (4) it raises binder design success rates by two orders of magnitude.",
       "prior": null,
-      "belief": 0.9925514865785338,
+      "belief": 0.986142534117412,
       "exported": true,
       "metadata": {}
     },
@@ -1040,7 +1040,7 @@
       "module": "s8_discussion",
       "content": "Despite substantially increased complexity, the ideality and stability of RFdiffusion designs is akin to that of de novo protein designs generated using previous methods such as Rosetta. Half of tested unconditional designs express in a soluble way and have CD spectra consistent with design models and high thermostability.",
       "prior": null,
-      "belief": 0.9302111601192353,
+      "belief": 0.9044061649178018,
       "exported": false,
       "metadata": {}
     },
@@ -1052,7 +1052,7 @@
       "module": "s8_discussion",
       "content": "In a manner analogous to networks that produce images from user-specified inputs, RFdiffusion enables the design of diverse functional proteins from simple molecular specifications (e.g., high-affinity binders to a user-specified target protein, diverse protein assemblies from user-specified symmetries), with minimal specialist knowledge required.",
       "prior": null,
-      "belief": 0.6109259719812324,
+      "belief": 0.5785570455774416,
       "exported": true,
       "metadata": {}
     },
@@ -1088,7 +1088,7 @@
       "module": "s8_discussion",
       "content": "RFdiffusion's statistical superiority over Hallucination (z=9.5) could be an artifact of the specific benchmark setup or in silico metric rather than genuine method superiority.",
       "prior": 0.15,
-      "belief": 0.1563274800435133,
+      "belief": 0.1571007134094796,
       "exported": false,
       "metadata": {}
     },
@@ -1100,7 +1100,7 @@
       "module": "s8_discussion",
       "content": "Solving 23/25 motif scaffolding problems could reflect an easy benchmark rather than genuine method capability.",
       "prior": 0.2,
-      "belief": 0.20595867515960528,
+      "belief": 0.2104030619125871,
       "exported": false,
       "metadata": {}
     },
@@ -1112,7 +1112,7 @@
       "module": "s8_discussion",
       "content": "The 19% binder success rate could be inflated by the AF2 filtering step rather than reflecting RFdiffusion's backbone generation quality.",
       "prior": 0.25,
-      "belief": 0.2555858994140612,
+      "belief": 0.25827847243525837,
       "exported": false,
       "metadata": {}
     },
@@ -1124,7 +1124,7 @@
       "module": "s8_discussion",
       "content": "The CD spectra and thermostability of unconditional designs could reflect non-specific stable folds rather than the designed topologies.",
       "prior": 0.25,
-      "belief": 0.30234117081134315,
+      "belief": 0.31598068177943217,
       "exported": false,
       "metadata": {}
     },
@@ -1136,7 +1136,7 @@
       "module": "s8_discussion",
       "content": "The TIM barrel experimental success (8/11) could be due to the inherent stability of the TIM barrel fold rather than RFdiffusion design quality.",
       "prior": 0.3,
-      "belief": 0.34882964399564054,
+      "belief": 0.34346510756123455,
       "exported": false,
       "metadata": {}
     }

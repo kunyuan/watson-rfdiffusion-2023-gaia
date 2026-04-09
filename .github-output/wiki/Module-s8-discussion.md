@@ -23,7 +23,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Despite substantially increased complexity, the ideality and stability of RFdiffusion designs is akin to that of de novo protein designs generated using previous methods such as Rosetta. Half of tested unconditional designs express in a soluble way and have CD spectra consistent with design models and high thermostability.
-**Belief:** 0.93
+**Belief:** 0.90
 **Derived from:** abduction
 **Premises:** `github:watson_rfdiffusion_2023::experimental_validation_monomers`, `github:watson_rfdiffusion_2023::alt_ideality_exp_artifact`
 **Derived from:** abduction
@@ -37,7 +37,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** In a manner analogous to networks that produce images from user-specified inputs, RFdiffusion enables the design of diverse functional proteins from simple molecular specifications (e.g., high-affinity binders to a user-specified target protein, diverse protein assemblies from user-specified symmetries), with minimal specialist knowledge required.
-**Belief:** 0.61
+**Belief:** 0.58
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::rfdiffusion_broad_success`
 
@@ -96,7 +96,7 @@
 **Role:** independent
 **Content:** The CD spectra and thermostability of unconditional designs could reflect non-specific stable folds rather than the designed topologies.
 **Prior:** 0.25
-**Belief:** 0.30
+**Belief:** 0.32
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ideality_and_stability`; induction -> `github:watson_rfdiffusion_2023::ideality_and_stability`
 
 ### alt_ideality_fold_artifact
@@ -106,5 +106,5 @@
 **Role:** independent
 **Content:** The TIM barrel experimental success (8/11) could be due to the inherent stability of the TIM barrel fold rather than RFdiffusion design quality.
 **Prior:** 0.30
-**Belief:** 0.35
+**Belief:** 0.34
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ideality_and_stability`; induction -> `github:watson_rfdiffusion_2023::ideality_and_stability`

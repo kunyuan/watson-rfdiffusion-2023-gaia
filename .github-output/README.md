@@ -23,7 +23,7 @@ graph TB
     ddpm_properties_for_protein_design["DDPM properties suited for protein design\n(0.90 → 1.00)"]:::premise
     prior_ddpm_limitations["Limitations of prior protein diffusion methods\n(0.85 → 1.00)"]:::premise
     rf_inpainting_limitations["RFjoint Inpainting limitations\n(0.85 → 1.00)"]:::premise
-    rfdiffusion_broad_success["★ RFdiffusion achieves broad design success\n(0.50 → 0.76)"]:::exported
+    rfdiffusion_broad_success["★ RFdiffusion achieves broad design success\n(0.50 → 0.72)"]:::exported
     denoising_process["Iterative denoising generation process\n(0.92 → 1.00)"]:::premise
     self_conditioning_improvement["Self-conditioning improves RFdiffusion performance\n(0.88 → 1.00)"]:::premise
     pretraining_benefit["Pretraining from RF weights is critical\n(0.88 → 1.00)"]:::premise
@@ -49,13 +49,13 @@ graph TB
     two_orders_attribution["Success rate improvement attributed to RFdiffusion + AF2 filtering\n(0.75 → 1.00)"]:::premise
     binder_specificity["IL-7Rα binders show site-specific binding\n(0.88 → 1.00)"]:::premise
     novel_interfaces["Novel binding interfaces distinct from PDB\n(0.88 → 1.00)"]:::premise
-    ha20_cryoem_structure["Cryo-EM structure of HA_20-HA complex at 2.9 Å\n(0.95 → 1.00)"]:::premise
-    ha20_atomic_accuracy["★ RFdiffusion achieves atomic-level accuracy in binder design\n(0.50 → 0.87)"]:::exported
+    ha20_cryoem_structure["Cryo-EM structure of HA_20-HA complex at 2.9 Å\n(0.95 → 0.95)"]:::premise
+    ha20_atomic_accuracy["★ RFdiffusion achieves atomic-level accuracy in binder design\n(0.50 → 0.83)"]:::exported
     alt_copying_pdb_interfaces["Alternative: recapitulating PDB binding modes\n(0.15 → 0.15)"]:::premise
     alt_nonspecific_adhesion["Alternative: non-specific adhesion\n(0.18 → 0.18)"]:::premise
-    alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation\n(0.05 → 0.10)"]:::premise
+    alt_ha20_alternative_conformation["Alternative: HA_20 adopts alternative conformation\n(0.05 → 0.09)"]:::premise
     comprehensive_improvement["★ RFdiffusion is comprehensive improvement over prior methods\n(0.50 → 0.99)"]:::exported
-    generality_claim["★ RFdiffusion enables protein design from minimal specifications\n(0.50 → 0.61)"]:::exported
+    generality_claim["★ RFdiffusion enables protein design from minimal specifications\n(0.50 → 0.58)"]:::exported
     alt_outperforms_other_explanation["Alternative: benchmark artifact for unconditional generation\n(0.15 → 0.16)"]:::premise
     alt_benchmark_other_explanation["Alternative: easy benchmark set\n(0.20 → 0.21)"]:::premise
     alt_binder_other_explanation["Alternative: success due to AF2 filtering alone\n(0.25 → 0.26)"]:::premise
@@ -136,10 +136,10 @@ graph TB
 |-------|---------|-------|--------|
 | binder_success_rate | The overall experimental success rate for RFdiffusion binders (binding at or ... | 0.50 | 1.00 |
 | comprehensive_improvement | RFdiffusion is a comprehensive improvement over current protein design method... | 0.50 | 0.99 |
-| generality_claim | In a manner analogous to networks that produce images from user-specified inp... | 0.50 | 0.61 |
-| ha20_atomic_accuracy | The near-perfect agreement between the cryo-EM structure and the RFdiffusion ... | 0.50 | 0.87 |
+| generality_claim | In a manner analogous to networks that produce images from user-specified inp... | 0.50 | 0.58 |
+| ha20_atomic_accuracy | The near-perfect agreement between the cryo-EM structure and the RFdiffusion ... | 0.50 | 0.83 |
 | rfdiffusion_benchmark_performance | RFdiffusion solves 23 of the 25 benchmark motif-scaffolding problems, compare... | 0.50 | 1.00 |
-| rfdiffusion_broad_success | RFdiffusion achieves outstanding performance on unconditional and topology-co... | 0.50 | 0.76 |
+| rfdiffusion_broad_success | RFdiffusion achieves outstanding performance on unconditional and topology-co... | 0.50 | 0.72 |
 | symmetric_high_success | Despite not being trained on symmetric inputs, RFdiffusion generates symmetri... | 0.50 | 1.00 |
 
 <!-- content:start -->

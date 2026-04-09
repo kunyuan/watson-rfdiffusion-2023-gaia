@@ -90,7 +90,7 @@
 **Role:** independent
 **Content:** The cryo-EM structure of the highest affinity Influenza binder (HA_20, Kd = 28 nM) in complex with Iowa43 HA was solved at 2.9 Å resolution. 3D heterogeneous refinement without symmetry revealed full occupancy of all three HA stem epitopes by HA_20.
 **Prior:** 0.95
-**Belief:** 1.00
+**Belief:** 0.95
 **figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
 **caption:** Fig. 6 | De novo design of protein-binding proteins. Binder design for 5 targets, BLI titrations, HA_20 cryo-EM structure at 2.9 Å.
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ha20_matches_design`
@@ -101,7 +101,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The cryo-EM 3D structure of the HA_20-HA complex almost perfectly matches the computational design model with 0.63 Å backbone r.m.s.d. Over the binder alone, the experimental structure deviates from the RFdiffusion design by only 0.6 Å.
-**Belief:** 0.95
+**Belief:** 0.91
 **Derived from:** abduction
 **Premises:** `github:watson_rfdiffusion_2023::ha20_cryoem_structure`, `github:watson_rfdiffusion_2023::alt_ha20_alternative_conformation`
 **figure:** artifacts/images/85f56f116ef86862c9d2617c2f79cb30058fd9d1d78fca17d1e510650cb79fed.jpg
@@ -114,7 +114,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The near-perfect agreement between the cryo-EM structure and the RFdiffusion design model (0.63 Å r.m.s.d.) demonstrates that RFdiffusion can design functional proteins with atomic-level accuracy and precisely target functionally relevant sites on therapeutically important proteins.
-**Belief:** 0.87
+**Belief:** 0.83
 **Derived from:** noisy_and
 **Premises:** `github:watson_rfdiffusion_2023::ha20_matches_design`, `github:watson_rfdiffusion_2023::binder_success_rate`
 **Referenced by:** noisy_and -> `github:watson_rfdiffusion_2023::rfdiffusion_broad_success`
@@ -146,5 +146,5 @@
 **Role:** independent
 **Content:** The cryo-EM density could be fit to a different structural model that does not resemble the RFdiffusion design, indicating the binder adopted an alternative conformation.
 **Prior:** 0.05
-**Belief:** 0.10
+**Belief:** 0.09
 **Referenced by:** abduction -> `github:watson_rfdiffusion_2023::ha20_matches_design`

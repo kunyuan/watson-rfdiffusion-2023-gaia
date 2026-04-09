@@ -1,6 +1,6 @@
 [project]
 name = "watson-rfdiffusion-2023-gaia"
-version = "0.1.0"
+version = "0.1.1"
 description = "Gaia knowledge package: Watson et al. 2023 — De novo design of protein structure and function with RFdiffusion (Nature)"
 readme = "README.md"
 authors = [
